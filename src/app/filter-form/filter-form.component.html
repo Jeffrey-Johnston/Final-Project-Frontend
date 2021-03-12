@@ -1,1 +1,27 @@
-<p>filter-form works!</p>
+<form #filterForm="ngForm" (ngSubmit)="emitSubmitEvent(filterForm)">
+  <p>Filter By:</p>
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" ngModel />
+  <select name="bodyPart" id="bodyPart" ngModel>
+    <option value=""></option>
+    <option value="1">Calves</option>
+    <option value="2">Thighs</option>
+    <option value="3">Glutes and Hamstrings</option>
+    <option value="4">Core</option>
+    <option value="5">Back and Biceps</option>
+    <option value="6">Chest, Shoulders, and Triceps</option>
+    <option value="7">Full Body</option>
+    <option value="8">Plyometrics</option>
+  </select>
+  <label for="difficulty">Max Difficulty:</label>
+  <select name="difficulty" id="difficulty" ngModel>
+    <option value=""></option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button>Submit</button>
+  <p (click)="emitClearFilterEvent()">See All Workouts</p>
+</form>

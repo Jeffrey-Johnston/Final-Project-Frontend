@@ -1,6 +1,10 @@
+<app-filter-form
+  (submitEvent)="setFilterTerms($event)"
+  (clearFilterEvent)="resetFilterTerms()"
+></app-filter-form>
 <ul>
-    <app-exercise 
+  <app-exercise
     *ngFor="let exercise of exercises"
     [exerciseRef]="exercise"
-    ></app-exercise>
+  ></app-exercise>
 </ul>

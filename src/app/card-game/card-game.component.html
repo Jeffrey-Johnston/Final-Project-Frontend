@@ -1,1 +1,12 @@
-<p>card-game works!</p>
+<div class="test" (click)="drawCard()">
+  <p>{{ remaining }}</p>
+</div>
+<div class="test">
+  <p *ngIf="checkGameStatus() === 2">Get Started!</p>
+  <img
+    *ngIf="checkGameStatus() === 1"
+    src="{{ currentlyDrawn?.image }}"
+    alt="Card Image"
+  />
+  <p *ngIf="checkGameStatus() === 0">Play Again!</p>
+</div>

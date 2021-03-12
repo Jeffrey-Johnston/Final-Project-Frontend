@@ -5,22 +5,34 @@ import { Exercise } from '../interfaces/exercise';
 @Component({
   selector: 'app-exercises',
   templateUrl: './exercises.component.html',
-  styleUrls: ['./exercises.component.css']
+  styleUrls: ['./exercises.component.css'],
 })
 export class ExercisesComponent implements OnInit {
+  filterTerms: any = {};
+  exercises: Exercise[] = [];
 
-  exercises: Exercise[]= []
-
-  constructor(private exerciseService: ExerciseService) { }
+  constructor(private exerciseService: ExerciseService) {}
 
   ngOnInit(): void {
-    this.getAndSetExercises()
+    this.getAndSetExercises();
   }
 
-  getAndSetExercises = ()=>{
-    this.exerciseService.getExercises().subscribe((response:any)=>{
-      console.log(response)
-      this.exercises = response;
-    })
-  }
+  getAndSetExercises = () => {
+    this.exerciseService
+      .getExercises(this.filterTerms)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.exercises = response;
+      });
+  };
+
+  setFilterTerms = (formObject: any) => {
+    this.filterTerms = formObject;
+    this.getAndSetExercises();
+  };
+
+  resetFilterTerms = () => {
+    this.filterTerms = {};
+    this.getAndSetExercises();
+  };
 }
