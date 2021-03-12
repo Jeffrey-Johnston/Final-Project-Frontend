@@ -1,0 +1,12 @@
+<li>
+  <p>{{ exerciseRef.name }}</p>
+  <p>Targets your: {{ exerciseRef.body_part }}</p>
+  <p>EDIT TO SHOW DIFFICULTY</p>
+  <button (click)="toggleDescription()">Show Description</button>
+  <div class="pop-up" *ngIf="descriptionPopUp">
+    <div class="pop-up-description">
+      <p>{{ exerciseRef.description }}</p>
+      <p (click)="toggleDescription()">X</p>
+    </div>
+  </div>
+</li>
