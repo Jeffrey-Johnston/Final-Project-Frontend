@@ -35,4 +35,10 @@ export class ExercisesComponent implements OnInit {
     this.filterTerms = {};
     this.getAndSetExercises();
   };
+
+  addExercise = (formObject: any) => {
+    this.exerciseService.addExercise(formObject).subscribe((response) => {});
+
+    this.getAndSetExercises();
+  };
 }

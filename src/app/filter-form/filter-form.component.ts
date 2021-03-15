@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FilterFormComponent implements OnInit {
   @Output() submitEvent = new EventEmitter<any>();
+  @Output() addEvent = new EventEmitter<any>();
   @Output() clearFilterEvent = new EventEmitter<any>();
   addOpen: boolean = false;
 
@@ -25,5 +26,10 @@ export class FilterFormComponent implements OnInit {
 
   toggleAddForm = () => {
     this.addOpen = !this.addOpen;
+  };
+
+  emitAddEvent = (formObject: any) => {
+    this.addEvent.emit(formObject);
+    this.toggleAddForm();
   };
 }

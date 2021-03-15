@@ -25,4 +25,8 @@ export class ExerciseService {
       params: params,
     });
   };
+
+  addExercise = (formObject: any) => {
+    return this.http.post(`${this.baseURL}/exercises`, formObject);
+  };
 }

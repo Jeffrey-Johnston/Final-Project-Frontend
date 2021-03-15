@@ -1,0 +1,15 @@
+.pop-up-form {
+  width: 75%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+}
+.error {
+  color: red;
+}
+
+.label {
+  padding: 10px 0px 5px 0px;
+}
