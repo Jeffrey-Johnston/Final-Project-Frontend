@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class FilterFormComponent implements OnInit {
   @Output() submitEvent = new EventEmitter<any>();
   @Output() clearFilterEvent = new EventEmitter<any>();
+  addOpen: boolean = false;
 
   constructor() {}
 
@@ -20,5 +21,9 @@ export class FilterFormComponent implements OnInit {
 
   emitClearFilterEvent = () => {
     this.clearFilterEvent.emit();
+  };
+
+  toggleAddForm = () => {
+    this.addOpen = !this.addOpen;
   };
 }

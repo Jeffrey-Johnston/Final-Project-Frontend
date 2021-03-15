@@ -14,6 +14,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { CardGameComponent } from './card-game/card-game.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddFormComponent } from './add-form/add-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ExerciseComponent,
     CardGameComponent,
     AboutUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddFormComponent
   ],
   imports: [
     BrowserModule,

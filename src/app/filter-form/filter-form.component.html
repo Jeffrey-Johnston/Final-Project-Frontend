@@ -24,4 +24,6 @@
   </select>
   <button>Submit</button>
   <p (click)="emitClearFilterEvent()">See All Workouts</p>
+  <p (click)="toggleAddForm()">Add Workout</p>
+  <app-add-form *ngIf="addOpen" (closeEvent)="toggleAddForm()"></app-add-form>
 </form>
