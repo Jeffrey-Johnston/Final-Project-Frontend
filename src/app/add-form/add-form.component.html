@@ -33,7 +33,7 @@
       required
       ngModel
     ></textarea>
-    <p (click)="emitCloseForm()">X</p>
+    <i class="fas fa-times" (click)="emitCloseForm()"></i>
     <button>Submit</button>
     <p class="error" *ngIf="errorMessage">Must Input All Fields</p>
   </form>

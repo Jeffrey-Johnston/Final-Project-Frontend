@@ -7,6 +7,7 @@ import { Exercise } from './interfaces/exercise';
 })
 export class ExerciseService {
   baseURL: string = `http://localhost:3000`;
+  cardExercises: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +29,20 @@ export class ExerciseService {
 
   addExercise = (formObject: any) => {
     return this.http.post(`${this.baseURL}/exercises`, formObject);
+  };
+
+  addExerciseToGame = (exercise: any) => {
+    this.cardExercises.push(exercise);
+  };
+
+  removeExerciseFromGame = (exercise: any) => {
+    let index = this.cardExercises.findIndex(
+      (item) => item.exercise_id === exercise.exercise_id
+    );
+    this.cardExercises.splice(index, 1);
+  };
+
+  getCardExercises = (): any[] => {
+    return this.cardExercises;
   };
 }

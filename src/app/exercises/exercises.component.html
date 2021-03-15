@@ -1,11 +1,30 @@
-<app-filter-form
-  (submitEvent)="setFilterTerms($event)"
-  (clearFilterEvent)="resetFilterTerms()"
-  (addEvent)="addExercise($event)"
-></app-filter-form>
-<ul>
-  <app-exercise
-    *ngFor="let exercise of exercises"
-    [exerciseRef]="exercise"
-  ></app-exercise>
-</ul>
+<div class="page-container">
+  <app-filter-form
+    (submitEvent)="setFilterTerms($event)"
+    (clearFilterEvent)="resetFilterTerms()"
+    (addEvent)="addExercise($event)"
+  ></app-filter-form>
+  <div class="lists">
+    <div class="game-exercises">
+      <h3>Card Game Exercises</h3>
+      <p>(select up to 13 exercises)</p>
+      <ol class="ordered-list">
+        <li *ngFor="let cardExercise of cardExercises">
+          <div class="list-item">
+            <p>{{ cardExercise.name }}</p>
+            <i (click)="removeFromGame(cardExercise)" class="fas fa-minus"></i>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <ul class="all-exercises">
+      <app-exercise
+        *ngFor="let exercise of exercises"
+        [exerciseRef]="exercise"
+        [cardExercisesRef]="cardExercises"
+        (addToGameEvent)="addToGame($event)"
+        (removeFromGameEvent)="removeFromGame($event)"
+      ></app-exercise>
+    </ul>
+  </div>
+</div>

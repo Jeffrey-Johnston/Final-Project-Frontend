@@ -1,12 +1,37 @@
-<li>
-  <p>{{ exerciseRef.name }}</p>
-  <p>Targets your: {{ exerciseRef.body_part }}</p>
-  <p>EDIT TO SHOW DIFFICULTY</p>
-  <button (click)="toggleDescription()">Show Description</button>
+<div *ngIf="errorMessage" class="error-message-div mobile">
+  <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
+  <p>Cannot exceed 13 workouts for card game.</p>
+</div>
+<li class="list-item">
+  <div class="name-div">
+    <i
+      *ngIf="!checkIfAdded(exerciseRef)"
+      (click)="emitAddToGameEvent(exerciseRef)"
+      class="fas fa-plus"
+    ></i>
+    <i
+      *ngIf="checkIfAdded(exerciseRef)"
+      (click)="emitRemoveFromGameEvent(exerciseRef)"
+      class="fas fa-minus"
+    ></i>
+    <div>
+      <p class="muscle-group">{{ exerciseRef.body_part }}</p>
+      <p class="name">{{ exerciseRef.name }}</p>
+    </div>
+  </div>
+  <div class="exercise-details">
+    <p>DIFFICULTY</p>
+    <button (click)="toggleDescription()">Show Description</button>
+  </div>
   <div class="pop-up" *ngIf="descriptionPopUp">
     <div class="pop-up-description">
+      <p class="name">{{ exerciseRef.name }}</p>
       <p>{{ exerciseRef.description }}</p>
       <p (click)="toggleDescription()">X</p>
     </div>
+  </div>
+  <div *ngIf="errorMessage" class="error-message-div desktop">
+    <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
+    <p>Cannot exceed 13 workouts for card game.</p>
   </div>
 </li>
