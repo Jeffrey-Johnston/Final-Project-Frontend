@@ -24,7 +24,7 @@ export class ExerciseComponent implements OnInit {
   };
 
   emitAddToGameEvent = (exercise: any) => {
-    if (this.cardExercisesRef.length < 13) {
+    if (this.cardExercisesRef.length < 10) {
       this.addToGameEvent.emit(exercise);
     } else {
       this.errorMessage = true;
@@ -36,6 +36,8 @@ export class ExerciseComponent implements OnInit {
   };
 
   checkIfAdded = (exercise: Exercise): boolean => {
+    console.log(exercise);
+    console.log(this.cardExercisesRef);
     return this.cardExercisesRef.find(
       (item) => item.exercise_id === exercise.exercise_id
     );

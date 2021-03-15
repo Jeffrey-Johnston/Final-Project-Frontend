@@ -1,12 +1,24 @@
-<div class="test" (click)="drawCard()">
-  <p>{{ remaining }}</p>
+<div class="remaining-cards">
+  <p>Remaining Cards: {{ remaining }}</p>
 </div>
-<div class="test">
-  <p *ngIf="checkGameStatus() === 2">Get Started!</p>
-  <img
-    *ngIf="checkGameStatus() === 1"
-    src="{{ currentlyDrawn?.image }}"
-    alt="Card Image"
-  />
-  <p *ngIf="checkGameStatus() === 0">Play Again!</p>
+<button (click)="resetGame()">Reset Game</button>
+<div class="card-container">
+  <div class="test" (click)="drawCard()"></div>
+
+  <div class="test">
+    <p *ngIf="checkGameStatus() === 2">Get Started!</p>
+    <img
+      class="image"
+      *ngIf="checkGameStatus() === 1"
+      src="{{ currentlyDrawn?.image }}"
+      alt="Card Image"
+    />
+    <p *ngIf="checkGameStatus() === 0">Play Again!</p>
+  </div>
 </div>
+
+<app-exercise
+  *ngIf="checkGameStatus() === 1"
+  [exerciseRef]="currentExercise"
+  [cardExercisesRef]="exercises"
+></app-exercise>

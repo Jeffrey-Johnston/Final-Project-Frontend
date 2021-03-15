@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardService } from '../card.service';
+import { ExerciseService } from '../exercise.service';
+import { Exercise } from '../interfaces/exercise';
 
 @Component({
   selector: 'app-card-game',
@@ -11,11 +13,17 @@ export class CardGameComponent implements OnInit {
   deckID!: string;
   remaining!: number;
   currentlyDrawn!: any;
+  currentExercise!: Exercise;
+  exercises: Exercise[] = [];
 
-  constructor(private cardService: CardService) {}
+  constructor(
+    private cardService: CardService,
+    private exerciseService: ExerciseService
+  ) {}
 
   ngOnInit(): void {
     this.getAndSetDeck();
+    this.getAndSetExercises();
   }
 
   getAndSetDeck = () => {
@@ -34,9 +42,12 @@ export class CardGameComponent implements OnInit {
 
   drawCard = () => {
     this.cardService.drawCard().subscribe((response: any) => {
+      let index = this.getRandomIndex();
+      this.currentExercise = this.exercises[index];
       this.currentlyDrawn = response.cards[0];
       this.remaining = response.remaining;
       console.log(this.currentlyDrawn);
+      console.log(index);
     });
   };
 
@@ -51,5 +62,18 @@ export class CardGameComponent implements OnInit {
     } else {
       return 0;
     }
+  };
+
+  getAndSetExercises = () => {
+    this.exercises = this.exerciseService.getCardExercises();
+    console.log(this.exercises);
+  };
+
+  getRandomIndex = () => {
+    return Math.floor(Math.random() * this.exercises.length);
+  };
+
+  resetGame = () => {
+    this.getAndSetDeck();
   };
 }

@@ -1,5 +1,12 @@
 .test {
-  height: 250px;
-  width: 250px;
+  width: 150px;
   border: 2px solid black;
+}
+
+.card-container {
+  display: flex;
+}
+
+.image {
+  width: 100%;
 }
