@@ -15,6 +15,11 @@ export class CardGameComponent implements OnInit {
   currentlyDrawn!: any;
   currentExercise!: Exercise;
   exercises: Exercise[] = [];
+  timer: any;
+  hour: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
+  timerRunning: boolean = false;
 
   constructor(
     private cardService: CardService,
@@ -75,5 +80,34 @@ export class CardGameComponent implements OnInit {
 
   resetGame = () => {
     this.getAndSetDeck();
+    this.resetTimer();
+    this.stopTimer();
+  };
+  startTimer = () => {
+    this.timerRunning = true;
+    this.timer = setInterval(() => {
+      this.seconds++;
+      console.log(this.minutes);
+      console.log(this.seconds);
+      if (this.seconds === 60) {
+        this.seconds = 0;
+        this.minutes++;
+      }
+      if (this.minutes === 60) {
+        this.minutes = 0;
+        this.hour++;
+      }
+    }, 1000);
+  };
+
+  stopTimer = () => {
+    this.timerRunning = false;
+    clearInterval(this.timer);
+  };
+
+  resetTimer = () => {
+    this.seconds = 0;
+    this.minutes = 0;
+    this.hour = 0;
   };
 }
