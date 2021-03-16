@@ -28,3 +28,26 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+.fa-plus,
+.fa-minus,
+.fa-times {
+  padding: 5px;
+  transition: 0.3s;
+  width: 25px;
+}
+
+.fa-plus:hover {
+  font-size: 20px;
+  color: rgb(74, 219, 74);
+}
+
+.fa-minus:hover {
+  font-size: 20px;
+  color: red;
+}
+
+.fa-times:hover {
+  font-size: 20px;
+  color: gray;
+}

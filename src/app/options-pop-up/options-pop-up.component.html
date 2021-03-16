@@ -1,6 +1,10 @@
 <div class="pop-up">
   <div class="start-page">
-    <i class="fas fa-times" (click)="emitCloseEvent()"></i>
+    <i
+      class="fas fa-times"
+      (click)="emitCloseEvent()"
+      *ngIf="url === 'exercises'"
+    ></i>
     <div *ngIf="url === 'exercises'">
       <p>
         You have selected {{ cardExercisesRef.length }} exercises to be included

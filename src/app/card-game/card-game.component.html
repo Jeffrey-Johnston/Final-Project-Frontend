@@ -1,6 +1,6 @@
 <div class="page-container game">
   <app-options-pop-up
-    *ngIf="10 > gameExercises.length || gameExercises === undefined"
+    *ngIf="gameExercises.length === 0 || gameExercises === undefined"
     [cardExercisesRef]="gameExercises"
     (generateEvent)="randomlyGenerateExercises()"
   ></app-options-pop-up>
@@ -49,5 +49,7 @@
       [cardExercisesRef]="gameExercises"
       [gameModeRef]="gameMode"
     ></app-exercise>
+
+    <app-game-exercises [cardExercisesRef]="gameExercises"></app-game-exercises>
   </div>
 </div>
