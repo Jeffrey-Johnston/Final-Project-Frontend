@@ -9,6 +9,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 10px;
+  margin-left: 20px;
   padding: 10px 5px 10px 0px;
   display: flex;
   align-items: center;
@@ -42,12 +43,6 @@
   align-items: center;
 }
 
-.fa-plus,
-.fa-minus,
-.fa-times {
-  padding: 5px;
-}
-
 .muscle-group {
   background-color: black;
   color: white;
@@ -71,10 +66,7 @@
     width: 50%;
     justify-content: space-between;
   }
-  .fa-plus,
-  .fa-minus {
-    margin-right: 10px;
-  }
+
   .mobile {
     display: none;
   }

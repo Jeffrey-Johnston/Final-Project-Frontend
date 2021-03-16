@@ -1,0 +1,22 @@
+.ordered-list {
+  padding: 0px;
+  padding-left: 20px;
+}
+
+.game-exercises {
+  width: 100%;
+  height: fit-content;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 255, 0.2);
+  box-sizing: border-box;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 0px;
+}

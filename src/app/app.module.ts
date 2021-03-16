@@ -16,6 +16,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddFormComponent } from './add-form/add-form.component';
 import { OptionsPopUpComponent } from './options-pop-up/options-pop-up.component';
+import { GameExercisesComponent } from './game-exercises/game-exercises.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { OptionsPopUpComponent } from './options-pop-up/options-pop-up.component
     AboutUsComponent,
     PageNotFoundComponent,
     AddFormComponent,
-    OptionsPopUpComponent
+    OptionsPopUpComponent,
+    GameExercisesComponent
   ],
   imports: [
     BrowserModule,

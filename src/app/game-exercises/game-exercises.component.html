@@ -1,0 +1,19 @@
+<div class="game-exercises">
+  <h3>Card Game Exercises</h3>
+  <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
+  <ol class="ordered-list">
+    <li *ngFor="let cardExercise of cardExercisesRef">
+      <div class="list-item">
+        <p>{{ cardExercise.name }}</p>
+        <i
+          (click)="emitRemoveEvent(cardExercise)"
+          class="fas fa-minus"
+          *ngIf="url === 'exercises'"
+        ></i>
+      </div>
+    </li>
+  </ol>
+  <button (click)="emitStartEvent()" *ngIf="url === 'exercises'">
+    Start Game
+  </button>
+</div>

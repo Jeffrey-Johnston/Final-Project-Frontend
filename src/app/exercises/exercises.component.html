@@ -5,19 +5,12 @@
     (addEvent)="addExercise($event)"
   ></app-filter-form>
   <div class="lists">
-    <div class="game-exercises">
-      <h3>Card Game Exercises</h3>
-      <p>(select up to 10 exercises)</p>
-      <ol class="ordered-list">
-        <li *ngFor="let cardExercise of cardExercises">
-          <div class="list-item">
-            <p>{{ cardExercise.name }}</p>
-            <i (click)="removeFromGame(cardExercise)" class="fas fa-minus"></i>
-          </div>
-        </li>
-      </ol>
-      <button (click)="startGame()">Start Game</button>
-    </div>
+    <app-game-exercises
+      (removeEvent)="removeFromGame($event)"
+      (startEvent)="startGame()"
+      [cardExercisesRef]="cardExercises"
+    ></app-game-exercises>
+
     <app-options-pop-up
       *ngIf="startPage"
       [cardExercisesRef]="cardExercises"
