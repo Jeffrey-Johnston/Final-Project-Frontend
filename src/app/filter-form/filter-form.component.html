@@ -1,4 +1,8 @@
-<form #filterForm="ngForm" (ngSubmit)="emitSubmitEvent(filterForm)">
+<form
+  #filterForm="ngForm"
+  (input)="emitSubmitEvent(filterForm)"
+  (ngSubmit)="emitSubmitEvent(filterForm)"
+>
   <p>Filter By:</p>
   <label for="name">Name</label>
   <input type="text" name="name" id="name" ngModel />

@@ -11,20 +11,8 @@ export class ExerciseService {
 
   constructor(private http: HttpClient) {}
 
-  getExercises = (filterTerms: any) => {
-    let params: any = {};
-    if (filterTerms.name) {
-      params.name = filterTerms.name;
-    }
-    if (filterTerms.bodyPart) {
-      params.bodyPart = filterTerms.bodyPart;
-    }
-    if (filterTerms.difficulty) {
-      params.difficulty = filterTerms.difficulty;
-    }
-    return this.http.get(`${this.baseURL}/exercises`, {
-      params: params,
-    });
+  getExercises = () => {
+    return this.http.get(`${this.baseURL}/exercises`);
   };
 
   addExercise = (formObject: any) => {

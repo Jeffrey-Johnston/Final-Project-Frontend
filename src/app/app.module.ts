@@ -15,6 +15,7 @@ import { CardGameComponent } from './card-game/card-game.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddFormComponent } from './add-form/add-form.component';
+import { OptionsPopUpComponent } from './options-pop-up/options-pop-up.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AddFormComponent } from './add-form/add-form.component';
     CardGameComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    AddFormComponent
+    AddFormComponent,
+    OptionsPopUpComponent
   ],
   imports: [
     BrowserModule,

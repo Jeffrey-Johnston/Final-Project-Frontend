@@ -3,6 +3,11 @@
   border: 2px solid black;
 }
 
+.game {
+  display: flex;
+  justify-content: center;
+}
+
 .card-container {
   display: flex;
 }
@@ -10,6 +15,7 @@
 .image {
   width: 100%;
 }
+
 .timer {
   display: flex;
 }

@@ -7,7 +7,7 @@
   <div class="lists">
     <div class="game-exercises">
       <h3>Card Game Exercises</h3>
-      <p>(select up to 13 exercises)</p>
+      <p>(select up to 10 exercises)</p>
       <ol class="ordered-list">
         <li *ngFor="let cardExercise of cardExercises">
           <div class="list-item">
@@ -16,12 +16,20 @@
           </div>
         </li>
       </ol>
+      <button (click)="startGame()">Start Game</button>
     </div>
+    <app-options-pop-up
+      *ngIf="startPage"
+      [cardExercisesRef]="cardExercises"
+      (closeEvent)="toggleStartPage()"
+      (generateEvent)="randomlyGenerateExercises()"
+    ></app-options-pop-up>
     <ul class="all-exercises">
       <app-exercise
         *ngFor="let exercise of exercises"
         [exerciseRef]="exercise"
         [cardExercisesRef]="cardExercises"
+        [gameModeRef]="gameMode"
         (addToGameEvent)="addToGame($event)"
         (removeFromGameEvent)="removeFromGame($event)"
       ></app-exercise>

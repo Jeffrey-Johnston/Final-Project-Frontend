@@ -14,7 +14,9 @@ export class CardGameComponent implements OnInit {
   remaining!: number;
   currentlyDrawn!: any;
   currentExercise!: Exercise;
-  exercises: Exercise[] = [];
+  gameMode: boolean = true;
+  gameExercises: Exercise[] = [];
+  allExercises: Exercise[] = [];
   timer: any;
   hour: number = 0;
   minutes: number = 0;
@@ -28,7 +30,8 @@ export class CardGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAndSetDeck();
-    this.getAndSetExercises();
+    this.getAndSetAllExercises();
+    this.getAndSetGameExercises();
   }
 
   getAndSetDeck = () => {
@@ -48,11 +51,12 @@ export class CardGameComponent implements OnInit {
   drawCard = () => {
     this.cardService.drawCard().subscribe((response: any) => {
       let index = this.getRandomIndex();
-      this.currentExercise = this.exercises[index];
+      this.currentExercise = this.gameExercises[index];
       this.currentlyDrawn = response.cards[0];
       this.remaining = response.remaining;
-      console.log(this.currentlyDrawn);
-      console.log(index);
+      if (this.remaining === 51 && this.seconds === 0) {
+        this.startTimer();
+      }
     });
   };
 
@@ -69,13 +73,20 @@ export class CardGameComponent implements OnInit {
     }
   };
 
-  getAndSetExercises = () => {
-    this.exercises = this.exerciseService.getCardExercises();
-    console.log(this.exercises);
+  getAndSetAllExercises = () => {
+    this.exerciseService.getExercises().subscribe((response: any) => {
+      this.allExercises = response;
+      console.log(this.allExercises);
+    });
+  };
+
+  getAndSetGameExercises = () => {
+    this.gameExercises = this.exerciseService.getCardExercises();
+    console.log(this.gameExercises);
   };
 
   getRandomIndex = () => {
-    return Math.floor(Math.random() * this.exercises.length);
+    return Math.floor(Math.random() * this.gameExercises.length);
   };
 
   resetGame = () => {
@@ -83,12 +94,11 @@ export class CardGameComponent implements OnInit {
     this.resetTimer();
     this.stopTimer();
   };
+
   startTimer = () => {
     this.timerRunning = true;
     this.timer = setInterval(() => {
       this.seconds++;
-      console.log(this.minutes);
-      console.log(this.seconds);
       if (this.seconds === 60) {
         this.seconds = 0;
         this.minutes++;
@@ -109,5 +119,31 @@ export class CardGameComponent implements OnInit {
     this.seconds = 0;
     this.minutes = 0;
     this.hour = 0;
+  };
+
+  addToGame = (exercise: any): boolean => {
+    if (
+      !this.gameExercises.find(
+        (item) => item.exercise_id === exercise.exercise_id
+      )
+    ) {
+      this.exerciseService.addExerciseToGame(exercise);
+      this.gameExercises = this.exerciseService.getCardExercises();
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  randomlyGenerateExercises = () => {
+    let amountNeeded = 10 - this.gameExercises.length;
+    for (let i = 0; i < amountNeeded; i++) {
+      let added: boolean = false;
+      while (!added) {
+        let index = Math.floor(Math.random() * this.allExercises.length);
+        added = this.addToGame(this.allExercises[index]);
+      }
+    }
+    console.log(this.gameExercises);
   };
 }
