@@ -1,24 +1,45 @@
 <div class="remaining-cards">
   <p>Remaining Cards: {{ remaining }}</p>
-</div>
-<button (click)="resetGame()">Reset Game</button>
-<div class="card-container">
-  <div class="test" (click)="drawCard()"></div>
-
-  <div class="test">
-    <p *ngIf="checkGameStatus() === 2">Get Started!</p>
-    <img
-      class="image"
-      *ngIf="checkGameStatus() === 1"
-      src="{{ currentlyDrawn?.image }}"
-      alt="Card Image"
-    />
-    <p *ngIf="checkGameStatus() === 0">Play Again!</p>
+  <button *ngIf="!timerRunning && seconds === 0" (click)="startTimer()">
+    START
+  </button>
+  <button *ngIf="!timerRunning && seconds !== 0" (click)="startTimer()">
+    CONTINUE
+  </button>
+  <button *ngIf="timerRunning" (click)="stopTimer()">STOP</button>
+  <div class="timer">
+    <div class="timer">
+      <p *ngIf="10 > hour">0</p>
+      <p>{{ hour }} :</p>
+    </div>
+    <div class="timer">
+      <p *ngIf="10 > minutes">&nbsp;0</p>
+      <p>{{ minutes }} :</p>
+    </div>
+    <div class="timer">
+      <p *ngIf="10 > seconds">&nbsp;0</p>
+      <p>{{ seconds }}</p>
+    </div>
   </div>
-</div>
+  <button (click)="resetGame()">Reset Game</button>
+  <div class="card-container">
+    <div class="test" (click)="drawCard()"></div>
 
-<app-exercise
-  *ngIf="checkGameStatus() === 1"
-  [exerciseRef]="currentExercise"
-  [cardExercisesRef]="exercises"
-></app-exercise>
+    <div class="test">
+      <p *ngIf="checkGameStatus() === 2">Get Started!</p>
+      <img
+        class="image"
+        *ngIf="checkGameStatus() === 1"
+        src="{{ currentlyDrawn?.image }}"
+        alt="Card Image"
+      />
+      <p *ngIf="checkGameStatus() === 0">Play Again!</p>
+    </div>
+  </div>
+
+  <app-exercise
+    *ngIf="checkGameStatus() === 1"
+    [exerciseRef]="currentExercise"
+    [cardExercisesRef]="exercises"
+  ></app-exercise>
+</div>
