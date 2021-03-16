@@ -1,0 +1,45 @@
+<div class="pop-up">
+  <div class="start-page">
+    <i class="fas fa-times" (click)="emitCloseEvent()"></i>
+    <div *ngIf="url === 'exercises'">
+      <p>
+        You have selected {{ cardExercisesRef.length }} exercises to be included
+        in your card game workout
+      </p>
+      <p>To play the game, would you like to:</p>
+      <div class="options">
+        <div *ngIf="cardExercisesRef.length !== 0">
+          <p>Continue with only {{ cardExercisesRef.length }} exercises</p>
+          <button routerLink="/card-game">Option 1</button>
+        </div>
+        <div>
+          <p>
+            Have other {{ 10 - cardExercisesRef.length }} of workouts chosen
+            randomly for me
+          </p>
+          <button (click)="emitGenerateEvent()">Option 2</button>
+        </div>
+        <div>
+          <p>Go back to exercises page to choose more exercise</p>
+          <button (click)="emitCloseEvent()">Option 3</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="url === 'card-game'">
+      <p>
+        You have no selected exercises to be included in your card game workout
+      </p>
+      <p>To play the game, would you like to:</p>
+      <div class="options">
+        <div>
+          <p>Have all of your exercises chosen for you</p>
+          <button (click)="emitGenerateEvent()">Option 1</button>
+        </div>
+        <div>
+          <p>Go back to exercises page to choose more exercises</p>
+          <button routerLink="/exercises">Option 2</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

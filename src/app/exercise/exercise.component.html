@@ -1,16 +1,16 @@
 <div *ngIf="errorMessage" class="error-message-div mobile">
   <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
-  <p>Cannot exceed 13 workouts for card game.</p>
+  <p>Cannot exceed 10 workouts for card game.</p>
 </div>
 <li class="list-item">
   <div class="name-div">
     <i
-      *ngIf="!checkIfAdded(exerciseRef)"
+      *ngIf="!checkIfAdded(exerciseRef) && !gameModeRef"
       (click)="emitAddToGameEvent(exerciseRef)"
       class="fas fa-plus"
     ></i>
     <i
-      *ngIf="checkIfAdded(exerciseRef)"
+      *ngIf="checkIfAdded(exerciseRef) && !gameModeRef"
       (click)="emitRemoveFromGameEvent(exerciseRef)"
       class="fas fa-minus"
     ></i>
@@ -32,6 +32,6 @@
   </div>
   <div *ngIf="errorMessage" class="error-message-div desktop">
     <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
-    <p>Cannot exceed 13 workouts for card game.</p>
+    <p>Cannot exceed 10 workouts for card game.</p>
   </div>
 </li>

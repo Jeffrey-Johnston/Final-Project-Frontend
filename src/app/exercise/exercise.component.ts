@@ -10,6 +10,7 @@ export class ExerciseComponent implements OnInit {
   errorMessage: boolean = false;
   @Input() exerciseRef!: Exercise;
   @Input() cardExercisesRef!: any[];
+  @Input() gameModeRef!: boolean;
   @Output() addToGameEvent = new EventEmitter<any>();
   @Output() removeFromGameEvent = new EventEmitter<any>();
 
@@ -36,8 +37,6 @@ export class ExerciseComponent implements OnInit {
   };
 
   checkIfAdded = (exercise: Exercise): boolean => {
-    console.log(exercise);
-    console.log(this.cardExercisesRef);
     return this.cardExercisesRef.find(
       (item) => item.exercise_id === exercise.exercise_id
     );
