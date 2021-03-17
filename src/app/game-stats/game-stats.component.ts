@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Exercise } from '../interfaces/exercise';
 
 @Component({
   selector: 'app-game-stats',
@@ -6,7 +7,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./game-stats.component.css'],
 })
 export class GameStatsComponent implements OnInit {
-  @Input() statsRef!: string;
+  statsPage: boolean = true;
+
+  @Input() exerciseStatsRef!: string;
+  @Input() timeStatsRef!: string;
+  @Input() cardExercisesRef!: Exercise[];
   @Output() closeEvent = new EventEmitter<void>();
   constructor() {}
 

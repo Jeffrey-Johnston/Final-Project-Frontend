@@ -9,8 +9,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 10px;
-  margin-left: 20px;
-  padding: 10px 5px 10px 0px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +20,11 @@
 
 .error-message-div {
   color: red;
+}
+
+.fa-times {
+  position: relative;
+  top: 0;
 }
 
 .mobile {
@@ -44,12 +48,17 @@
 }
 
 .muscle-group {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
   color: white;
   border-radius: 15px;
   padding: 2px 6px;
   font-size: 12px;
   width: fit-content;
+}
+
+.description {
+  font-size: 11px;
 }
 
 .name {
@@ -60,6 +69,7 @@
 @media only screen and (min-width: 768px) {
   .list-item {
     padding: 10px 15px 10px 10px;
+    margin-left: 20px;
   }
   .exercise-details {
     display: flex;
@@ -73,6 +83,9 @@
   .desktop {
     display: initial;
     right: 101%;
+    position: absolute;
+  }
+  .fa-times {
     position: absolute;
   }
 }

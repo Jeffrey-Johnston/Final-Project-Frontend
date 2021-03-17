@@ -4,6 +4,7 @@ h1,
 p,
 ul,
 h3,
+h4,
 li {
   padding: 0;
   margin: 0;
@@ -34,7 +35,12 @@ li {
 .fa-times {
   padding: 5px;
   transition: 0.3s;
-  width: 25px;
+}
+
+.fa-times {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 .fa-plus:hover {
@@ -50,4 +56,19 @@ li {
 .fa-times:hover {
   font-size: 20px;
   color: gray;
+}
+
+.button {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .fa-plus,
+  .fa-minus,
+  .fa-times {
+    width: 25px;
+  }
 }

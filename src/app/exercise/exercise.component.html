@@ -21,7 +21,9 @@
   </div>
   <div class="exercise-details">
     <p>DIFFICULTY</p>
-    <button (click)="toggleDescription()">Show Description</button>
+    <button class="button description" (click)="toggleDescription()">
+      Show Description
+    </button>
   </div>
   <div class="pop-up" *ngIf="descriptionPopUp">
     <div class="pop-up-description">

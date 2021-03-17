@@ -9,9 +9,11 @@ import { Exercise } from '../interfaces/exercise';
   styleUrls: ['./game-exercises.component.css'],
 })
 export class GameExercisesComponent implements OnInit {
+  showCollapsible: boolean = false;
+  @Input() cardExercisesRef!: Exercise[];
+  @Input() statsPageRef: boolean = false;
   @Output() removeEvent = new EventEmitter<any>();
   @Output() startEvent = new EventEmitter<void>();
-  @Input() cardExercisesRef!: Exercise[];
   url: string = '';
   constructor(private route: ActivatedRoute) {}
 
@@ -28,5 +30,9 @@ export class GameExercisesComponent implements OnInit {
 
   emitStartEvent = () => {
     this.startEvent.emit();
+  };
+
+  toggleShowCollapsible = () => {
+    this.showCollapsible = !this.showCollapsible;
   };
 }

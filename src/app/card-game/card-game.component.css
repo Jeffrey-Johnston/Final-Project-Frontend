@@ -6,16 +6,54 @@
 .game {
   display: flex;
   justify-content: center;
+  padding-top: 0;
+}
+
+.game-options {
+  width: 100%;
+}
+
+.all-buttons {
+  margin: 0px 20px;
+}
+
+.start-finish {
+  width: 100%;
+}
+
+.continue {
+  margin-right: 1px;
+}
+
+.reset {
+  margin-left: 1px;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+}
+
+.button {
+  display: flex;
+  flex: 1;
+  border-radius: 1px;
+  justify-content: center;
 }
 
 .card-container {
   display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .image {
-  width: 100%;
+  width: 40%;
 }
 
 .timer {
   display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  font-size: 24px;
 }

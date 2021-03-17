@@ -4,7 +4,7 @@
   (input)="emitSubmitEvent(filterForm)"
   (ngSubmit)="emitSubmitEvent(filterForm)"
 >
-  <p>Filter Exercises</p>
+  <p class="form-title">Filter Exercises</p>
   <input
     class="input text"
     type="text"
@@ -35,7 +35,7 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <button>Submit</button>
+  <button class="button">Submit</button>
   <div class="workout-display">
     <p (click)="emitClearFilterEvent()">See All Workouts</p>
     <p (click)="toggleAddForm()">Add Workout</p>

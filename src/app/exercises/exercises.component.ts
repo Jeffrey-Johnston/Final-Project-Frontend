@@ -22,6 +22,7 @@ export class ExercisesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAndSetExercises();
+    this.getAndSetGameExercises();
   }
 
   getAndSetExercises = () => {

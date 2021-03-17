@@ -4,16 +4,39 @@
     [cardExercisesRef]="gameExercises"
     (generateEvent)="randomlyGenerateExercises()"
   ></app-options-pop-up>
-  <div class="remaining-cards">
-    <p>Remaining Cards: {{ remaining }}</p>
-    <button *ngIf="!timerRunning && seconds === 0" (click)="startTimer()">
-      START
-    </button>
-    <button *ngIf="!timerRunning && seconds !== 0" (click)="startTimer()">
-      CONTINUE
-    </button>
-    <button *ngIf="timerRunning" (click)="stopTimer()">STOP</button>
-    <button (click)="endGame()">FINISH WORKOUT</button>
+  <div class="game-options">
+    <div class="all-buttons">
+      <button
+        *ngIf="checkGameStatus() === 2 && !gameStarted"
+        class="start-finish button"
+        (click)="startTimer()"
+      >
+        START WORKOUT
+      </button>
+      <button
+        *ngIf="gameStarted"
+        class="start-finish button"
+        (click)="endGame()"
+      >
+        FINISH WORKOUT
+      </button>
+
+      <div class="button-container">
+        <button *ngIf="timerRunning" class="button" (click)="stopTimer()">
+          PAUSE
+        </button>
+        <button
+          *ngIf="!timerRunning && seconds !== 0"
+          class="button continue"
+          (click)="startTimer()"
+        >
+          CONTINUE
+        </button>
+        <button *ngIf="gameStarted" class="button reset" (click)="resetGame()">
+          RESET
+        </button>
+      </div>
+    </div>
     <div class="timer">
       <div class="timer">
         <p *ngIf="10 > hour">0</p>
@@ -28,20 +51,21 @@
         <p>{{ seconds }}</p>
       </div>
     </div>
-    <button (click)="resetGame()">Reset Game</button>
-    <div class="card-container">
-      <div class="test" (click)="drawCard()"></div>
 
-      <div class="test">
-        <p *ngIf="checkGameStatus() === 2">Get Started!</p>
-        <img
-          class="image"
-          *ngIf="checkGameStatus() === 1"
-          src="{{ currentlyDrawn?.image }}"
-          alt="Card Image"
-        />
-        <p *ngIf="checkGameStatus() === 0">Play Again!</p>
-      </div>
+    <div class="card-container">
+      <img
+        src="https://deckofcardsapi.com/static/img/AS.png"
+        alt="test"
+        class="image"
+        (click)="drawCard()"
+      />
+
+      <img
+        class="image"
+        *ngIf="checkGameStatus() === 1"
+        src="{{ currentlyDrawn?.image }}"
+        alt="Card Image"
+      />
     </div>
 
     <app-exercise
@@ -54,7 +78,9 @@
     <app-game-exercises [cardExercisesRef]="gameExercises"></app-game-exercises>
     <app-game-stats
       *ngIf="gameOver"
-      [statsRef]="stats"
+      [exerciseStatsRef]="exerciseStats"
+      [timeStatsRef]="timeStats"
+      [cardExercisesRef]="gameExercises"
       (closeEvent)="toggleGameOver()"
     ></app-game-stats>
   </div>
