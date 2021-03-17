@@ -13,6 +13,7 @@
       CONTINUE
     </button>
     <button *ngIf="timerRunning" (click)="stopTimer()">STOP</button>
+    <button (click)="endGame()">FINISH WORKOUT</button>
     <div class="timer">
       <div class="timer">
         <p *ngIf="10 > hour">0</p>
@@ -51,5 +52,10 @@
     ></app-exercise>
 
     <app-game-exercises [cardExercisesRef]="gameExercises"></app-game-exercises>
+    <app-game-stats
+      *ngIf="gameOver"
+      [statsRef]="stats"
+      (closeEvent)="toggleGameOver()"
+    ></app-game-stats>
   </div>
 </div>

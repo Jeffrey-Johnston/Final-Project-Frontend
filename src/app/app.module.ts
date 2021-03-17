@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AddFormComponent } from './add-form/add-form.component';
 import { OptionsPopUpComponent } from './options-pop-up/options-pop-up.component';
 import { GameExercisesComponent } from './game-exercises/game-exercises.component';
+import { GameStatsComponent } from './game-stats/game-stats.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { GameExercisesComponent } from './game-exercises/game-exercises.componen
     PageNotFoundComponent,
     AddFormComponent,
     OptionsPopUpComponent,
-    GameExercisesComponent
+    GameExercisesComponent,
+    GameStatsComponent
   ],
   imports: [
     BrowserModule,

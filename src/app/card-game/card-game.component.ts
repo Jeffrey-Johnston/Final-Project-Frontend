@@ -15,6 +15,7 @@ export class CardGameComponent implements OnInit {
   currentlyDrawn!: any;
   currentExercise!: Exercise;
   gameMode: boolean = true;
+  gameOver: boolean = false;
   gameExercises: Exercise[] = [];
   allExercises: Exercise[] = [];
   timer: any;
@@ -22,6 +23,8 @@ export class CardGameComponent implements OnInit {
   minutes: number = 0;
   seconds: number = 0;
   timerRunning: boolean = false;
+
+  stats: string = ``;
 
   constructor(
     private cardService: CardService,
@@ -97,6 +100,7 @@ export class CardGameComponent implements OnInit {
 
   startTimer = () => {
     this.timerRunning = true;
+    this.stats = ``;
     this.timer = setInterval(() => {
       this.seconds++;
       if (this.seconds === 60) {
@@ -145,5 +149,37 @@ export class CardGameComponent implements OnInit {
       }
     }
     console.log(this.gameExercises);
+  };
+  endGame = () => {
+    this.stopTimer();
+    this.toggleGameOver();
+    this.stats += `You Completed ${52 - this.remaining} out of 52 exercises!`;
+    this.stats += ` It took you `;
+    if (this.hour > 0) {
+      this.stats += `${this.hour} hour`;
+      if (this.hour > 1) {
+        this.stats += `s`;
+      }
+      this.stats += `, `;
+    }
+    if (this.minutes > 0) {
+      this.stats += `${this.minutes} minute`;
+      if (this.minutes > 1) {
+        this.stats += `s`;
+      }
+      this.stats += `, `;
+    }
+
+    this.stats += `${this.seconds} second`;
+    if (this.seconds > 1 || this.seconds === 0) {
+      this.stats += `s`;
+    }
+    this.stats += `.`;
+
+    this.resetGame();
+  };
+
+  toggleGameOver = () => {
+    this.gameOver = !this.gameOver;
   };
 }
