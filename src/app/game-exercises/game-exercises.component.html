@@ -1,7 +1,32 @@
-<div class="game-exercises">
-  <h3>Card Game Exercises</h3>
+<div
+  *ngIf="!statsPageRef"
+  class="panel-title"
+  [ngClass]="{ 'title-margin': !showCollapsible }"
+  (click)="toggleShowCollapsible()"
+>
+  <p class="title">See All Card Game Exercises</p>
+  <i
+    *ngIf="!showCollapsible"
+    class="fas fa-caret-down"
+    data-toggle="collapse"
+    href="#collapse1"
+  ></i>
+  <i
+    *ngIf="showCollapsible"
+    class="fas fa-caret-up"
+    data-toggle="collapse"
+    href="#collapse1"
+  ></i>
+</div>
+
+<div *ngIf="showCollapsible || statsPageRef" class="game-exercises">
+  <p *ngIf="statsPageRef" class="title">Exercises:</p>
   <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
-  <ol class="ordered-list">
+  <p *ngIf="cardExercisesRef.length === 0" class="no-exercises">
+    You currently have no exercises added for your card game workout. Hit the
+    plus sign on an exercise to add it!
+  </p>
+  <ol *ngIf="cardExercisesRef.length !== 0" class="ordered-list">
     <li *ngFor="let cardExercise of cardExercisesRef">
       <div class="list-item">
         <p>{{ cardExercise.name }}</p>
@@ -13,7 +38,11 @@
       </div>
     </li>
   </ol>
-  <button (click)="emitStartEvent()" *ngIf="url === 'exercises'">
+  <button
+    (click)="emitStartEvent()"
+    *ngIf="url === 'exercises'"
+    class="button start"
+  >
     Start Game
   </button>
 </div>

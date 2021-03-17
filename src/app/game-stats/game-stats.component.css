@@ -1,6 +1,8 @@
 .stats-page {
+  position: relative;
   width: 75%;
   border-radius: 15px;
   background-color: white;
   padding: 20px;
+  padding-bottom: 0px;
 }

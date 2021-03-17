@@ -12,19 +12,20 @@ export class CardGameComponent implements OnInit {
   deck!: any;
   deckID!: string;
   remaining!: number;
+  timer: any;
+  hour: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
   currentlyDrawn!: any;
   currentExercise!: Exercise;
   gameMode: boolean = true;
   gameOver: boolean = false;
   gameExercises: Exercise[] = [];
   allExercises: Exercise[] = [];
-  timer: any;
-  hour: number = 0;
-  minutes: number = 0;
-  seconds: number = 0;
   timerRunning: boolean = false;
-
-  stats: string = ``;
+  gameStarted: boolean = false;
+  exerciseStats: string = ``;
+  timeStats: string = ``;
 
   constructor(
     private cardService: CardService,
@@ -100,7 +101,9 @@ export class CardGameComponent implements OnInit {
 
   startTimer = () => {
     this.timerRunning = true;
-    this.stats = ``;
+    this.gameStarted = true;
+    this.exerciseStats = ``;
+    this.timeStats = ``;
     this.timer = setInterval(() => {
       this.seconds++;
       if (this.seconds === 60) {
@@ -123,6 +126,7 @@ export class CardGameComponent implements OnInit {
     this.seconds = 0;
     this.minutes = 0;
     this.hour = 0;
+    this.gameStarted = false;
   };
 
   addToGame = (exercise: any): boolean => {
@@ -150,31 +154,35 @@ export class CardGameComponent implements OnInit {
     }
     console.log(this.gameExercises);
   };
+
   endGame = () => {
     this.stopTimer();
+    this.gameStarted = false;
     this.toggleGameOver();
-    this.stats += `You Completed ${52 - this.remaining} out of 52 exercises!`;
-    this.stats += ` It took you `;
+    this.exerciseStats += `You completed ${
+      52 - this.remaining
+    } out of 52 exercises!`;
+    this.timeStats += ` It took you `;
     if (this.hour > 0) {
-      this.stats += `${this.hour} hour`;
+      this.timeStats += `${this.hour} hour`;
       if (this.hour > 1) {
-        this.stats += `s`;
+        this.timeStats += `s`;
       }
-      this.stats += `, `;
+      this.timeStats += `, `;
     }
     if (this.minutes > 0) {
-      this.stats += `${this.minutes} minute`;
+      this.timeStats += `${this.minutes} minute`;
       if (this.minutes > 1) {
-        this.stats += `s`;
+        this.timeStats += `s`;
       }
-      this.stats += `, `;
+      this.timeStats += `, `;
     }
 
-    this.stats += `${this.seconds} second`;
+    this.timeStats += `${this.seconds} second`;
     if (this.seconds > 1 || this.seconds === 0) {
-      this.stats += `s`;
+      this.timeStats += `s`;
     }
-    this.stats += `.`;
+    this.timeStats += `.`;
 
     this.resetGame();
   };

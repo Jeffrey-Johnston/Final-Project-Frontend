@@ -1,6 +1,12 @@
 <div class="pop-up">
   <div class="stats-page">
     <i class="fas fa-times" (click)="emitCloseEvent()"></i>
-    <p>{{ statsRef }}</p>
+    <p>WORKOUT FINISHED!</p>
+    <p>{{ exerciseStatsRef }}</p>
+    <p>{{ timeStatsRef }}</p>
+    <app-game-exercises
+      [statsPageRef]="statsPage"
+      [cardExercisesRef]="cardExercisesRef"
+    ></app-game-exercises>
   </div>
 </div>

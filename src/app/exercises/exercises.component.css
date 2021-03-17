@@ -9,9 +9,6 @@
   .lists {
     display: flex;
   }
-  .game-exercises {
-    flex: 1;
-  }
   .all-exercises {
     flex: 3;
     padding: 0px 20px;

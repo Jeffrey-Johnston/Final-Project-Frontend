@@ -1,22 +1,61 @@
+.panel-title {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 255, 0.2);
+  padding: 10px;
+}
+
+.title {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.title-margin {
+  margin-bottom: 20px;
+}
+
 .ordered-list {
   padding: 0px;
   padding-left: 20px;
+  width: 100%;
+  margin: 0;
 }
 
 .game-exercises {
   width: 100%;
+  margin: auto;
   height: fit-content;
   padding: 10px 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 255, 0.2);
   box-sizing: border-box;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.no-exercises {
+  text-align: center;
+  margin: 5px 0px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 0px;
+}
+
+.start {
+  width: 40%;
+}
+
+@media only screen and (min-width: 768px) {
+  .game-exercises {
+    flex: 1;
+  }
+  .list-item {
+    padding: 3px 0px;
+  }
 }
