@@ -1,12 +1,15 @@
 <div class="pop-up">
-  <div class="stats-page">
+  <div class="button-position">
     <i class="fas fa-times" (click)="emitCloseEvent()"></i>
-    <p>WORKOUT FINISHED!</p>
-    <p>{{ exerciseStatsRef }}</p>
-    <p>{{ timeStatsRef }}</p>
-    <app-game-exercises
-      [statsPageRef]="statsPage"
-      [cardExercisesRef]="cardExercisesRef"
-    ></app-game-exercises>
+    <div class="stats-page" id="content">
+      <p class="stats-para">WORKOUT FINISHED!</p>
+      <p class="stats-para">{{ exerciseStatsRef }}</p>
+      <p class="stats-para">{{ timeStatsRef }}</p>
+      <app-game-exercises
+        [statsPageRef]="statsPage"
+        [cardExercisesRef]="cardExercisesRef"
+      ></app-game-exercises>
+    </div>
+    <button class="button" (click)="convertToPdf()">Download as PDF</button>
   </div>
 </div>

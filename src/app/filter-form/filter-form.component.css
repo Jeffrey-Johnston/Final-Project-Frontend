@@ -8,6 +8,7 @@
 
 .form-title {
   font-size: 20px;
+  text-align: center;
 }
 
 .workout-display {
@@ -29,6 +30,27 @@
 
 @media only screen and (min-width: 768px) {
   .search-form {
+    width: 100%;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-title {
+    text-align: left;
+  }
+
+  .workout-display {
+    margin: 5px 0px;
+  }
+
+  .all-workouts {
+    margin-right: 5px;
+  }
+
+  .border {
+    border-bottom: 1px solid black;
+    padding: 5px 0px;
+    margin: 0 5px;
   }
 }

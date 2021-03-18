@@ -19,7 +19,11 @@
   ></i>
 </div>
 
-<div *ngIf="showCollapsible || statsPageRef" class="game-exercises">
+<div
+  *ngIf="showCollapsible || statsPageRef"
+  class="game-exercises"
+  [ngClass]="{ 'stats-page-exercises': statsPageRef }"
+>
   <p *ngIf="statsPageRef" class="title">Exercises:</p>
   <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
   <p *ngIf="cardExercisesRef.length === 0" class="no-exercises">
