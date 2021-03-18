@@ -6,42 +6,46 @@
       *ngIf="url === 'exercises'"
     ></i>
     <div *ngIf="url === 'exercises'">
-      <p>
+      <p class="pop-up-title">
         You have selected {{ cardExercisesRef.length }} exercises to be included
         in your card game workout
       </p>
-      <p>To play the game, would you like to:</p>
+      <p class="pop-up-title">To play the game, would you like to:</p>
       <div class="options">
         <div class="option" *ngIf="cardExercisesRef.length !== 0">
           <p>Continue with only {{ cardExercisesRef.length }} exercises</p>
-          <button class="button" routerLink="/card-game">Option 1</button>
+          <button class="button" routerLink="/card-game">Play Now</button>
         </div>
         <div class="option">
           <p>
-            Have other {{ 10 - cardExercisesRef.length }} of workouts chosen
+            Have other {{ 10 - cardExercisesRef.length }} workouts chosen
             randomly for me
           </p>
-          <button class="button" (click)="emitGenerateEvent()">Option 2</button>
+          <button class="button" (click)="emitGenerateEvent()">
+            Surprise Me
+          </button>
         </div>
         <div class="option">
-          <p>Go back to exercises page to choose more exercise</p>
-          <button class="button" (click)="emitCloseEvent()">Option 3</button>
+          <p>Go back to exercises page to choose more exercises</p>
+          <button class="button" (click)="emitCloseEvent()">Go Back</button>
         </div>
       </div>
     </div>
     <div *ngIf="url === 'card-game'">
-      <p>
-        You have no selected exercises to be included in your card game workout
+      <p class="pop-up-title">
+        You have no selected exercises to be included in your card game workout.
       </p>
-      <p>To play the game, would you like to:</p>
+      <p class="pop-up-title">To play the game, would you like to:</p>
       <div class="options">
-        <div>
+        <div class="option">
           <p>Have all of your exercises chosen for you</p>
-          <button class="button" (click)="emitGenerateEvent()">Option 1</button>
+          <button class="button" (click)="emitGenerateEvent()">
+            Surprise Me
+          </button>
         </div>
-        <div>
-          <p>Go back to exercises page to choose more exercises</p>
-          <button class="button" routerLink="/exercises">Option 2</button>
+        <div class="option">
+          <p>Go to exercises page to choose more exercises</p>
+          <button class="button" routerLink="/exercises">Exercise Page</button>
         </div>
       </div>
     </div>

@@ -117,4 +117,9 @@ export class ExercisesComponent implements OnInit {
     }
     this.router.navigateByUrl('/card-game');
   };
+
+  clearGameExercises = () => {
+    this.exerciseService.clearGameExercises();
+    this.getAndSetGameExercises();
+  };
 }

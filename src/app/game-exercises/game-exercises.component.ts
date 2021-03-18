@@ -14,6 +14,7 @@ export class GameExercisesComponent implements OnInit {
   @Input() statsPageRef: boolean = false;
   @Output() removeEvent = new EventEmitter<any>();
   @Output() startEvent = new EventEmitter<void>();
+  @Output() clearEvent = new EventEmitter<void>();
   url: string = '';
   constructor(private route: ActivatedRoute) {}
 
@@ -34,5 +35,9 @@ export class GameExercisesComponent implements OnInit {
 
   toggleShowCollapsible = () => {
     this.showCollapsible = !this.showCollapsible;
+  };
+
+  emitClearEvent = () => {
+    this.clearEvent.emit();
   };
 }

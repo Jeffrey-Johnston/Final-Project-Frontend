@@ -33,4 +33,8 @@ export class ExerciseService {
   getCardExercises = (): any[] => {
     return this.cardExercises;
   };
+
+  clearGameExercises = () => {
+    this.cardExercises = [];
+  };
 }

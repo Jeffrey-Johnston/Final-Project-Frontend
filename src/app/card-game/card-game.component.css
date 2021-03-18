@@ -45,6 +45,7 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .image {
@@ -58,6 +59,18 @@
   font-size: 24px;
 }
 
+/* .back {
+  width: 100%;
+} */
+
+/* .remaining {
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  left: 155px;
+  top: 10px;
+} */
+
 @media only screen and (min-width: 768px) {
   .game-options {
     display: flex;
@@ -67,5 +80,11 @@
 
   .game-visuals {
     width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .image {
+    width: 20%;
   }
 }
