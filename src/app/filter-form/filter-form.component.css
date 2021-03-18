@@ -44,6 +44,15 @@
     margin: 5px 0px;
   }
 
+  .input {
+    margin-right: 10px;
+  }
+
+  .text {
+    display: flex;
+    flex: 1;
+  }
+
   .all-workouts {
     margin-right: 5px;
   }
@@ -52,5 +61,12 @@
     border-bottom: 1px solid black;
     padding: 5px 0px;
     margin: 0 5px;
+  }
+}
+
+@media only screen and (min-width: 1053px) {
+  .search-form {
+    width: 728px;
+    margin-left: 290px;
   }
 }

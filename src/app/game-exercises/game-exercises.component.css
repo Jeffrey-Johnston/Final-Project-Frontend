@@ -20,7 +20,7 @@
   padding: 0px;
   padding-left: 20px;
   width: 100%;
-  margin: 0;
+  margin: 10px 0px;
 }
 
 .game-exercises {
@@ -52,6 +52,16 @@
   width: 40%;
 }
 
+.underline {
+  border-bottom: 1px solid black;
+  padding: 5px 0px;
+}
+
+.desktop {
+  visibility: hidden;
+  height: 0px;
+}
+
 @media only screen and (min-width: 768px) {
   .game-exercises {
     width: 250px;
@@ -65,5 +75,14 @@
 
   .stats-page-exercises {
     width: 100%;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    visibility: visible;
+    height: auto;
   }
 }

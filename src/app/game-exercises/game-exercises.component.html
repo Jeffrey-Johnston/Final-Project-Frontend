@@ -1,6 +1,6 @@
 <div
   *ngIf="!statsPageRef"
-  class="panel-title"
+  class="panel-title mobile"
   [ngClass]="{ 'title-margin': !showCollapsible }"
   (click)="toggleShowCollapsible()"
 >
@@ -49,4 +49,50 @@
   >
     Start Game
   </button>
+  <p
+    *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
+    class="start underline"
+    (click)="emitClearEvent()"
+  >
+    Clear All Exercises
+  </p>
+</div>
+
+<div
+  *ngIf="!statsPageRef"
+  class="game-exercises desktop"
+  [ngClass]="{ 'stats-page-exercises': statsPageRef }"
+>
+  <p *ngIf="statsPageRef" class="title">Exercises:</p>
+  <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
+  <p *ngIf="cardExercisesRef.length === 0" class="no-exercises">
+    You currently have no exercises added for your card game workout. Hit the
+    plus sign on an exercise to add it!
+  </p>
+  <ol *ngIf="cardExercisesRef.length !== 0" class="ordered-list">
+    <li *ngFor="let cardExercise of cardExercisesRef">
+      <div class="list-item">
+        <p>{{ cardExercise.name }}</p>
+        <i
+          (click)="emitRemoveEvent(cardExercise)"
+          class="fas fa-minus"
+          *ngIf="url === 'exercises'"
+        ></i>
+      </div>
+    </li>
+  </ol>
+  <button
+    (click)="emitStartEvent()"
+    *ngIf="url === 'exercises'"
+    class="button start"
+  >
+    Start Game
+  </button>
+  <p
+    *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
+    class="start underline"
+    (click)="emitClearEvent()"
+  >
+    Clear All Exercises
+  </p>
 </div>
