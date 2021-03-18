@@ -12,20 +12,20 @@
       </p>
       <p>To play the game, would you like to:</p>
       <div class="options">
-        <div *ngIf="cardExercisesRef.length !== 0">
+        <div class="option" *ngIf="cardExercisesRef.length !== 0">
           <p>Continue with only {{ cardExercisesRef.length }} exercises</p>
-          <button routerLink="/card-game">Option 1</button>
+          <button class="button" routerLink="/card-game">Option 1</button>
         </div>
-        <div>
+        <div class="option">
           <p>
             Have other {{ 10 - cardExercisesRef.length }} of workouts chosen
             randomly for me
           </p>
-          <button (click)="emitGenerateEvent()">Option 2</button>
+          <button class="button" (click)="emitGenerateEvent()">Option 2</button>
         </div>
-        <div>
+        <div class="option">
           <p>Go back to exercises page to choose more exercise</p>
-          <button (click)="emitCloseEvent()">Option 3</button>
+          <button class="button" (click)="emitCloseEvent()">Option 3</button>
         </div>
       </div>
     </div>
@@ -37,11 +37,11 @@
       <div class="options">
         <div>
           <p>Have all of your exercises chosen for you</p>
-          <button (click)="emitGenerateEvent()">Option 1</button>
+          <button class="button" (click)="emitGenerateEvent()">Option 1</button>
         </div>
         <div>
           <p>Go back to exercises page to choose more exercises</p>
-          <button routerLink="/exercises">Option 2</button>
+          <button class="button" routerLink="/exercises">Option 2</button>
         </div>
       </div>
     </div>

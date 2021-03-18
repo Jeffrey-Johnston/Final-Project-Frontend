@@ -2,7 +2,7 @@
   <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
   <p>Cannot exceed 10 workouts for card game.</p>
 </div>
-<li class="list-item">
+<li class="list-item" [ngClass]="{ 'left-margin': !gameModeRef }">
   <div class="name-div">
     <i
       *ngIf="!checkIfAdded(exerciseRef) && !gameModeRef"

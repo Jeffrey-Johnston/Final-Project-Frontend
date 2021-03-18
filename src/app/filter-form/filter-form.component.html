@@ -1,10 +1,10 @@
+<p class="form-title">Filter Exercises</p>
 <form
   class="search-form"
   #filterForm="ngForm"
   (input)="emitSubmitEvent(filterForm)"
   (ngSubmit)="emitSubmitEvent(filterForm)"
 >
-  <p class="form-title">Filter Exercises</p>
   <input
     class="input text"
     type="text"
@@ -37,8 +37,10 @@
   </select>
   <button class="button">Submit</button>
   <div class="workout-display">
-    <p (click)="emitClearFilterEvent()">See All Workouts</p>
-    <p (click)="toggleAddForm()">Add Workout</p>
+    <p class="all-workouts border" (click)="emitClearFilterEvent()">
+      All Workouts
+    </p>
+    <p class="border" (click)="toggleAddForm()">Add Workout</p>
   </div>
   <app-add-form
     *ngIf="addOpen"

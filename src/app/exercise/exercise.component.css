@@ -69,8 +69,8 @@
 @media only screen and (min-width: 768px) {
   .list-item {
     padding: 10px 15px 10px 10px;
-    margin-left: 20px;
   }
+
   .exercise-details {
     display: flex;
     width: 50%;
@@ -87,5 +87,9 @@
   }
   .fa-times {
     position: absolute;
+  }
+
+  .left-margin {
+    margin-left: 20px;
   }
 }

@@ -1,8 +1,24 @@
 .stats-page {
+  text-align: center;
+  padding: 10px;
+}
+
+.stats-para {
+  padding: 5px;
+}
+
+.button-position {
   position: relative;
   width: 75%;
   border-radius: 15px;
   background-color: white;
   padding: 20px;
-  padding-bottom: 0px;
+
+  /* align-items: center; */
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -25px);
 }
