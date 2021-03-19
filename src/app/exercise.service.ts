@@ -8,6 +8,7 @@ import { Exercise } from './interfaces/exercise';
 export class ExerciseService {
   baseURL: string = `http://localhost:3000`;
   cardExercises: any[] = [];
+  darkMode: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -36,5 +37,13 @@ export class ExerciseService {
 
   clearGameExercises = () => {
     this.cardExercises = [];
+  };
+
+  toggleMode = () => {
+    this.darkMode = !this.darkMode;
+  };
+
+  getMode = (): boolean => {
+    return this.darkMode;
   };
 }

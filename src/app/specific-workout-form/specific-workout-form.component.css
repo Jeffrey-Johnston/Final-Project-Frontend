@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.input {
+  margin: 5px auto;
+  padding: 5px 0px;
+  border: 1px solid lightgray;
+  width: 75%;
+}
+
+.button {
+  margin: 0px auto 20px auto;
+  width: 75%;
+}
+
+@media only screen and (min-width: 768px) {
+  .form {
+    margin-top: 20px;
+  }
+}

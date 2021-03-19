@@ -15,18 +15,42 @@ body {
   font-size: 14px;
 }
 
+.background-light {
+  background-color: hsl(233, 11%, 84%);
+}
+
+.background-dark {
+  background-color: #161722;
+}
+
+.element-background-light {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.element-background-dark {
+  background-color: #25273c;
+}
+
+.text-dark {
+  color: hsl(0, 0%, 98%);
+}
+
+.text-light {
+  color: hsl(235, 19%, 35%);
+}
+
 .page-container {
   min-height: 100vh;
   width: 100%;
-  padding: 15px;
   box-sizing: border-box;
+  padding: 15px;
 }
 
 .pop-up {
   height: 100vh;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);

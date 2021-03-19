@@ -1,8 +1,17 @@
-<div *ngIf="errorMessage" class="error-message-div mobile">
+<div *ngIf="errorMessage" class="error-message-div">
   <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
   <p>Cannot exceed 10 workouts for card game.</p>
 </div>
-<li class="list-item" [ngClass]="{ 'left-margin': !gameModeRef }">
+<li
+  class="list-item"
+  [ngClass]="{
+    'left-margin': !gameModeRef,
+    'element-background-dark': darkModeRef,
+    'element-background-light': !darkModeRef,
+    'text-dark': darkModeRef,
+    'text-light': !darkModeRef
+  }"
+>
   <div class="name-div">
     <i
       *ngIf="!checkIfAdded(exerciseRef) && !gameModeRef"
@@ -15,25 +24,68 @@
       class="fas fa-minus"
     ></i>
     <div>
-      <p class="muscle-group">{{ exerciseRef.body_part }}</p>
+      <p
+        class="muscle-group"
+        [ngClass]="{
+          'group-one': exerciseRef.body_part_id === 1,
+          'group-two': exerciseRef.body_part_id === 2,
+          'group-three': exerciseRef.body_part_id === 3,
+          'group-four': exerciseRef.body_part_id === 4,
+          'group-five': exerciseRef.body_part_id === 5,
+          'group-six': exerciseRef.body_part_id === 6,
+          'group-seven': exerciseRef.body_part_id === 7,
+          'group-eight': exerciseRef.body_part_id === 8
+        }"
+      >
+        {{ exerciseRef.body_part }}
+      </p>
       <p class="name">{{ exerciseRef.name }}</p>
     </div>
   </div>
   <div class="exercise-details">
-    <p>DIFFICULTY</p>
-    <button class="button description" (click)="toggleDescription()">
+    <div>
+      <p class="detail-header">DIFFICULTY</p>
+      <div class="difficulty">
+        <div class="difficulty difficulty-one">
+          <p>--</p>
+          <p *ngIf="exerciseRef.difficulty === 1">|</p>
+          <p>--</p>
+        </div>
+        <div class="difficulty difficulty-two">
+          <p>--</p>
+          <p *ngIf="exerciseRef.difficulty === 2">|</p>
+          <p>--</p>
+        </div>
+        <div class="difficulty difficulty-three">
+          <p>--</p>
+          <p *ngIf="exerciseRef.difficulty === 3">|</p>
+          <p>--</p>
+        </div>
+        <div class="difficulty difficulty-four">
+          <p>--</p>
+          <p *ngIf="exerciseRef.difficulty === 4">|</p>
+          <p>--</p>
+        </div>
+        <div class="difficulty difficulty-five">
+          <p>--</p>
+          <p *ngIf="exerciseRef.difficulty === 5">|</p>
+          <p>--</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="button description"
+      (click)="toggleDescription()"
+      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+    >
       Show Description
     </button>
   </div>
   <div class="pop-up" *ngIf="descriptionPopUp">
     <div class="pop-up-description">
+      <i class="fas fa-times" (click)="toggleDescription()"></i>
       <p class="name">{{ exerciseRef.name }}</p>
       <p>{{ exerciseRef.description }}</p>
-      <p (click)="toggleDescription()">X</p>
     </div>
-  </div>
-  <div *ngIf="errorMessage" class="error-message-div desktop">
-    <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
-    <p>Cannot exceed 10 workouts for card game.</p>
   </div>
 </li>

@@ -1,1 +1,79 @@
-<p>about-us works!</p>
+<div
+  class="page-container"
+  [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
+>
+  <app-header (toggleModeEvent)="toggleMode()"></app-header>
+  <div class="intro">
+    <h1>About Our Team</h1>
+    <p>
+      Description about all three of us - students at Grand Circus, this is our
+      final project, why we made this, etc.
+    </p>
+  </div>
+  <div class="bio-div">
+    <div class="tara">
+      <img src="" alt="" height="150px" width="150px" />
+      <div class="personal-info">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
+          voluptatem possimus vitae eveniet quos, fugit nisi.
+        </p>
+        <p class="peronal-links">
+          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <div class="rocky">
+      <img src="" alt="" height="150px" width="150px" />
+      <div class="personal-info">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
+          voluptatem possimus vitae eveniet quos, fugit nisi.
+        </p>
+        <p class="peronal-links">
+          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        </p>
+      </div>
+    </div>
+    <div class="jeff">
+      <img src="" alt="" height="150px" width="150px" />
+      <div class="personal-info">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
+          voluptatem possimus vitae eveniet quos, fugit nisi.
+        </p>
+        <p class="peronal-links">
+          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="form-container">
+    <p>Please contact our CARDio team if you have any questions</p>
+    <form class="contact-form">
+      <input
+        class="contact-inputs"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+      />
+      <input
+        class="contact-inputs"
+        type="text"
+        id="email"
+        name="email"
+        placeholder="Enter Email"
+      />
+      <textarea
+        class="contact-inputs"
+        placeholder="Your message"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+      <button class="contact-submit">Submit</button>
+    </form>
+  </div>
+</div>

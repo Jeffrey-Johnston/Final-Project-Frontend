@@ -1,6 +1,7 @@
 import { ExternalExpr } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
 
 @Component({
@@ -9,13 +10,14 @@ import { Exercise } from '../interfaces/exercise';
   styleUrls: ['./game-exercises.component.css'],
 })
 export class GameExercisesComponent implements OnInit {
+  url: string = '';
   showCollapsible: boolean = false;
   @Input() cardExercisesRef!: Exercise[];
   @Input() statsPageRef: boolean = false;
+  @Input() darkModeRef!: boolean;
   @Output() removeEvent = new EventEmitter<any>();
-  @Output() startEvent = new EventEmitter<void>();
   @Output() clearEvent = new EventEmitter<void>();
-  url: string = '';
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -27,10 +29,6 @@ export class GameExercisesComponent implements OnInit {
 
   emitRemoveEvent = (exercise: any) => {
     this.removeEvent.emit(exercise);
-  };
-
-  emitStartEvent = () => {
-    this.startEvent.emit();
   };
 
   toggleShowCollapsible = () => {

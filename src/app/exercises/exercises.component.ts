@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
@@ -11,9 +11,14 @@ import { Exercise } from '../interfaces/exercise';
 export class ExercisesComponent implements OnInit {
   filterTerms: any = {};
   exercises: Exercise[] = [];
+  muscleGroup1: Exercise[] = [];
+  muscleGroup2: Exercise[] = [];
+  muscleGroup3: Exercise[] = [];
+  muscleGroup4: Exercise[] = [];
   cardExercises: any[] = [];
   startPage: boolean = false;
   gameMode: boolean = false;
+  darkMode!: boolean;
 
   constructor(
     private exerciseService: ExerciseService,
@@ -23,6 +28,7 @@ export class ExercisesComponent implements OnInit {
   ngOnInit(): void {
     this.getAndSetExercises();
     this.getAndSetGameExercises();
+    this.darkMode = this.exerciseService.getMode();
   }
 
   getAndSetExercises = () => {
@@ -42,11 +48,24 @@ export class ExercisesComponent implements OnInit {
       }
       if (this.filterTerms.difficulty) {
         let maxDifficulty = parseInt(this.filterTerms.difficulty);
-
         this.exercises = this.exercises.filter((item) => {
-          console.log(item.difficulty <= maxDifficulty);
           return item.difficulty <= maxDifficulty;
         });
+      }
+      for (let exercise of this.exercises) {
+        if (
+          exercise.body_part_id === 1 ||
+          exercise.body_part_id === 2 ||
+          exercise.body_part_id === 3
+        ) {
+          this.muscleGroup1.push(exercise);
+        } else if (exercise.body_part_id === 5 || exercise.body_part_id === 6) {
+          this.muscleGroup2.push(exercise);
+        } else if (exercise.body_part_id === 4) {
+          this.muscleGroup3.push(exercise);
+        } else if (exercise.body_part_id === 7 || exercise.body_part_id === 8) {
+          this.muscleGroup4.push(exercise);
+        }
       }
     });
   };
@@ -68,7 +87,6 @@ export class ExercisesComponent implements OnInit {
 
   getAndSetGameExercises = () => {
     this.cardExercises = this.exerciseService.getCardExercises();
-    console.log(this.cardExercises);
   };
 
   addToGame = (exercise: any): boolean => {
@@ -90,11 +108,15 @@ export class ExercisesComponent implements OnInit {
     this.getAndSetGameExercises();
   };
 
-  startGame = () => {
-    if (this.cardExercises.length < 10) {
-      this.startPage = true;
+  startGame = (formObject: any) => {
+    if (formObject.bodyPart === '') {
+      if (this.cardExercises.length < 10) {
+        this.startPage = true;
+      } else {
+        this.router.navigateByUrl('/card-game');
+      }
     } else {
-      this.router.navigateByUrl('/card-game');
+      this.randomlyGenerateExercises(parseInt(formObject.bodyPart));
     }
   };
 
@@ -102,24 +124,47 @@ export class ExercisesComponent implements OnInit {
     this.startPage = !this.startPage;
   };
 
-  getRandomIndex = () => {
-    return Math.floor(Math.random() * this.exercises.length);
+  getRandomIndex = (length: number) => {
+    return Math.floor(Math.random() * length);
   };
 
-  randomlyGenerateExercises = () => {
+  randomlyGenerateExercises = (option: number) => {
     let amountNeeded = 10 - this.cardExercises.length;
     for (let i = 0; i < amountNeeded; i++) {
       let added: boolean = false;
       while (!added) {
-        let index = this.getRandomIndex();
-        added = this.addToGame(this.exercises[index]);
+        if (option === 0) {
+          let index = this.getRandomIndex(this.exercises.length);
+          added = this.addToGame(this.exercises[index]);
+        } else if (option === 1) {
+          let index = this.getRandomIndex(this.muscleGroup1.length);
+          added = this.addToGame(this.muscleGroup1[index]);
+        } else if (option === 2) {
+          let index = this.getRandomIndex(this.muscleGroup2.length);
+          added = this.addToGame(this.muscleGroup2[index]);
+        } else if (option === 3) {
+          let index = this.getRandomIndex(this.muscleGroup3.length);
+          added = this.addToGame(this.muscleGroup3[index]);
+        } else if (option === 4) {
+          let index = this.getRandomIndex(this.muscleGroup4.length);
+          added = this.addToGame(this.muscleGroup4[index]);
+        }
       }
     }
     this.router.navigateByUrl('/card-game');
   };
+  // 1 - 1, 2, 3
+  // 2 - 5, 6
+  // 3 - 4
+  // 4 - 7, 8
 
   clearGameExercises = () => {
     this.exerciseService.clearGameExercises();
     this.getAndSetGameExercises();
+  };
+
+  toggleMode = () => {
+    this.exerciseService.toggleMode();
+    this.darkMode = this.exerciseService.getMode();
   };
 }

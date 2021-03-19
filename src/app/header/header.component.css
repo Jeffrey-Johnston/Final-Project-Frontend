@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding-bottom: 15px;
   box-sizing: border-box;
 }
 
@@ -10,15 +10,15 @@
   display: flex;
   list-style: none;
   justify-content: center;
-  color: black;
+  align-items: center;
 }
 
 .tab {
   padding: 5px;
   margin: 0px 8px;
 }
+
 .link {
-  color: black;
   text-decoration: none;
 }
 
@@ -30,6 +30,7 @@
   }
   .nav {
     padding: 20px;
+    padding-right: 0px;
     justify-content: right;
   }
 }

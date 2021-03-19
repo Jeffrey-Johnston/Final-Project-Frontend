@@ -1,22 +1,31 @@
-<div class="page-container">
+<div
+  class="page-container"
+  [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
+>
+  <app-header (toggleModeEvent)="toggleMode()"></app-header>
   <app-filter-form
     (submitEvent)="setFilterTerms($event)"
     (clearFilterEvent)="resetFilterTerms()"
     (addEvent)="addExercise($event)"
   ></app-filter-form>
   <div class="lists">
-    <app-game-exercises
-      (removeEvent)="removeFromGame($event)"
-      (startEvent)="startGame()"
-      (clearEvent)="clearGameExercises()"
-      [cardExercisesRef]="cardExercises"
-    ></app-game-exercises>
+    <div class="left-side">
+      <app-game-exercises
+        (removeEvent)="removeFromGame($event)"
+        (clearEvent)="clearGameExercises()"
+        [cardExercisesRef]="cardExercises"
+        [darkModeRef]="darkMode"
+      ></app-game-exercises>
+      <app-specific-workout-form
+        (startEvent)="startGame($event)"
+      ></app-specific-workout-form>
+    </div>
 
     <app-options-pop-up
       *ngIf="startPage"
       [cardExercisesRef]="cardExercises"
       (closeEvent)="toggleStartPage()"
-      (generateEvent)="randomlyGenerateExercises()"
+      (generateEvent)="randomlyGenerateExercises(0)"
     ></app-options-pop-up>
     <ul class="all-exercises">
       <app-exercise
@@ -24,6 +33,7 @@
         [exerciseRef]="exercise"
         [cardExercisesRef]="cardExercises"
         [gameModeRef]="gameMode"
+        [darkModeRef]="darkMode"
         (addToGameEvent)="addToGame($event)"
         (removeFromGameEvent)="removeFromGame($event)"
       ></app-exercise>

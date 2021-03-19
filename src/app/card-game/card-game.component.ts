@@ -9,9 +9,12 @@ import { Exercise } from '../interfaces/exercise';
   styleUrls: ['./card-game.component.css'],
 })
 export class CardGameComponent implements OnInit {
+  darkMode!: boolean;
+  currentIndex: number = -1;
   deck!: any;
   deckID!: string;
   remaining!: number;
+  pileList!: any[];
   timer: any;
   hour: number = 0;
   minutes: number = 0;
@@ -36,6 +39,7 @@ export class CardGameComponent implements OnInit {
     this.getAndSetDeck();
     this.getAndSetAllExercises();
     this.getAndSetGameExercises();
+    this.darkMode = this.exerciseService.getMode();
   }
 
   getAndSetDeck = () => {
@@ -44,7 +48,7 @@ export class CardGameComponent implements OnInit {
       this.deckID = this.deck.deck_id;
       this.remaining = this.deck.remaining;
       this.setDeckID();
-      console.log(this.deck);
+      this.drawCards();
     });
   };
 
@@ -52,15 +56,21 @@ export class CardGameComponent implements OnInit {
     this.cardService.setDeckID(this.deckID);
   };
 
-  drawCard = () => {
-    this.cardService.drawCard().subscribe((response: any) => {
-      let index = this.getRandomIndex();
-      this.currentExercise = this.gameExercises[index];
-      this.currentlyDrawn = response.cards[0];
-      this.remaining = response.remaining;
-      if (this.remaining === 51 && this.seconds === 0) {
-        this.startTimer();
-      }
+  updateIndex = () => {
+    this.currentIndex++;
+    this.remaining--;
+    let exerciseIndex = this.getRandomIndex();
+    this.currentExercise = this.gameExercises[exerciseIndex];
+    if (this.remaining === 51 && this.seconds === 0) {
+      this.startTimer();
+    }
+  };
+
+  drawCards = () => {
+    this.cardService.drawCards().subscribe((response: any) => {
+      this.pileList = response.cards;
+      console.log(this.pileList);
+      this.currentlyDrawn = this.pileList[0];
     });
   };
 
@@ -80,7 +90,6 @@ export class CardGameComponent implements OnInit {
   getAndSetAllExercises = () => {
     this.exerciseService.getExercises().subscribe((response: any) => {
       this.allExercises = response;
-      console.log(this.allExercises);
     });
   };
 
@@ -97,6 +106,7 @@ export class CardGameComponent implements OnInit {
     this.getAndSetDeck();
     this.resetTimer();
     this.stopTimer();
+    this.currentIndex = -1;
   };
 
   startTimer = () => {
@@ -189,5 +199,10 @@ export class CardGameComponent implements OnInit {
 
   toggleGameOver = () => {
     this.gameOver = !this.gameOver;
+  };
+
+  toggleMode = () => {
+    this.exerciseService.toggleMode();
+    this.darkMode = this.exerciseService.getMode();
   };
 }

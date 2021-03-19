@@ -1,0 +1,20 @@
+<div class="flip-card">
+  <div
+    class="flip-card-inner"
+    [ngClass]="{
+      flipped: currentIndexRef >= indexRef
+    }"
+  >
+    <div class="flip-card-front">
+      <img class="image" src="{{ cardRef.image }}" alt="{{ cardRef.image }}" />
+    </div>
+    <div class="flip-card-back">
+      <img
+        src="/assets/card-back-black_gold.jpeg"
+        alt="test"
+        class="image card-back"
+        (click)="emitFlipEvent()"
+      />
+    </div>
+  </div>
+</div>

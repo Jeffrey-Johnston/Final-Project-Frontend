@@ -1,0 +1,41 @@
+.intro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bio-div {
+  width: 100%;
+}
+.tara,
+.rocky,
+.jeff {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .tara,
+  .rocky,
+  .jeff {
+    flex-direction: column;
+  }
+  .contact-form {
+    width: 50%;
+  }
+}

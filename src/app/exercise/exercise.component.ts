@@ -11,6 +11,7 @@ export class ExerciseComponent implements OnInit {
   @Input() exerciseRef!: Exercise;
   @Input() cardExercisesRef!: any[];
   @Input() gameModeRef!: boolean;
+  @Input() darkModeRef!: boolean;
   @Output() addToGameEvent = new EventEmitter<any>();
   @Output() removeFromGameEvent = new EventEmitter<any>();
 

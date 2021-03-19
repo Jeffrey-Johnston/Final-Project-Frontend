@@ -1,11 +1,55 @@
-<header class="header">
+<header
+  class="header"
+  [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+>
   <h1>CARDio</h1>
   <nav>
     <ul class="nav">
-      <li class="tab"><a class="link" routerLink="/home">Home</a></li>
-      <li class="tab"><a class="link" routerLink="/exercises">Exercises</a></li>
-      <li class="tab"><a class="link" routerLink="/card-game">Card Game</a></li>
-      <li class="tab"><a class="link" routerLink="/about-us">About Us</a></li>
+      <li class="tab">
+        <a
+          class="link"
+          routerLink="/home"
+          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          >Home</a
+        >
+      </li>
+      <li class="tab">
+        <a
+          class="link"
+          routerLink="/exercises"
+          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          >Exercises</a
+        >
+      </li>
+      <li class="tab">
+        <a
+          class="link"
+          routerLink="/card-game"
+          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          >Card Game</a
+        >
+      </li>
+      <li class="tab">
+        <a
+          class="link"
+          routerLink="/about-us"
+          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          >About Us</a
+        >
+      </li>
+
+      <i
+        *ngIf="!darkMode"
+        (click)="emitToggleModeEvent()"
+        class="far fa-moon"
+        [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+      ></i>
+      <i
+        *ngIf="darkMode"
+        (click)="emitToggleModeEvent()"
+        class="fas fa-sun"
+        [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+      ></i>
     </ul>
   </nav>
 </header>

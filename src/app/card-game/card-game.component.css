@@ -4,13 +4,14 @@
 }
 
 .game {
-  display: flex;
-  justify-content: center;
   padding-top: 0;
 }
 
 .game-options {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .all-buttons {
@@ -46,10 +47,32 @@
   justify-content: space-around;
   margin-bottom: 20px;
   position: relative;
+  width: 350px;
+  margin: 20px auto;
+  margin-top: 0px;
+  height: 135px;
 }
 
-.image {
-  width: 40%;
+.empty-card {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 90px;
+  height: 125px;
+  position: absolute;
+  top: 5px;
+  transform: translate(50%, 0);
+}
+
+.back {
+  left: 0;
+}
+
+.front {
+  left: 50%;
+}
+
+.hidden {
+  display: none;
 }
 
 .timer {
@@ -58,18 +81,6 @@
   margin: 10px 0px;
   font-size: 24px;
 }
-
-/* .back {
-  width: 100%;
-} */
-
-/* .remaining {
-  position: absolute;
-  color: white;
-  font-weight: 700;
-  left: 155px;
-  top: 10px;
-} */
 
 @media only screen and (min-width: 768px) {
   .game-options {

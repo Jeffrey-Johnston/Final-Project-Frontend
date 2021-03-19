@@ -8,6 +8,10 @@
   }
   .lists {
     display: flex;
+    padding: 0px;
+  }
+  .left-side {
+    width: 250px;
   }
   .all-exercises {
     flex: 3;

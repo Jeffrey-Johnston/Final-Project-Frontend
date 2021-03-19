@@ -1,10 +1,3 @@
-.pop-up-description {
-  width: 50%;
-  background-color: white;
-  border-radius: 15px;
-  padding: 15px;
-}
-
 .list-item {
   position: relative;
   width: 100%;
@@ -13,33 +6,72 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
   box-sizing: border-box;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 255, 0.2);
 }
 
-.error-message-div {
-  color: red;
-}
-
-.fa-times {
-  position: relative;
-  top: 0;
-}
-
-.mobile {
+.exercise-details {
   display: flex;
-  margin: 5px 0px;
+  flex-direction: column;
   align-items: center;
 }
 
-.desktop {
-  display: none;
-  width: 175px;
+.detail-header {
+  font-size: 9px;
+  text-align: center;
+}
+
+.difficulty {
+  display: flex;
+  font-family: "Sigmar One", cursive;
+}
+
+.difficulty-one {
+  color: green;
+}
+
+.difficulty-two {
+  color: lightgreen;
+}
+
+.difficulty-three {
+  color: rgb(207, 207, 24);
+}
+
+.difficulty-four {
+  color: orange;
+}
+
+.difficulty-five {
+  color: red;
+}
+
+.text-dark {
+  box-shadow: 0px 0px 3px 3px hsl(0, 0%, 98%);
+}
+
+.pop-up-description {
+  width: 50%;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+}
+
+.fa-times {
   position: absolute;
-  left: -25px;
-  top: 50%;
-  transform: translate(0px, -50%);
+  top: 8px;
+  right: 8px;
+  width: auto;
+  padding: 5px;
+}
+
+.error-message-div {
+  position: relative;
+  color: red;
+  display: flex;
+  margin: 5px 0px;
+  align-items: center;
 }
 
 .name-div {
@@ -53,8 +85,40 @@
   color: white;
   border-radius: 15px;
   padding: 2px 6px;
-  font-size: 12px;
+  font-size: 11px;
   width: fit-content;
+}
+
+.group-one {
+  background-color: red;
+}
+
+.group-two {
+  background-color: orange;
+}
+
+.group-three {
+  background-color: pink;
+}
+
+.group-four {
+  background-color: green;
+}
+
+.group-five {
+  background-color: blue;
+}
+
+.group-six {
+  background-color: purple;
+}
+
+.group-seven {
+  background-color: navy;
+}
+
+.group-eight {
+  background-color: blueviolet;
 }
 
 .description {
@@ -64,6 +128,7 @@
 .name {
   font-weight: bolder;
   font-size: 17px;
+  margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -73,23 +138,21 @@
 
   .exercise-details {
     display: flex;
-    width: 50%;
     justify-content: space-between;
+    flex: 1;
   }
 
-  .mobile {
-    display: none;
-  }
-  .desktop {
-    display: initial;
-    right: 101%;
-    position: absolute;
-  }
-  .fa-times {
-    position: absolute;
+  .name-div {
+    flex: 1;
   }
 
   .left-margin {
     margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .exercise-details {
+    flex-direction: row;
   }
 }

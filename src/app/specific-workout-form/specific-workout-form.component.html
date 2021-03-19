@@ -1,0 +1,19 @@
+<form
+  #specificWorkoutForm="ngForm"
+  class="form"
+  (submit)="emitStartEvent(specificWorkoutForm)"
+>
+  <p>
+    You can pick a target muscle group and have your exercises picked for you,
+    or you can play the game with the workouts you have selected!
+  </p>
+  <select class="input" name="bodyPart" id="bodyPart" ngModel>
+    <option value="" disabled>Workout Choice</option>
+    <option value="">Use my Exercises</option>
+    <option value="1">Lower Body</option>
+    <option value="2">Upper Body</option>
+    <option value="3">Core</option>
+    <option value="4">Full Body</option>
+  </select>
+  <button class="button">Start Game</button>
+</form>

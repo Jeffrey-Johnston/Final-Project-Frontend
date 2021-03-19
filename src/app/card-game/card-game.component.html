@@ -1,4 +1,8 @@
-<div class="page-container game">
+<div
+  class="page-container game"
+  [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
+>
+  <app-header (toggleModeEvent)="toggleMode()"></app-header>
   <app-options-pop-up
     *ngIf="gameExercises.length === 0 || gameExercises === undefined"
     [cardExercisesRef]="gameExercises"
@@ -56,21 +60,26 @@
           <p>{{ seconds }}</p>
         </div>
       </div>
-
       <div class="card-container">
-        <img
-          src="/assets/card-back-black_gold.jpeg"
-          alt="test"
-          class="image"
-          (click)="drawCard()"
-        />
-
-        <img
-          class="image"
-          *ngIf="checkGameStatus() === 1"
-          src="{{ currentlyDrawn?.image }}"
-          alt="Card Image"
-        />
+        <app-card
+          *ngFor="let card of pileList; index as i"
+          [cardRef]="card"
+          [indexRef]="i"
+          [currentIndexRef]="currentIndex"
+          (flipEvent)="updateIndex()"
+        ></app-card>
+        <div
+          [ngClass]="{
+            'empty-card': currentIndex === -1,
+            front: currentIndex === -1
+          }"
+        ></div>
+        <div
+          [ngClass]="{
+            'empty-card': currentIndex === 52,
+            back: currentIndex === 52
+          }"
+        ></div>
       </div>
 
       <app-exercise
@@ -80,6 +89,7 @@
         [gameModeRef]="gameMode"
       ></app-exercise>
     </div>
+    <!-- </div> -->
 
     <app-game-exercises [cardExercisesRef]="gameExercises"></app-game-exercises>
     <app-game-stats

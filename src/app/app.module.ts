@@ -18,6 +18,8 @@ import { AddFormComponent } from './add-form/add-form.component';
 import { OptionsPopUpComponent } from './options-pop-up/options-pop-up.component';
 import { GameExercisesComponent } from './game-exercises/game-exercises.component';
 import { GameStatsComponent } from './game-stats/game-stats.component';
+import { CardComponent } from './card/card.component';
+import { SpecificWorkoutFormComponent } from './specific-workout-form/specific-workout-form.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { GameStatsComponent } from './game-stats/game-stats.component';
     AddFormComponent,
     OptionsPopUpComponent,
     GameExercisesComponent,
-    GameStatsComponent
+    GameStatsComponent,
+    CardComponent,
+    SpecificWorkoutFormComponent
   ],
   imports: [
     BrowserModule,

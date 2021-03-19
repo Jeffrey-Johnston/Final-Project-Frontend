@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class CardService {
   baseUrl: string = `https://deckofcardsapi.com/api/deck`;
   deckID!: string;
+  pileName: string = 'cardPile';
 
   constructor(private http: HttpClient) {}
 
@@ -19,11 +20,19 @@ export class CardService {
     console.log(this.deckID);
   };
 
-  // getDeckID = () => {
-  //   return this.deckID;
-  // }
+  drawCards = () => {
+    return this.http.get(`${this.baseUrl}/${this.deckID}/draw/?count=52`);
+  };
 
-  drawCard = () => {
-    return this.http.get(`${this.baseUrl}/${this.deckID}/draw/?count=1`);
+  addToPile = (code: string) => {
+    return this.http.get(
+      `${this.baseUrl}/${this.deckID}/pile/${this.pileName}/add/?cards=${code}`
+    );
+  };
+
+  getPileList = () => {
+    return this.http.get(
+      `${this.baseUrl}/${this.deckID}/pile/${this.pileName}/list/`
+    );
   };
 }
