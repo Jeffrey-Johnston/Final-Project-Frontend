@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-exercises',
@@ -22,13 +23,14 @@ export class ExercisesComponent implements OnInit {
 
   constructor(
     private exerciseService: ExerciseService,
+    private themeService: ThemeService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getAndSetExercises();
     this.getAndSetGameExercises();
-    this.darkMode = this.exerciseService.getMode();
+    this.darkMode = this.themeService.getMode();
   }
 
   getAndSetExercises = () => {
@@ -153,10 +155,6 @@ export class ExercisesComponent implements OnInit {
     }
     this.router.navigateByUrl('/card-game');
   };
-  // 1 - 1, 2, 3
-  // 2 - 5, 6
-  // 3 - 4
-  // 4 - 7, 8
 
   clearGameExercises = () => {
     this.exerciseService.clearGameExercises();
@@ -164,7 +162,7 @@ export class ExercisesComponent implements OnInit {
   };
 
   toggleMode = () => {
-    this.exerciseService.toggleMode();
-    this.darkMode = this.exerciseService.getMode();
+    this.themeService.toggleMode();
+    this.darkMode = this.themeService.getMode();
   };
 }

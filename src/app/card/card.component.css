@@ -56,6 +56,17 @@
   box-sizing: border-box;
 }
 
+.flipped {
+  animation: flipanimation1 1s;
+  left: 150px;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition-delay: 0.5s;
+}
+
 @keyframes flipanimation1 {
   from {
     left: 0px;
@@ -81,17 +92,6 @@
   to {
     left: 250px;
   }
-}
-
-.flipped {
-  animation: flipanimation 1s;
-  left: 150px;
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  transition-delay: 0.5s;
 }
 
 @media only screen and (min-width: 425px) {

@@ -51,14 +51,13 @@
   width: 90px;
   height: 125px;
   position: absolute;
-  top: 13px;
+  top: 8px;
   transform: translate(50%, 0);
 }
 
 .back {
-  top: 0;
   left: 50%;
-  transform: translate(-105%, 0);
+  transform: translate(-125%, 0);
 }
 
 .front {
@@ -83,6 +82,8 @@
   .empty-card {
     height: 160px;
     width: 115px;
+  }
+  .front {
     left: 45%;
   }
 }
@@ -98,6 +99,10 @@
     width: 100%;
     margin: 0px 20px;
   }
+
+  .front {
+    left: 42.5%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -107,6 +112,5 @@
   .empty-card {
     height: 235px;
     width: 165px;
-    left: 45%;
   }
 }

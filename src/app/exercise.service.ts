@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 export class ExerciseService {
   baseURL: string = environment.apiBaseUrl;
   cardExercises: any[] = [];
-  darkMode: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -38,13 +37,5 @@ export class ExerciseService {
 
   clearGameExercises = () => {
     this.cardExercises = [];
-  };
-
-  toggleMode = () => {
-    this.darkMode = !this.darkMode;
-  };
-
-  getMode = (): boolean => {
-    return this.darkMode;
   };
 }

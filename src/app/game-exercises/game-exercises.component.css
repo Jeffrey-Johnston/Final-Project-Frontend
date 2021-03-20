@@ -85,22 +85,18 @@
   .list-item {
     padding: 3px 0px;
   }
-
   .stats-page-exercises {
     width: 100%;
   }
-
   .mobile {
     display: none;
     height: 0px;
   }
-
   .desktop {
     visibility: visible;
     height: auto;
     padding: 10px 20px;
   }
-
   .title-view {
     display: initial;
   }
