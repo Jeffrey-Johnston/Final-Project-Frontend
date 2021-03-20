@@ -1,0 +1,67 @@
+.home-image {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.welcome-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  height: fit-content;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to right,
+    rgb(48, 53, 92),
+    rgb(100, 104, 136)
+  );
+}
+.welcome-title {
+  color: rgb(73, 134, 204);
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.tag-line {
+  color: rgb(180, 186, 230);
+}
+.tag-line-2 {
+  text-align: end;
+  color: rgb(180, 186, 230);
+}
+.welcome-message {
+  width: 100%;
+  padding: 20px 0 10px 0;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(180, 186, 230);
+}
+.all-messages {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.message-container {
+  height: 175px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  transition: 0.3s;
+  box-sizing: border-box;
+  background-color: white;
+}
+.message-container:hover {
+  background-color: rgb(100, 104, 136);
+}
+.message-title {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgb(73, 134, 204);
+}
+.message {
+  color: rgb(159, 166, 184);
+  font-size: 15px;
+}
