@@ -18,7 +18,9 @@ export class GameStatsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
   emitCloseEvent = () => {
+    this.statsPage = false;
     this.closeEvent.emit();
   };
 

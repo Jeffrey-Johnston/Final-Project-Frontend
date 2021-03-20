@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardService } from '../card.service';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-card-game',
@@ -32,14 +33,15 @@ export class CardGameComponent implements OnInit {
 
   constructor(
     private cardService: CardService,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
     this.getAndSetDeck();
     this.getAndSetAllExercises();
     this.getAndSetGameExercises();
-    this.darkMode = this.exerciseService.getMode();
+    this.darkMode = this.themeService.getMode();
   }
 
   getAndSetDeck = () => {
@@ -202,7 +204,7 @@ export class CardGameComponent implements OnInit {
   };
 
   toggleMode = () => {
-    this.exerciseService.toggleMode();
-    this.darkMode = this.exerciseService.getMode();
+    this.themeService.toggleMode();
+    this.darkMode = this.themeService.getMode();
   };
 }

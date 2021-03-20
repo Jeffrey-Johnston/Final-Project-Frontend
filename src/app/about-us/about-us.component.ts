@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from '../exercise.service';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-about-us',
@@ -9,14 +10,17 @@ import { ExerciseService } from '../exercise.service';
 export class AboutUsComponent implements OnInit {
   darkMode!: boolean;
 
-  constructor(private exerciseService: ExerciseService) {}
+  constructor(
+    private exerciseService: ExerciseService,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {
-    this.darkMode = this.exerciseService.getMode();
+    this.darkMode = this.themeService.getMode();
   }
 
   toggleMode = () => {
-    this.exerciseService.toggleMode();
-    this.darkMode = this.exerciseService.getMode();
+    this.themeService.toggleMode();
+    this.darkMode = this.themeService.getMode();
   };
 }

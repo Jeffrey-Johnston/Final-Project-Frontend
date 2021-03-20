@@ -1,6 +1,23 @@
-<app-header></app-header>
+<div
+  class="home-header"
+  [ngClass]="{
+    'background-dark': darkMode,
+    'text-dark': darkMode,
+    'text-light': !darkMode
+  }"
+>
+  <app-header (toggleModeEvent)="toggleMode()"></app-header>
+</div>
 <img class="home-image" src="assets/jumping-image.png" alt="" />
-<div class="welcome-container">
+<div
+  class="welcome-container"
+  [ngClass]="{
+    'element-background-dark': darkMode,
+    'element-background-light': !darkMode,
+    'text-dark': darkMode,
+    'text-light': !darkMode
+  }"
+>
   <h1 class="welcome-title">Welcome to CARDio</h1>
   <h2 class="tag-line">CARDio will get you fired up!</h2>
   <h3 class="tag-line-2">When the world is trying to hold you back!</h3>
