@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Exercise } from './interfaces/exercise';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExerciseService {
-  baseURL: string = `http://localhost:3000`;
+  baseURL: string = environment.apiBaseUrl;
   cardExercises: any[] = [];
   darkMode: boolean = false;
 
