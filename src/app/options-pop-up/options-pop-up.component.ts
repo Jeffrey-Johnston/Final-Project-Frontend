@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OptionsPopUpComponent implements OnInit {
   url: string = '';
-
+  @Input() darkModeRef!: boolean;
   @Input() cardExercisesRef!: any[];
   @Output() closeEvent = new EventEmitter<void>();
   @Output() generateEvent = new EventEmitter<void>();

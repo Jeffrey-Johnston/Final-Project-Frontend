@@ -3,14 +3,30 @@
   [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
 >
   <app-header (toggleModeEvent)="toggleMode()"></app-header>
-  <div class="intro">
+  <div
+    class="intro"
+    [ngClass]="{
+      'element-background-dark': darkMode,
+      'element-background-light': !darkMode,
+      'text-dark': darkMode,
+      'text-light': !darkMode
+    }"
+  >
     <h1>About Our Team</h1>
     <p>
       Description about all three of us - students at Grand Circus, this is our
       final project, why we made this, etc.
     </p>
   </div>
-  <div class="bio-div">
+  <div
+    class="bio-div"
+    [ngClass]="{
+      'element-background-dark': darkMode,
+      'element-background-light': !darkMode,
+      'text-dark': darkMode,
+      'text-light': !darkMode
+    }"
+  >
     <div class="tara">
       <img src="" alt="" height="150px" width="150px" />
       <div class="personal-info">

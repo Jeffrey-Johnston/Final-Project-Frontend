@@ -11,7 +11,9 @@ export class AboutUsComponent implements OnInit {
 
   constructor(private exerciseService: ExerciseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.darkMode = this.exerciseService.getMode();
+  }
 
   toggleMode = () => {
     this.exerciseService.toggleMode();

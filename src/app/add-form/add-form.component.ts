@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ExerciseService } from '../exercise.service';
 
@@ -9,6 +9,7 @@ import { ExerciseService } from '../exercise.service';
 })
 export class AddFormComponent implements OnInit {
   errorMessage: boolean = false;
+  @Input() darkModeRef!: boolean;
   @Output() submitAddEvent = new EventEmitter<any>();
   @Output() closeEvent = new EventEmitter<void>();
 

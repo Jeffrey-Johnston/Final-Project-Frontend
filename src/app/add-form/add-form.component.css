@@ -1,7 +1,6 @@
 .pop-up-form {
   position: relative;
   width: 75%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -13,4 +12,8 @@
 
 .label {
   padding: 10px 0px 5px 0px;
+}
+
+.button {
+  margin-top: 10px;
 }

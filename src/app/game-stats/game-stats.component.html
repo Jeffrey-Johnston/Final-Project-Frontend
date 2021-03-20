@@ -1,15 +1,46 @@
 <div class="pop-up">
-  <div class="button-position">
-    <i class="fas fa-times" (click)="emitCloseEvent()"></i>
-    <div class="stats-page" id="content">
+  <div
+    class="button-position"
+    [ngClass]="{
+      'element-background-dark': darkModeRef,
+      'element-background-light': !darkModeRef,
+      'shadow-dark': darkModeRef
+    }"
+  >
+    <i
+      class="fas fa-times"
+      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+      (click)="emitCloseEvent()"
+    ></i>
+    <div
+      class="stats-page"
+      id="content"
+      [ngClass]="{
+        'text-dark': darkModeRef,
+        'text-light': !darkModeRef,
+        'element-background-dark': darkModeRef,
+        'element-background-light': !darkModeRef
+      }"
+    >
       <p class="stats-para">WORKOUT FINISHED!</p>
       <p class="stats-para">{{ exerciseStatsRef }}</p>
       <p class="stats-para">{{ timeStatsRef }}</p>
       <app-game-exercises
         [statsPageRef]="statsPage"
         [cardExercisesRef]="cardExercisesRef"
+        [darkModeRef]="darkModeRef"
       ></app-game-exercises>
     </div>
-    <button class="button" (click)="convertToPdf()">Download as PDF</button>
+    <button
+      class="button"
+      [ngClass]="{
+        'text-dark': darkModeRef,
+        'text-light': !darkModeRef,
+        'shadow-dark': darkModeRef
+      }"
+      (click)="convertToPdf()"
+    >
+      Download as PDF
+    </button>
   </div>
 </div>

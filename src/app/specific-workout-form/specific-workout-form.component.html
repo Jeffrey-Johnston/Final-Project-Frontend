@@ -3,7 +3,7 @@
   class="form"
   (submit)="emitStartEvent(specificWorkoutForm)"
 >
-  <p>
+  <p [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }">
     You can pick a target muscle group and have your exercises picked for you,
     or you can play the game with the workouts you have selected!
   </p>
@@ -15,5 +15,14 @@
     <option value="3">Core</option>
     <option value="4">Full Body</option>
   </select>
-  <button class="button">Start Game</button>
+  <button
+    class="button"
+    [ngClass]="{
+      'text-dark': darkModeRef,
+      'shadow-dark': darkModeRef,
+      'text-light': !darkModeRef
+    }"
+  >
+    Start Game
+  </button>
 </form>

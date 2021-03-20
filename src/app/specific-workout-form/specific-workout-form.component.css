@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 20px;
 }
 
 .input {
@@ -12,12 +13,6 @@
 }
 
 .button {
-  margin: 0px auto 20px auto;
+  margin: 10px auto 20px auto;
   width: 75%;
-}
-
-@media only screen and (min-width: 768px) {
-  .form {
-    margin-top: 20px;
-  }
 }

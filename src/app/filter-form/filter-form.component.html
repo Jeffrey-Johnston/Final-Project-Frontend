@@ -1,9 +1,15 @@
-<p class="form-title">Filter Exercises</p>
+<p
+  class="form-title"
+  [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+>
+  Filter Exercises
+</p>
 <form
   class="search-form"
   #filterForm="ngForm"
   (input)="emitSubmitEvent(filterForm)"
   (ngSubmit)="emitSubmitEvent(filterForm)"
+  [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
 >
   <input
     class="input text"
@@ -35,15 +41,41 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <button class="button">Submit</button>
+  <button
+    class="button"
+    [ngClass]="{
+      'text-dark': darkModeRef,
+      'shadow-dark': darkModeRef,
+      'text-light': !darkModeRef
+    }"
+  >
+    Submit
+  </button>
   <div class="workout-display">
-    <p class="all-workouts border" (click)="emitClearFilterEvent()">
+    <p
+      class="all-workouts border"
+      [ngClass]="{
+        'border-dark': darkModeRef,
+        border: !darkModeRef
+      }"
+      (click)="emitClearFilterEvent()"
+    >
       All Workouts
     </p>
-    <p class="border" (click)="toggleAddForm()">Add Workout</p>
+    <p
+      class="border"
+      [ngClass]="{
+        'border-dark': darkModeRef,
+        border: !darkModeRef
+      }"
+      (click)="toggleAddForm()"
+    >
+      Add Workout
+    </p>
   </div>
   <app-add-form
     *ngIf="addOpen"
+    [darkModeRef]="darkModeRef"
     (closeEvent)="toggleAddForm()"
     (submitAddEvent)="emitAddEvent($event)"
   ></app-add-form>

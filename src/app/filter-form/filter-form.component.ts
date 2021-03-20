@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./filter-form.component.css'],
 })
 export class FilterFormComponent implements OnInit {
+  @Input() darkModeRef!: boolean;
   @Output() submitEvent = new EventEmitter<any>();
   @Output() addEvent = new EventEmitter<any>();
   @Output() clearFilterEvent = new EventEmitter<any>();

@@ -10,7 +10,7 @@ import html2canvas from 'html2canvas';
 })
 export class GameStatsComponent implements OnInit {
   statsPage: boolean = true;
-
+  @Input() darkModeRef!: boolean;
   @Input() exerciseStatsRef!: string;
   @Input() timeStatsRef!: string;
   @Input() cardExercisesRef!: Exercise[];

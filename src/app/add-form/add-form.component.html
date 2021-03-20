@@ -1,5 +1,15 @@
 <div class="pop-up">
-  <form class="pop-up-form" #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+  <form
+    class="pop-up-form"
+    #addForm="ngForm"
+    [ngClass]="{
+      'element-background-dark': darkModeRef,
+      'element-background-light': !darkModeRef,
+      'text-dark': darkModeRef,
+      'text-light': !darkModeRef
+    }"
+    (ngSubmit)="onSubmit(addForm)"
+  >
     <p>Add Exercise</p>
     <label class="label" for="name">Name</label>
     <input type="text" name="name" id="name" required ngModel />
@@ -34,7 +44,9 @@
       ngModel
     ></textarea>
     <i class="fas fa-times" (click)="emitCloseForm()"></i>
-    <button class="button">Submit</button>
+    <button class="button" [ngClass]="{ 'shadow-dark': darkModeRef }">
+      Submit
+    </button>
     <p class="error" *ngIf="errorMessage">Must Input All Fields</p>
   </form>
 </div>

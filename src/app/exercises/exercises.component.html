@@ -4,6 +4,7 @@
 >
   <app-header (toggleModeEvent)="toggleMode()"></app-header>
   <app-filter-form
+    [darkModeRef]="darkMode"
     (submitEvent)="setFilterTerms($event)"
     (clearFilterEvent)="resetFilterTerms()"
     (addEvent)="addExercise($event)"
@@ -11,12 +12,13 @@
   <div class="lists">
     <div class="left-side">
       <app-game-exercises
-        (removeEvent)="removeFromGame($event)"
-        (clearEvent)="clearGameExercises()"
         [cardExercisesRef]="cardExercises"
         [darkModeRef]="darkMode"
+        (removeEvent)="removeFromGame($event)"
+        (clearEvent)="clearGameExercises()"
       ></app-game-exercises>
       <app-specific-workout-form
+        [darkModeRef]="darkMode"
         (startEvent)="startGame($event)"
       ></app-specific-workout-form>
     </div>
@@ -24,6 +26,7 @@
     <app-options-pop-up
       *ngIf="startPage"
       [cardExercisesRef]="cardExercises"
+      [darkModeRef]="darkMode"
       (closeEvent)="toggleStartPage()"
       (generateEvent)="randomlyGenerateExercises(0)"
     ></app-options-pop-up>

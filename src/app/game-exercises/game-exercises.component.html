@@ -1,25 +1,32 @@
 <div
   *ngIf="!statsPageRef"
   class="panel-title mobile"
-  [ngClass]="{ 'title-margin': !showCollapsible }"
   (click)="toggleShowCollapsible()"
-  [ngClass]="{
-    'element-background-dark': darkModeRef,
-    'element-background-light': !darkModeRef
-  }"
 >
-  <p class="title">See All Card Game Exercises</p>
+  <p
+    class="title"
+    [ngClass]="{
+      'element-background-dark': darkModeRef,
+      'element-background-light': !darkModeRef,
+      'text-dark': darkModeRef,
+      'text-light': !darkModeRef
+    }"
+  >
+    See All Card Game Exercises
+  </p>
   <i
     *ngIf="!showCollapsible"
     class="fas fa-caret-down"
     data-toggle="collapse"
     href="#collapse1"
+    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
   ></i>
   <i
     *ngIf="showCollapsible"
     class="fas fa-caret-up"
     data-toggle="collapse"
     href="#collapse1"
+    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
   ></i>
 </div>
 
@@ -28,8 +35,10 @@
   class="game-exercises"
   [ngClass]="{
     'stats-page-exercises': statsPageRef,
-    'element-background-dark ': darkModeRef,
-    'element-background-light': !darkModeRef
+    'element-background-dark': darkModeRef,
+    'element-background-light': !darkModeRef,
+    'text-dark': darkModeRef,
+    'text-light': !darkModeRef
   }"
 >
   <p *ngIf="statsPageRef" class="title">Exercises:</p>
@@ -71,7 +80,11 @@
   [ngClass]="{
     'stats-page-exercises': statsPageRef,
     'element-background-dark': darkModeRef,
-    'element-background-light': !darkModeRef
+    'element-background-light': !darkModeRef,
+    'shadow-dark': darkModeRef,
+    'shadow-light': !darkModeRef,
+    'text-dark': darkModeRef,
+    'text-light': !darkModeRef
   }"
 >
   <p
@@ -97,7 +110,10 @@
     plus sign on an exercise to add it!
   </p>
   <ol *ngIf="cardExercisesRef.length !== 0" class="ordered-list">
-    <li *ngFor="let cardExercise of cardExercisesRef">
+    <li
+      *ngFor="let cardExercise of cardExercisesRef"
+      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+    >
       <div class="list-item">
         <p [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }">
           {{ cardExercise.name }}
@@ -105,6 +121,7 @@
         <i
           (click)="emitRemoveEvent(cardExercise)"
           class="fas fa-minus"
+          [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
           *ngIf="url === 'exercises'"
         ></i>
       </div>
@@ -112,9 +129,13 @@
   </ol>
   <p
     *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
-    class="underline"
     (click)="emitClearEvent()"
-    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+    [ngClass]="{
+      'text-dark': darkModeRef,
+      'border-dark': darkModeRef,
+      'text-light': !darkModeRef,
+      underline: !darkModeRef
+    }"
   >
     Clear All Exercises
   </p>

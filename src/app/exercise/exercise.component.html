@@ -9,7 +9,9 @@
     'element-background-dark': darkModeRef,
     'element-background-light': !darkModeRef,
     'text-dark': darkModeRef,
-    'text-light': !darkModeRef
+    'text-light': !darkModeRef,
+    'shadow-dark': darkModeRef,
+    'shadow-light': !darkModeRef
   }"
 >
   <div class="name-div">
@@ -82,7 +84,16 @@
     </button>
   </div>
   <div class="pop-up" *ngIf="descriptionPopUp">
-    <div class="pop-up-description">
+    <div
+      class="pop-up-description"
+      [ngClass]="{
+        'element-background-dark': darkModeRef,
+        'element-background-light': !darkModeRef,
+        'text-dark': darkModeRef,
+        'text-light': !darkModeRef,
+        'shadow-dark': darkModeRef
+      }"
+    >
       <i class="fas fa-times" (click)="toggleDescription()"></i>
       <p class="name">{{ exerciseRef.name }}</p>
       <p>{{ exerciseRef.description }}</p>

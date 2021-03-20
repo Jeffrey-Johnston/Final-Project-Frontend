@@ -66,7 +66,8 @@
 }
 
 @media only screen and (min-width: 1053px) {
-  .search-form {
+  .search-form,
+  .form-title {
     width: 728px;
     margin-left: 290px;
   }
