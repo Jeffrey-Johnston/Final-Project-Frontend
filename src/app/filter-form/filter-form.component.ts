@@ -18,10 +18,12 @@ export class FilterFormComponent implements OnInit {
   ngOnInit(): void {}
 
   emitSubmitEvent = (form: NgForm) => {
+    console.log(form.form.value);
     this.submitEvent.emit(form.form.value);
   };
 
-  emitClearFilterEvent = () => {
+  emitClearFilterEvent = (form: NgForm) => {
+    form.reset();
     this.clearFilterEvent.emit();
   };
 

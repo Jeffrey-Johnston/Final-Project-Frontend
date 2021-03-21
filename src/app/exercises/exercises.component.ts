@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';

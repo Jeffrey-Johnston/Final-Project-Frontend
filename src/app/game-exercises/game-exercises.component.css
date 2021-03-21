@@ -55,13 +55,8 @@
   justify-content: space-between;
 }
 
-.start {
-  width: 40%;
-}
-
-.underline {
-  border-bottom: 1px solid black;
-  padding: 5px 0px;
+.clear {
+  text-align: center;
 }
 
 .desktop {
@@ -73,6 +68,14 @@
 
 .title-view {
   display: none;
+}
+
+.stats-page-exercises {
+  margin-bottom: 25px;
+}
+
+.current-exercise {
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 768px) {

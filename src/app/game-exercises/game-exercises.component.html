@@ -32,7 +32,7 @@
 
 <div
   *ngIf="showCollapsible || statsPageRef"
-  class="game-exercises"
+  class="game-exercises mobile"
   [ngClass]="{
     'stats-page-exercises': statsPageRef,
     'element-background-dark': darkModeRef,
@@ -56,7 +56,14 @@
   <ol *ngIf="cardExercisesRef.length !== 0" class="ordered-list">
     <li *ngFor="let cardExercise of cardExercisesRef">
       <div class="list-item">
-        <p>{{ cardExercise.name }}</p>
+        <p
+          [ngClass]="{
+            'current-exercise':
+              currentExerciseRef?.exercise_id === cardExercise?.exercise_id
+          }"
+        >
+          {{ cardExercise.name }}
+        </p>
         <i
           (click)="emitRemoveEvent(cardExercise)"
           class="fas fa-minus"
@@ -67,7 +74,13 @@
   </ol>
   <p
     *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
-    class="start underline"
+    class="clear"
+    [ngClass]="{
+      'text-dark': darkModeRef,
+      'border-dark': darkModeRef,
+      'text-light': !darkModeRef,
+      'border-light': !darkModeRef
+    }"
     (click)="emitClearEvent()"
   >
     Clear All Exercises
@@ -75,7 +88,6 @@
 </div>
 
 <div
-  *ngIf="!statsPageRef"
   class="game-exercises desktop"
   [ngClass]="{
     'stats-page-exercises': statsPageRef,
@@ -115,7 +127,14 @@
       [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
     >
       <div class="list-item">
-        <p [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }">
+        <p
+          [ngClass]="{
+            'text-dark': darkModeRef,
+            'text-light': !darkModeRef,
+            'current-exercise':
+              currentExerciseRef?.exercise_id === cardExercise?.exercise_id
+          }"
+        >
           {{ cardExercise.name }}
         </p>
         <i
@@ -130,11 +149,12 @@
   <p
     *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
     (click)="emitClearEvent()"
+    class="clear"
     [ngClass]="{
       'text-dark': darkModeRef,
       'border-dark': darkModeRef,
       'text-light': !darkModeRef,
-      underline: !darkModeRef
+      'border-light': !darkModeRef
     }"
   >
     Clear All Exercises

@@ -13,6 +13,7 @@ export class GameExercisesComponent implements OnInit {
   url: string = '';
   showCollapsible: boolean = false;
   @Input() cardExercisesRef!: Exercise[];
+  @Input() currentExerciseRef!: Exercise;
   @Input() statsPageRef: boolean = false;
   @Input() darkModeRef!: boolean;
   @Output() removeEvent = new EventEmitter<any>();
