@@ -17,22 +17,9 @@ export class CardService {
 
   setDeckID = (deckID: string) => {
     this.deckID = deckID;
-    console.log(this.deckID);
   };
 
   drawCards = () => {
     return this.http.get(`${this.baseUrl}/${this.deckID}/draw/?count=52`);
-  };
-
-  addToPile = (code: string) => {
-    return this.http.get(
-      `${this.baseUrl}/${this.deckID}/pile/${this.pileName}/add/?cards=${code}`
-    );
-  };
-
-  getPileList = () => {
-    return this.http.get(
-      `${this.baseUrl}/${this.deckID}/pile/${this.pileName}/list/`
-    );
   };
 }

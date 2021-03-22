@@ -7,8 +7,7 @@
 <form
   class="search-form"
   #filterForm="ngForm"
-  (input)="emitSubmitEvent(filterForm)"
-  (change)="emitSubmitEvent(filterForm)"
+  (input)="emitSubmitEvent(obj)"
   [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
 >
   <input
@@ -17,40 +16,58 @@
     name="name"
     id="name"
     placeholder="Enter Exercise Name..."
-    ngModel
+    [(ngModel)]="obj.name"
   />
 
-  <select class="input" name="bodyPart" id="bodyPart" ngModel>
-    <option value="" disabled>Target Muscle Group</option>
-    <option value="">All</option>
-    <option value="1">Calves</option>
-    <option value="2">Thighs</option>
-    <option value="3">Glutes and Hamstrings</option>
-    <option value="4">Core</option>
-    <option value="5">Back and Biceps</option>
-    <option value="6">Chest, Shoulders, and Triceps</option>
-    <option value="7">Full Body</option>
-    <option value="8">Plyometrics</option>
-  </select>
-  <select class="input" name="difficulty" id="difficulty" ngModel>
-    <option value="" disabled>Max Difficulty</option>
-    <option value="">All</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <!-- <button
-    class="button"
-    [ngClass]="{
-      'text-dark': darkModeRef,
-      'shadow-dark': darkModeRef,
-      'text-light': !darkModeRef
-    }"
-  >
-    Submit
-  </button> -->
+  <div class="input-div">
+    <label
+      for="bodyPart"
+      class="label"
+      [ngClass]="{ 'label-empty': !obj.bodyPart && obj.bodyPart !== '' }"
+      >Target Muscle Group</label
+    >
+    <select
+      class="input"
+      name="bodyPart"
+      id="bodyPart"
+      [(ngModel)]="obj.bodyPart"
+    >
+      <option value="" disabled>Target Muscle Group</option>
+      <option value="">All</option>
+      <option value="1">Calves</option>
+      <option value="2">Thighs</option>
+      <option value="3">Glutes and Hamstrings</option>
+      <option value="4">Core</option>
+      <option value="5">Back and Biceps</option>
+      <option value="6">Chest, Shoulders, and Triceps</option>
+      <option value="7">Full Body</option>
+      <option value="8">Plyometrics</option>
+    </select>
+  </div>
+
+  <div class="input-div">
+    <select
+      class="input"
+      name="difficulty"
+      id="difficulty"
+      [(ngModel)]="obj.difficulty"
+    >
+      <option value="" disabled>Max Difficulty</option>
+      <option value="">All</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <label
+      for="bodyPart"
+      class="label"
+      [ngClass]="{ 'label-empty': !obj.difficulty && obj.difficulty !== '' }"
+      >Max Difficulty</label
+    >
+  </div>
+
   <div class="workout-display">
     <p
       class="all-workouts"

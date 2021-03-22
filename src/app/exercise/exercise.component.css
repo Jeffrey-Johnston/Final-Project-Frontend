@@ -72,6 +72,7 @@
 .name-div {
   display: flex;
   align-items: center;
+  width: 60%;
 }
 
 .muscle-group {

@@ -2,7 +2,10 @@
   class="page-container"
   [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
 >
-  <app-header (toggleModeEvent)="toggleMode()"></app-header>
+  <app-header
+    [currentTabRef]="currentTab"
+    (toggleModeEvent)="toggleMode()"
+  ></app-header>
   <div
     class="intro"
     [ngClass]="{
@@ -13,9 +16,21 @@
     }"
   >
     <h1>About Our Team</h1>
-    <p>
-      Description about all three of us - students at Grand Circus, this is our
-      final project, why we made this, etc.
+    <p class="intro-paragraph">
+      We are Full-Time Front End Bootcamp students at Grand Circus in Detroit,
+      MI and the creators of CARDio. We created this app because we want to give
+      every person a tool to take their health and liveliness, specifically
+      during this pandemic, into their own hands.
+    </p>
+    <p class="intro-paragraph">
+      Whether you’ve transitioned from gym to home, or you’re completely new to
+      the exercise world, we think exercise is a key way to maintain your
+      morale.
+    </p>
+    <p class="intro-paragraph">
+      The big scale goal of this application is to provide structure in a
+      workout for those who aren’t sure where to start, in a fun and interactive
+      way.
     </p>
   </div>
   <div
@@ -28,68 +43,89 @@
     }"
   >
     <div class="tara">
-      <img src="" alt="" height="150px" width="150px" />
+      <img src="/assets/tara.jpeg" alt="Tara Headshot" class="image" />
       <div class="personal-info">
+        <h2 class="name">Tara Cuckovich</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
-          voluptatem possimus vitae eveniet quos, fugit nisi.
+          In May 2020, I graduated from the University of Michigan with a
+          Bachelor of Science in Biopsychology, Cognition, and Neuroscience.
+          More recently, I graduated from Grand Circus with a certificate in
+          Front End Development. I pivoted my path to software engineering
+          because programming languages seem fluent to me. In boot camp, I’ve
+          enthusiastically taken on HTML, CSS, JavaScript, TypeScript, Angular,
+          and Git/GitHub, learning the ins and outs of these programming
+          languages and frameworks. I look forward to pairing my new knowledge
+          of programming languages, with my user-centered ideology to build
+          applications that focus on readability and accessibility.
         </p>
-        <p class="peronal-links">
-          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        <p class="personal-links">
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://www.linkedin.com/in/taracuckovich/"
+            >LinkedIn</a
+          >
+          |
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://github.com/taracuck"
+            >GitHub</a
+          >
         </p>
       </div>
     </div>
     <div class="rocky">
-      <img src="" alt="" height="150px" width="150px" />
+      <img src="/assets/richard.jpg" alt="Richard Headshot" class="image" />
       <div class="personal-info">
+        <h2 class="name">Richard McIntosh</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
-          voluptatem possimus vitae eveniet quos, fugit nisi.
+          Web Developer Junior seeking new exciting opportunities! Passionate
+          about learning new skills in the tech field and outside the tech field
+          for personal growth. I also own my own business and love to fish
+          professionally (tournaments and derbies) every chance I get. Learning
+          and working together while making new friends is my direction.
         </p>
-        <p class="peronal-links">
-          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        <p class="personal-links">
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://www.linkedin.com/in/richard-mcintosh-bb3340207/"
+            >LinkedIn</a
+          >
+          |
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://github.com/richmister"
+            >GitHub</a
+          >
         </p>
       </div>
     </div>
     <div class="jeff">
-      <img src="" alt="" height="150px" width="150px" />
+      <img src="/assets/jeff.jpeg" alt="Jeff Headshot" class="image" />
       <div class="personal-info">
+        <h2 class="name">Jeff Johnston</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quo
-          voluptatem possimus vitae eveniet quos, fugit nisi.
+          I am a recent Grand Circus graduate with certification in front end
+          web development, currently seeking an entry level position with a
+          focus in UX/UI design. I have a serious passion for learning about new
+          ways to create immersive web applications that provide a memorable
+          experience for the user. As a former sous chef I pride myself on not
+          just my leadership skills, but my ability to work under a mentor and
+          interpret their vision while also adding some flavor of my own.
         </p>
-        <p class="peronal-links">
-          <a href="">LinkedIn</a> | <a href="">GitHub</a>
+        <p class="personal-links">
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://www.linkedin.com/in/jeffrey-r-johnston"
+            >LinkedIn</a
+          >
+          |
+          <a
+            [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+            href="https://github.com/Jeffrey-Johnston"
+            >GitHub</a
+          >
         </p>
       </div>
     </div>
-  </div>
-  <div class="form-container">
-    <p>Please contact our CARDio team if you have any questions</p>
-    <form class="contact-form">
-      <input
-        class="contact-inputs"
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Name"
-      />
-      <input
-        class="contact-inputs"
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Enter Email"
-      />
-      <textarea
-        class="contact-inputs"
-        placeholder="Your message"
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-      ></textarea>
-      <button class="contact-submit">Submit</button>
-    </form>
   </div>
 </div>

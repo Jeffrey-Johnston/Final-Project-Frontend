@@ -17,10 +17,30 @@
   margin: 5px 0px 10px 0px;
 }
 
+.input-div {
+  position: relative;
+}
+
 .input {
   margin: 5px 0;
-  padding: 5px 0px;
+  padding: 12px 0px 4px 0px;
   border: 1px solid rgb(10, 10, 10);
+  background-color: white;
+  width: 100%;
+}
+
+.label {
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  font-size: 9px;
+  pointer-events: none;
+}
+
+.label-empty {
+  font-size: 14px;
+  top: 50%;
+  transform: translate(0px, -50%);
 }
 
 .text {
@@ -43,6 +63,10 @@
 
   .workout-display {
     margin: 5px 0px;
+  }
+
+  .input-div {
+    margin-right: 5px;
   }
 
   .input {

@@ -58,6 +58,7 @@
       <div class="list-item">
         <p
           [ngClass]="{
+            name: url === 'exercises',
             'current-exercise':
               currentExerciseRef?.exercise_id === cardExercise?.exercise_id
           }"
@@ -129,6 +130,7 @@
       <div class="list-item">
         <p
           [ngClass]="{
+            name: url === 'exercises',
             'text-dark': darkModeRef,
             'text-light': !darkModeRef,
             'current-exercise':

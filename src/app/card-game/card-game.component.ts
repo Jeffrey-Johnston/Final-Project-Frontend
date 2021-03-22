@@ -11,6 +11,7 @@ import { ThemeService } from '../theme.service';
 })
 export class CardGameComponent implements OnInit {
   darkMode!: boolean;
+  currentTab: string = 'card-game';
   currentIndex: number = -1;
   deck!: any;
   deckID!: string;
@@ -71,7 +72,6 @@ export class CardGameComponent implements OnInit {
   drawCards = () => {
     this.cardService.drawCards().subscribe((response: any) => {
       this.pileList = response.cards;
-      console.log(this.pileList);
       this.currentlyDrawn = this.pileList[0];
     });
   };
@@ -97,7 +97,6 @@ export class CardGameComponent implements OnInit {
 
   getAndSetGameExercises = () => {
     this.gameExercises = this.exerciseService.getCardExercises();
-    console.log(this.gameExercises);
   };
 
   getRandomIndex = () => {
@@ -164,7 +163,6 @@ export class CardGameComponent implements OnInit {
         added = this.addToGame(this.allExercises[index]);
       }
     }
-    console.log(this.gameExercises);
   };
 
   endGame = () => {

@@ -8,6 +8,7 @@ import { ThemeService } from '../theme.service';
 })
 export class HomeComponent implements OnInit {
   darkMode!: boolean;
+  currentTab: string = 'home';
 
   constructor(private themeService: ThemeService) {}
 

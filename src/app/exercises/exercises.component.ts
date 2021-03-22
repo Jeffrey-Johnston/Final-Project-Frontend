@@ -11,6 +11,7 @@ import { ThemeService } from '../theme.service';
 })
 export class ExercisesComponent implements OnInit {
   filterTerms: any = {};
+  currentTab: string = 'exercises';
   exercises: Exercise[] = [];
   muscleGroup1: Exercise[] = [];
   muscleGroup2: Exercise[] = [];
@@ -35,7 +36,7 @@ export class ExercisesComponent implements OnInit {
 
   getAndSetExercises = () => {
     this.exerciseService.getExercises().subscribe((response: any) => {
-      console.log(response);
+      console.log(this.filterTerms);
       this.exercises = response;
       if (this.filterTerms.name) {
         this.exercises = this.exercises.filter((item) =>

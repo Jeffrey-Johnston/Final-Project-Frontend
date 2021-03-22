@@ -78,7 +78,11 @@
     <button
       class="button description"
       (click)="toggleDescription()"
-      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
+      [ngClass]="{
+        'text-dark': darkModeRef,
+        'text-light': !darkModeRef,
+        'shadow-dark': darkModeRef
+      }"
     >
       Show Description
     </button>

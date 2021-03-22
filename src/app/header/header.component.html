@@ -9,7 +9,11 @@
         <a
           class="link"
           routerLink="/home"
-          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          [ngClass]="{
+            'text-dark': darkMode,
+            'text-light': !darkMode,
+            'current-tab': currentTabRef === 'home'
+          }"
           >Home</a
         >
       </li>
@@ -17,7 +21,11 @@
         <a
           class="link"
           routerLink="/exercises"
-          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          [ngClass]="{
+            'text-dark': darkMode,
+            'text-light': !darkMode,
+            'current-tab': currentTabRef === 'exercises'
+          }"
           >Exercises</a
         >
       </li>
@@ -25,7 +33,11 @@
         <a
           class="link"
           routerLink="/card-game"
-          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          [ngClass]="{
+            'text-dark': darkMode,
+            'text-light': !darkMode,
+            'current-tab': currentTabRef === 'card-game'
+          }"
           >Card Game</a
         >
       </li>
@@ -33,7 +45,11 @@
         <a
           class="link"
           routerLink="/about-us"
-          [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+          [ngClass]="{
+            'text-dark': darkMode,
+            'text-light': !darkMode,
+            'current-tab': currentTabRef === 'about-us'
+          }"
           >About Us</a
         >
       </li>

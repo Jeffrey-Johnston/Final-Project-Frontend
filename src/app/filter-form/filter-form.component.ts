@@ -12,14 +12,16 @@ export class FilterFormComponent implements OnInit {
   @Output() addEvent = new EventEmitter<any>();
   @Output() clearFilterEvent = new EventEmitter<any>();
   addOpen: boolean = false;
+  obj: any = { name: null, bodyPart: null, difficulty: null };
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.obj);
+  }
 
-  emitSubmitEvent = (form: NgForm) => {
-    console.log(form.form.value);
-    this.submitEvent.emit(form.form.value);
+  emitSubmitEvent = (object: any) => {
+    this.submitEvent.emit(object);
   };
 
   emitClearFilterEvent = (form: NgForm) => {

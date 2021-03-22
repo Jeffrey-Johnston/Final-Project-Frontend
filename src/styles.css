@@ -3,6 +3,7 @@ body,
 h1,
 p,
 ul,
+h2,
 h3,
 h4,
 li {
@@ -58,6 +59,17 @@ body {
   border-bottom: 1px solid black;
   padding: 5px 0px;
   margin: 0 5px;
+}
+
+/* active states */
+button.shadow-dark:hover {
+  background-color: hsl(0deg 0% 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+button:hover {
+  background-color: #25273c;
+  color: hsl(0, 0%, 98%);
 }
 
 .page-container {

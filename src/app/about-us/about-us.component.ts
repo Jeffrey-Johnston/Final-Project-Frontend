@@ -9,11 +9,9 @@ import { ThemeService } from '../theme.service';
 })
 export class AboutUsComponent implements OnInit {
   darkMode!: boolean;
+  currentTab: string = 'about-us';
 
-  constructor(
-    private exerciseService: ExerciseService,
-    private themeService: ThemeService
-  ) {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.darkMode = this.themeService.getMode();

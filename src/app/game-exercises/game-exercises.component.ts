@@ -24,7 +24,6 @@ export class GameExercisesComponent implements OnInit {
   ngOnInit(): void {
     this.route.url.subscribe((response) => {
       this.url = response[0].path;
-      console.log(this.url);
     });
   }
 

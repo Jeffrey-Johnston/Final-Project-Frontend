@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ExerciseService } from '../exercise.service';
 import { ThemeService } from '../theme.service';
 
@@ -9,12 +9,10 @@ import { ThemeService } from '../theme.service';
 })
 export class HeaderComponent implements OnInit {
   darkMode!: boolean;
+  @Input() currentTabRef!: string;
   @Output() toggleModeEvent = new EventEmitter<void>();
 
-  constructor(
-    private exerciseService: ExerciseService,
-    private themeService: ThemeService
-  ) {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.darkMode = this.themeService.getMode();
