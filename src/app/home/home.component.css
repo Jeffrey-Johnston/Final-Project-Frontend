@@ -1,6 +1,12 @@
 .home-header {
   padding: 15px;
 }
+.body-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .home-image {
   width: 100%;
   height: auto;
@@ -18,53 +24,74 @@
     to right,
     rgb(48, 53, 92),
     rgb(100, 104, 136)
-  );
+  ) !important;
 }
 .welcome-title {
   color: rgb(73, 134, 204);
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 35px;
+  margin-bottom: 10px;
 }
 .tag-line {
-  color: rgb(180, 186, 230);
+  font-size: 25px;
+
+  color: rgb(218, 222, 253);
 }
 .tag-line-2 {
+  padding: 0 20px 0 20px;
+  font-size: 20px;
   text-align: end;
   color: rgb(180, 186, 230);
 }
+
 .welcome-message {
   width: 100%;
-  padding: 20px 0 10px 0;
-  text-align: center;
+  padding: 10px 0 10px 0;
+  /* text-align: center; */
   font-size: 15px;
-  color: rgb(180, 186, 230);
+  color: rgb(218, 222, 253);
 }
 .all-messages {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
 }
 .message-container {
   height: 175px;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
   align-items: center;
   transition: 0.3s;
   box-sizing: border-box;
-  background-color: white;
-}
-.message-container:hover {
-  background-color: rgb(100, 104, 136);
 }
 .message-title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 18px;
   color: rgb(73, 134, 204);
 }
 .message {
   color: rgb(159, 166, 184);
   font-size: 15px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  background-color: transparent !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .body-section {
+    display: flex;
+    flex-direction: row;
+  }
+  .welcome-section {
+    height: 100vh;
+    flex: 1;
+  }
+  .slide-show-section {
+    height: 100vh;
+    flex: 1;
+  }
 }

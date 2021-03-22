@@ -33,11 +33,11 @@ body {
 }
 
 .text-dark {
-  color: hsl(0, 0%, 98%);
+  color: hsl(0, 0%, 98%) !important;
 }
 
 .text-light {
-  color: hsl(235, 19%, 35%);
+  color: hsl(235, 19%, 35%) !important;
 }
 
 .shadow-light {

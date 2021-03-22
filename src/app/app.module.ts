@@ -21,7 +21,6 @@ import { GameStatsComponent } from './game-stats/game-stats.component';
 import { CardComponent } from './card/card.component';
 import { SpecificWorkoutFormComponent } from './specific-workout-form/specific-workout-form.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,15 +38,10 @@ import { SpecificWorkoutFormComponent } from './specific-workout-form/specific-w
     GameExercisesComponent,
     GameStatsComponent,
     CardComponent,
-    SpecificWorkoutFormComponent
+    SpecificWorkoutFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
