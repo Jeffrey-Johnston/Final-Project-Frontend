@@ -1,4 +1,7 @@
-<app-header (toggleModeEvent)="toggleMode()"></app-header>
+<app-header
+  [currentTabRef]="currentTab"
+  (toggleModeEvent)="toggleMode()"
+></app-header>
 <section class="body-section">
   <section class="welcome-section">
     <img class="home-image" src="assets/final-home-image.png" alt="" />
