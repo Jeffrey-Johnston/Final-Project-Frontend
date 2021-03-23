@@ -17,7 +17,7 @@
 }
 
 .detail-header {
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -147,6 +147,10 @@
 
   .muscle-group {
     font-size: 11px;
+  }
+
+  .detail-header {
+    font-size: 12px;
   }
 }
 

@@ -20,6 +20,7 @@ import { GameExercisesComponent } from './game-exercises/game-exercises.componen
 import { GameStatsComponent } from './game-stats/game-stats.component';
 import { CardComponent } from './card/card.component';
 import { SpecificWorkoutFormComponent } from './specific-workout-form/specific-workout-form.component';
+import { GameDescriptionComponent } from './game-description/game-description.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SpecificWorkoutFormComponent } from './specific-workout-form/specific-w
     GameStatsComponent,
     CardComponent,
     SpecificWorkoutFormComponent,
+    GameDescriptionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

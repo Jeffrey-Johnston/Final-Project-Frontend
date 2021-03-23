@@ -12,6 +12,7 @@
     (clearFilterEvent)="resetFilterTerms()"
     (addEvent)="addExercise($event)"
   ></app-filter-form>
+
   <div class="lists">
     <div class="left-side">
       <app-game-exercises
@@ -20,6 +21,24 @@
         (removeEvent)="removeFromGame($event)"
         (clearEvent)="clearGameExercises()"
       ></app-game-exercises>
+
+      <button
+        class="button"
+        (click)="toggleDescription()"
+        [ngClass]="{
+          'text-dark': darkMode,
+          'shadow-dark': darkMode,
+          'text-light': !darkMode
+        }"
+      >
+        How To Play
+      </button>
+      <app-game-description
+        (closeEvent)="toggleDescription()"
+        *ngIf="descriptionPage"
+        [darkModeRef]="darkMode"
+      ></app-game-description>
+
       <app-specific-workout-form
         [darkModeRef]="darkMode"
         (startEvent)="startGame($event)"

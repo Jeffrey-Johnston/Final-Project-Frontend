@@ -7,6 +7,12 @@
   box-sizing: border-box;
   margin-bottom: 15px;
   text-align: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(48, 53, 92),
+    rgb(100, 104, 136)
+  ) !important;
+  color: hsl(0, 0%, 98%);
 }
 .intro-paragraph {
   margin: 5px 0px;

@@ -1,5 +1,15 @@
+.left-side {
+  display: flex;
+  flex-direction: column;
+}
+
 .lists {
   margin: 10px 0px;
+}
+
+.button {
+  width: 75%;
+  margin: 10px auto;
 }
 
 @media only screen and (min-width: 768px) {

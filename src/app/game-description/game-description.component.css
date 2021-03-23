@@ -1,0 +1,38 @@
+.game-description {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  width: 75%;
+  padding: 20px;
+}
+
+.how-to-title {
+  margin-bottom: 10px;
+}
+
+.description-para {
+  font-size: 12px;
+}
+
+.description-list {
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+.example-image {
+  width: 100%;
+  height: auto;
+  margin: 15px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .example-image {
+    width: 50%;
+  }
+
+  .description-para,
+  .description-list {
+    font-size: 14px;
+  }
+}

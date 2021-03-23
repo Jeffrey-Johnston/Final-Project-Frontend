@@ -31,6 +31,7 @@ export class CardGameComponent implements OnInit {
   gameStarted: boolean = false;
   exerciseStats: string = ``;
   timeStats: string = ``;
+  descriptionPage: boolean = false;
 
   constructor(
     private cardService: CardService,
@@ -126,6 +127,7 @@ export class CardGameComponent implements OnInit {
         this.hour++;
       }
     }, 1000);
+    this.currentIndex++;
   };
 
   stopTimer = () => {
@@ -204,5 +206,9 @@ export class CardGameComponent implements OnInit {
   toggleMode = () => {
     this.themeService.toggleMode();
     this.darkMode = this.themeService.getMode();
+  };
+
+  toggleDescription = () => {
+    this.descriptionPage = !this.descriptionPage;
   };
 }

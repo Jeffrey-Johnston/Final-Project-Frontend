@@ -12,9 +12,25 @@
     [darkModeRef]="darkMode"
     (generateEvent)="randomlyGenerateExercises()"
   ></app-options-pop-up>
+
   <div class="game-options">
     <div class="game-visuals">
       <div class="all-buttons">
+        <button
+          class="button how-to"
+          (click)="toggleDescription()"
+          [ngClass]="{
+            'shadow-dark': darkMode
+          }"
+        >
+          HOW TO PLAY
+        </button>
+        <app-game-description
+          (closeEvent)="toggleDescription()"
+          *ngIf="descriptionPage"
+          [darkModeRef]="darkMode"
+        ></app-game-description>
+
         <button
           *ngIf="checkGameStatus() === 2 && !gameStarted"
           class="start-finish button"

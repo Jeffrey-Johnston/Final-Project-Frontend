@@ -10,6 +10,17 @@
   justify-content: center;
 }
 
+.how-to {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: hsl(235, 19%, 35%);
+  color: hsl(0, 0%, 98%);
+}
+.how-to:hover {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%) !important;
+}
+
 .start-finish {
   width: 100%;
 }

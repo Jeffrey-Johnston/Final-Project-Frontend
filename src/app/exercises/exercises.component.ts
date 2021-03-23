@@ -21,6 +21,7 @@ export class ExercisesComponent implements OnInit {
   startPage: boolean = false;
   gameMode: boolean = false;
   darkMode!: boolean;
+  descriptionPage: boolean = false;
 
   constructor(
     private exerciseService: ExerciseService,
@@ -165,5 +166,8 @@ export class ExercisesComponent implements OnInit {
   toggleMode = () => {
     this.themeService.toggleMode();
     this.darkMode = this.themeService.getMode();
+  };
+  toggleDescription = () => {
+    this.descriptionPage = !this.descriptionPage;
   };
 }
