@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-bottom: 15px;
+  padding: 15px;
   box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .current-tab {
-  color: rgb(60, 60, 255);
+  color: rgb(60, 60, 255) !important;
   padding: 5px 0px;
   box-sizing: content-box;
   border-bottom: 1px solid;

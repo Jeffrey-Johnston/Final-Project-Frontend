@@ -1,11 +1,11 @@
+<app-header
+  [currentTabRef]="currentTab"
+  (toggleModeEvent)="toggleMode()"
+></app-header>
 <div
   class="page-container"
   [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
 >
-  <app-header
-    [currentTabRef]="currentTab"
-    (toggleModeEvent)="toggleMode()"
-  ></app-header>
   <app-filter-form
     [darkModeRef]="darkMode"
     (submitEvent)="setFilterTerms($event)"

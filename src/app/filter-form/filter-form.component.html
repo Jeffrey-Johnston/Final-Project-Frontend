@@ -72,8 +72,8 @@
     <p
       class="all-workouts"
       [ngClass]="{
-        'border-dark': darkModeRef,
-        'border-light': !darkModeRef
+        'border-bottom-dark': darkModeRef,
+        'border-bottom-light': !darkModeRef
       }"
       (click)="emitClearFilterEvent(filterForm)"
     >
@@ -82,8 +82,8 @@
     <p
       class="border"
       [ngClass]="{
-        'border-dark': darkModeRef,
-        'border-light': !darkModeRef
+        'border-bottom-dark': darkModeRef,
+        'border-bottom-light': !darkModeRef
       }"
       (click)="toggleAddForm()"
     >

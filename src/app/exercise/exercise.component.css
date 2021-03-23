@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 45%;
+  width: 138px;
 }
 
 .detail-header {
@@ -53,7 +53,12 @@
   position: relative;
 }
 
-.fa-times {
+.error-close {
+  position: relative;
+  top: 50%;
+}
+
+.pop-up-close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -72,7 +77,7 @@
 .name-div {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 50%;
 }
 
 .muscle-group {
@@ -81,7 +86,7 @@
   color: white;
   border-radius: 15px;
   padding: 2px 6px;
-  font-size: 11px;
+  font-size: 10px;
   width: fit-content;
 }
 
@@ -127,23 +132,20 @@
   margin-bottom: 10px;
 }
 
-@media only screen and (min-width: 425px) {
-  .exercise-details {
-    width: 38%;
-  }
-}
-
 @media only screen and (min-width: 768px) {
   .list-item {
     padding: 10px 15px 10px 10px;
   }
 
-  .exercise-details {
-    width: 33.33%;
-  }
-
   .left-margin {
     margin-left: 20px;
+  }
+
+  .error-message-div {
+    left: 35px;
+  }
+  .muscle-group {
+    font-size: 10px;
   }
 }
 

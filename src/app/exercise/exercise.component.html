@@ -1,5 +1,5 @@
 <div *ngIf="errorMessage" class="error-message-div">
-  <i class="fas fa-times" (click)="toggleErrorMessage()"></i>
+  <i class="fas fa-times error-close" (click)="toggleErrorMessage()"></i>
   <p>Cannot exceed 10 workouts for card game.</p>
 </div>
 <li
@@ -98,7 +98,7 @@
         'shadow-dark': darkModeRef
       }"
     >
-      <i class="fas fa-times" (click)="toggleDescription()"></i>
+      <i class="fas fa-times pop-up-close" (click)="toggleDescription()"></i>
       <p class="name">{{ exerciseRef.name }}</p>
       <p>{{ exerciseRef.description }}</p>
     </div>

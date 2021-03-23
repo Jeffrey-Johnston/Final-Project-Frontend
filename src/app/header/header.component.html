@@ -1,6 +1,11 @@
 <header
   class="header"
-  [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
+  [ngClass]="{
+    'text-dark': darkMode,
+    'text-light': !darkMode,
+    'element-background-light': !darkMode,
+    'element-background-dark': darkMode
+  }"
 >
   <h1>CARDio</h1>
   <nav>

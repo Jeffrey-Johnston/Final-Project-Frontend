@@ -1,13 +1,4 @@
-<div
-  class="home-header"
-  [ngClass]="{
-    'background-dark': darkMode,
-    'text-dark': darkMode,
-    'text-light': !darkMode
-  }"
->
-  <app-header (toggleModeEvent)="toggleMode()"></app-header>
-</div>
+<app-header (toggleModeEvent)="toggleMode()"></app-header>
 <section class="body-section">
   <section class="welcome-section">
     <img class="home-image" src="assets/final-home-image.png" alt="" />
