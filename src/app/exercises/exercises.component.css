@@ -1,30 +1,78 @@
-.left-side {
+.exercises-page-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.lists {
-  margin: 10px 0px;
+.game-exercises-display,
+.all-exercises-div {
+  padding: 15px;
+}
+
+.all-exercises {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
 }
 
 .button {
   width: 75%;
-  margin: 10px auto;
+  margin: 10px auto 0px auto;
+  background-color: white;
+}
+
+.left-button {
+  margin-right: 2px;
+}
+
+.right-button {
+  margin-left: 2px;
+}
+
+.shadow-dark {
+  background-color: transparent !important;
+}
+
+.filter-mobiile {
+  display: initial;
+}
+
+.filter-desktop {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
-  .page-container {
-    padding: 20px;
-  }
-  .lists {
-    display: flex;
-    padding: 0px;
-  }
-  .left-side {
-    width: 250px;
+  .exercises-page-container {
+    flex-direction: row;
   }
   .all-exercises {
-    flex: 3;
     padding: 0px 20px;
   }
+  .game-exercises-display {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+  }
+  .all-exercises-div {
+    padding-left: 0;
+    display: flex;
+    flex: 5;
+  }
+  .filter-mobile {
+    display: none;
+  }
+  .filter-desktop {
+    display: initial;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* .all-exercises {
+    width: 64%;
+  } */
 }

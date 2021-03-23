@@ -2,8 +2,14 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 75%;
   margin: auto;
+  background-image: linear-gradient(
+    to right,
+    rgb(48, 53, 92),
+    rgb(100, 104, 136)
+  ) !important;
+  color: hsl(0, 0%, 98%);
+  padding: 15px 15px 5px 15px;
 }
 
 .form-title {
@@ -14,11 +20,25 @@
 .workout-display {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0px 10px 0px;
+  margin-bottom: 10px;
+}
+
+.inputs {
+  display: flex;
 }
 
 .input-div {
   position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.left {
+  margin-right: 2px;
+}
+
+.right {
+  margin-left: 2px;
 }
 
 .input {
@@ -45,7 +65,9 @@
 }
 
 .text {
+  width: 100%;
   border: none;
+  background-color: white;
   padding: 8px 0px 8px 5px;
   border-bottom: 1px solid lightgray;
 }
@@ -66,28 +88,17 @@
     margin: 5px 0px;
   }
 
-  .input-div {
-    margin-right: 5px;
-  }
-
-  .input {
-    margin-right: 10px;
-  }
-
   .text {
     display: flex;
     flex: 1;
-  }
-
-  .all-workouts {
     margin-right: 5px;
   }
 }
 
-@media only screen and (min-width: 1053px) {
+/* @media only screen and (min-width: 1053px) {
   .search-form,
   .form-title {
     width: 728px;
     margin-left: 290px;
   }
-}
+} */

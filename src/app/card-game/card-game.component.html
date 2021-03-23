@@ -10,7 +10,7 @@
     *ngIf="gameExercises.length === 0 || gameExercises === undefined"
     [cardExercisesRef]="gameExercises"
     [darkModeRef]="darkMode"
-    (generateEvent)="randomlyGenerateExercises()"
+    (generateEvent)="randomlyGenerateExercises($event)"
   ></app-options-pop-up>
 
   <div class="game-options">
@@ -138,11 +138,13 @@
       ></app-exercise>
     </div>
 
-    <app-game-exercises
-      [cardExercisesRef]="gameExercises"
-      [currentExerciseRef]="currentExercise"
-      [darkModeRef]="darkMode"
-    ></app-game-exercises>
+    <div class="game-exercises-display">
+      <app-game-exercises
+        [cardExercisesRef]="gameExercises"
+        [currentExerciseRef]="currentExercise"
+        [darkModeRef]="darkMode"
+      ></app-game-exercises>
+    </div>
     <app-game-stats
       *ngIf="gameOver"
       [exerciseStatsRef]="exerciseStats"

@@ -20,10 +20,14 @@
         You have selected {{ cardExercisesRef.length }} exercises to be included
         in your card game workout
       </p>
+      <p [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }">
+        You can pick a target muscle group and have your exercises picked for
+        you, or you can play the game with the workouts you have selected!
+      </p>
       <p class="pop-up-title">To play the game, would you like to:</p>
       <div class="options">
         <div class="option" *ngIf="cardExercisesRef.length !== 0">
-          <p>Continue with only {{ cardExercisesRef.length }} exercises</p>
+          <p>Use only {{ cardExercisesRef.length }} current exercises</p>
           <button
             class="button"
             [ngClass]="{ 'shadow-dark': darkModeRef }"
@@ -34,16 +38,12 @@
         </div>
         <div class="option">
           <p>
-            Have other {{ 10 - cardExercisesRef.length }} workouts chosen
-            randomly for me
+            Have remaining {{ 10 - cardExercisesRef.length }} exercises chosen
+            for you randomly from all exercises or based on muscle group
           </p>
-          <button
-            class="button"
-            [ngClass]="{ 'shadow-dark': darkModeRef }"
-            (click)="emitGenerateEvent()"
-          >
-            Surprise Me
-          </button>
+          <app-specific-workout-form
+            (startEvent)="emitGenerateEvent($event)"
+          ></app-specific-workout-form>
         </div>
         <div class="option">
           <p>Go back to exercises page to choose more exercises</p>
@@ -57,6 +57,7 @@
         </div>
       </div>
     </div>
+
     <div *ngIf="url === 'card-game'">
       <p class="pop-up-title">
         You have no selected exercises to be included in your card game workout.
@@ -64,14 +65,13 @@
       <p class="pop-up-title">To play the game, would you like to:</p>
       <div class="options">
         <div class="option">
-          <p>Have all of your exercises chosen for you</p>
-          <button
-            class="button"
-            [ngClass]="{ 'shadow-dark': darkModeRef }"
-            (click)="emitGenerateEvent()"
-          >
-            Surprise Me
-          </button>
+          <p>
+            Have all of your exercises chosen for you randomly from all
+            exercises or based on muscle group
+          </p>
+          <app-specific-workout-form
+            (startEvent)="emitGenerateEvent($event)"
+          ></app-specific-workout-form>
         </div>
         <div class="option">
           <p>Go to exercises page to choose more exercises</p>
@@ -80,7 +80,7 @@
             [ngClass]="{ 'shadow-dark': darkModeRef }"
             routerLink="/exercises"
           >
-            Exercise Page
+            Exercises Page
           </button>
         </div>
       </div>

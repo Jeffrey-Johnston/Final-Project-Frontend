@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardService } from '../card.service';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
@@ -27,6 +28,10 @@ export class CardGameComponent implements OnInit {
   gameOver: boolean = false;
   gameExercises: Exercise[] = [];
   allExercises: Exercise[] = [];
+  muscleGroup1: Exercise[] = [];
+  muscleGroup2: Exercise[] = [];
+  muscleGroup3: Exercise[] = [];
+  muscleGroup4: Exercise[] = [];
   timerRunning: boolean = false;
   gameStarted: boolean = false;
   exerciseStats: string = ``;
@@ -36,7 +41,8 @@ export class CardGameComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private exerciseService: ExerciseService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +69,7 @@ export class CardGameComponent implements OnInit {
   updateIndex = () => {
     this.currentIndex++;
     this.remaining--;
-    let exerciseIndex = this.getRandomIndex();
+    let exerciseIndex = this.getRandomIndex(this.gameExercises.length);
     this.currentExercise = this.gameExercises[exerciseIndex];
     if (this.remaining === 51 && this.seconds === 0) {
       this.startTimer();
@@ -93,6 +99,21 @@ export class CardGameComponent implements OnInit {
   getAndSetAllExercises = () => {
     this.exerciseService.getExercises().subscribe((response: any) => {
       this.allExercises = response;
+      for (let exercise of this.allExercises) {
+        if (
+          exercise.body_part_id === 1 ||
+          exercise.body_part_id === 2 ||
+          exercise.body_part_id === 3
+        ) {
+          this.muscleGroup1.push(exercise);
+        } else if (exercise.body_part_id === 5 || exercise.body_part_id === 6) {
+          this.muscleGroup2.push(exercise);
+        } else if (exercise.body_part_id === 4) {
+          this.muscleGroup3.push(exercise);
+        } else if (exercise.body_part_id === 7 || exercise.body_part_id === 8) {
+          this.muscleGroup4.push(exercise);
+        }
+      }
     });
   };
 
@@ -100,8 +121,8 @@ export class CardGameComponent implements OnInit {
     this.gameExercises = this.exerciseService.getCardExercises();
   };
 
-  getRandomIndex = () => {
-    return Math.floor(Math.random() * this.gameExercises.length);
+  getRandomIndex = (length: number) => {
+    return Math.floor(Math.random() * length);
   };
 
   resetGame = () => {
@@ -156,13 +177,34 @@ export class CardGameComponent implements OnInit {
     }
   };
 
-  randomlyGenerateExercises = () => {
+  randomlyGenerateExercises = (formObject: any) => {
+    console.log(formObject);
     let amountNeeded = 10 - this.gameExercises.length;
     for (let i = 0; i < amountNeeded; i++) {
       let added: boolean = false;
       while (!added) {
-        let index = Math.floor(Math.random() * this.allExercises.length);
-        added = this.addToGame(this.allExercises[index]);
+        if (formObject.bodyPart === '') {
+          let index = this.getRandomIndex(this.allExercises.length);
+          added = this.addToGame(this.allExercises[index]);
+        } else {
+          let choice = parseInt(formObject.bodyPart);
+          if (choice === 1) {
+            let index = this.getRandomIndex(this.muscleGroup1.length);
+            added = this.addToGame(this.muscleGroup1[index]);
+          }
+          if (choice === 2) {
+            let index = this.getRandomIndex(this.muscleGroup2.length);
+            added = this.addToGame(this.muscleGroup2[index]);
+          }
+          if (choice === 3) {
+            let index = this.getRandomIndex(this.muscleGroup3.length);
+            added = this.addToGame(this.muscleGroup3[index]);
+          }
+          if (choice === 4) {
+            let index = this.getRandomIndex(this.muscleGroup4.length);
+            added = this.addToGame(this.muscleGroup4[index]);
+          }
+        }
       }
     }
   };

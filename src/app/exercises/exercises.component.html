@@ -2,28 +2,40 @@
   [currentTabRef]="currentTab"
   (toggleModeEvent)="toggleMode()"
 ></app-header>
+<app-filter-form
+  class="filter-desktop"
+  [darkModeRef]="darkMode"
+  (submitEvent)="setFilterTerms($event)"
+  (clearFilterEvent)="resetFilterTerms()"
+  (addEvent)="addExercise($event)"
+></app-filter-form>
 <div
-  class="page-container"
+  class="exercises-page-container"
   [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
 >
-  <app-filter-form
-    [darkModeRef]="darkMode"
-    (submitEvent)="setFilterTerms($event)"
-    (clearFilterEvent)="resetFilterTerms()"
-    (addEvent)="addExercise($event)"
-  ></app-filter-form>
+  <div class="game-exercises-display">
+    <app-game-exercises
+      [cardExercisesRef]="cardExercises"
+      [darkModeRef]="darkMode"
+      (removeEvent)="removeFromGame($event)"
+      (clearEvent)="clearGameExercises()"
+    ></app-game-exercises>
 
-  <div class="lists">
-    <div class="left-side">
-      <app-game-exercises
-        [cardExercisesRef]="cardExercises"
-        [darkModeRef]="darkMode"
-        (removeEvent)="removeFromGame($event)"
-        (clearEvent)="clearGameExercises()"
-      ></app-game-exercises>
+    <div class="buttons">
+      <button
+        class="button left-button"
+        [ngClass]="{
+          'text-dark': darkMode,
+          'shadow-dark': darkMode,
+          'text-light': !darkMode
+        }"
+        (click)="startGame()"
+      >
+        Start Game
+      </button>
 
       <button
-        class="button"
+        class="button right-button"
         (click)="toggleDescription()"
         [ngClass]="{
           'text-dark': darkMode,
@@ -33,25 +45,23 @@
       >
         How To Play
       </button>
-      <app-game-description
-        (closeEvent)="toggleDescription()"
-        *ngIf="descriptionPage"
-        [darkModeRef]="darkMode"
-      ></app-game-description>
-
-      <app-specific-workout-form
-        [darkModeRef]="darkMode"
-        (startEvent)="startGame($event)"
-      ></app-specific-workout-form>
     </div>
+  </div>
+  <app-game-description
+    (closeEvent)="toggleDescription()"
+    *ngIf="descriptionPage"
+    [darkModeRef]="darkMode"
+  ></app-game-description>
 
-    <app-options-pop-up
-      *ngIf="startPage"
-      [cardExercisesRef]="cardExercises"
-      [darkModeRef]="darkMode"
-      (closeEvent)="toggleStartPage()"
-      (generateEvent)="randomlyGenerateExercises(0)"
-    ></app-options-pop-up>
+  <app-filter-form
+    class="filter-mobile"
+    [darkModeRef]="darkMode"
+    (submitEvent)="setFilterTerms($event)"
+    (clearFilterEvent)="resetFilterTerms()"
+    (addEvent)="addExercise($event)"
+  ></app-filter-form>
+
+  <div class="all-exercises-div">
     <ul class="all-exercises">
       <app-exercise
         *ngFor="let exercise of exercises"

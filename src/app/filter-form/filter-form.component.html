@@ -1,9 +1,9 @@
-<p
+<!-- <p
   class="form-title"
   [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
 >
   Filter Exercises
-</p>
+</p> -->
 <form
   class="search-form"
   #filterForm="ngForm"
@@ -11,7 +11,7 @@
   [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
 >
   <input
-    class="input text"
+    class="text"
     type="text"
     name="name"
     id="name"
@@ -19,74 +19,65 @@
     [(ngModel)]="obj.name"
   />
 
-  <div class="input-div">
-    <label
-      for="bodyPart"
-      class="label"
-      [ngClass]="{ 'label-empty': !obj.bodyPart && obj.bodyPart !== '' }"
-      >Target Muscle Group</label
-    >
-    <select
-      class="input"
-      name="bodyPart"
-      id="bodyPart"
-      [(ngModel)]="obj.bodyPart"
-    >
-      <option value="" disabled>Target Muscle Group</option>
-      <option value="">All</option>
-      <option value="1">Calves</option>
-      <option value="2">Thighs</option>
-      <option value="3">Glutes and Hamstrings</option>
-      <option value="4">Core</option>
-      <option value="5">Back and Biceps</option>
-      <option value="6">Chest, Shoulders, and Triceps</option>
-      <option value="7">Full Body</option>
-      <option value="8">Plyometrics</option>
-    </select>
-  </div>
+  <div class="inputs">
+    <div class="input-div left">
+      <label
+        for="bodyPart"
+        class="label"
+        [ngClass]="{ 'label-empty': !obj.bodyPart && obj.bodyPart !== '' }"
+        >Target Muscle Group</label
+      >
+      <select
+        class="input"
+        name="bodyPart"
+        id="bodyPart"
+        [(ngModel)]="obj.bodyPart"
+      >
+        <option value="" disabled>Target Muscle Group</option>
+        <option value="">All</option>
+        <option value="1">Calves</option>
+        <option value="2">Thighs</option>
+        <option value="3">Glutes and Hamstrings</option>
+        <option value="4">Core</option>
+        <option value="5">Back and Biceps</option>
+        <option value="6">Chest, Shoulders, and Triceps</option>
+        <option value="7">Full Body</option>
+        <option value="8">Plyometrics</option>
+      </select>
+    </div>
 
-  <div class="input-div">
-    <select
-      class="input"
-      name="difficulty"
-      id="difficulty"
-      [(ngModel)]="obj.difficulty"
-    >
-      <option value="" disabled>Max Difficulty</option>
-      <option value="">All</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <label
-      for="bodyPart"
-      class="label"
-      [ngClass]="{ 'label-empty': !obj.difficulty && obj.difficulty !== '' }"
-      >Max Difficulty</label
-    >
+    <div class="input-div right">
+      <select
+        class="input"
+        name="difficulty"
+        id="difficulty"
+        [(ngModel)]="obj.difficulty"
+      >
+        <option value="" disabled>Max Difficulty</option>
+        <option value="">All</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label
+        for="bodyPart"
+        class="label"
+        [ngClass]="{ 'label-empty': !obj.difficulty && obj.difficulty !== '' }"
+        >Max Difficulty</label
+      >
+    </div>
   </div>
 
   <div class="workout-display">
     <p
-      class="all-workouts"
-      [ngClass]="{
-        'border-bottom-dark': darkModeRef,
-        'border-bottom-light': !darkModeRef
-      }"
+      class="border-bottom-dark text-dark"
       (click)="emitClearFilterEvent(filterForm)"
     >
       All Workouts
     </p>
-    <p
-      class="border"
-      [ngClass]="{
-        'border-bottom-dark': darkModeRef,
-        'border-bottom-light': !darkModeRef
-      }"
-      (click)="toggleAddForm()"
-    >
+    <p class="border-bottom-dark text-dark" (click)="toggleAddForm()">
       Add Workout
     </p>
   </div>

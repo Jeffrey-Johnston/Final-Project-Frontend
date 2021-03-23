@@ -112,15 +112,11 @@ export class ExercisesComponent implements OnInit {
     this.getAndSetGameExercises();
   };
 
-  startGame = (formObject: any) => {
-    if (formObject.bodyPart === '') {
-      if (this.cardExercises.length < 10) {
-        this.startPage = true;
-      } else {
-        this.router.navigateByUrl('/card-game');
-      }
+  startGame = () => {
+    if (this.cardExercises.length < 10) {
+      this.startPage = true;
     } else {
-      this.randomlyGenerateExercises(parseInt(formObject.bodyPart));
+      this.router.navigateByUrl('/card-game');
     }
   };
 
@@ -132,26 +128,33 @@ export class ExercisesComponent implements OnInit {
     return Math.floor(Math.random() * length);
   };
 
-  randomlyGenerateExercises = (option: number) => {
+  randomlyGenerateExercises = (formObject: any) => {
+    console.log(formObject);
     let amountNeeded = 10 - this.cardExercises.length;
     for (let i = 0; i < amountNeeded; i++) {
       let added: boolean = false;
       while (!added) {
-        if (option === 0) {
+        if (formObject.bodyPart === '') {
           let index = this.getRandomIndex(this.exercises.length);
           added = this.addToGame(this.exercises[index]);
-        } else if (option === 1) {
-          let index = this.getRandomIndex(this.muscleGroup1.length);
-          added = this.addToGame(this.muscleGroup1[index]);
-        } else if (option === 2) {
-          let index = this.getRandomIndex(this.muscleGroup2.length);
-          added = this.addToGame(this.muscleGroup2[index]);
-        } else if (option === 3) {
-          let index = this.getRandomIndex(this.muscleGroup3.length);
-          added = this.addToGame(this.muscleGroup3[index]);
-        } else if (option === 4) {
-          let index = this.getRandomIndex(this.muscleGroup4.length);
-          added = this.addToGame(this.muscleGroup4[index]);
+        } else {
+          let choice = parseInt(formObject.bodyPart);
+          if (choice === 1) {
+            let index = this.getRandomIndex(this.muscleGroup1.length);
+            added = this.addToGame(this.muscleGroup1[index]);
+          }
+          if (choice === 2) {
+            let index = this.getRandomIndex(this.muscleGroup2.length);
+            added = this.addToGame(this.muscleGroup2[index]);
+          }
+          if (choice === 3) {
+            let index = this.getRandomIndex(this.muscleGroup3.length);
+            added = this.addToGame(this.muscleGroup3[index]);
+          }
+          if (choice === 4) {
+            let index = this.getRandomIndex(this.muscleGroup4.length);
+            added = this.addToGame(this.muscleGroup4[index]);
+          }
         }
       }
     }

@@ -25,12 +25,14 @@
       <p class="stats-para">WORKOUT FINISHED!</p>
       <p class="stats-para">{{ exerciseStatsRef }}</p>
       <p class="stats-para">{{ timeStatsRef }}</p>
-      <app-game-exercises
-        [statsPageRef]="statsPage"
-        [cardExercisesRef]="cardExercisesRef"
-        [darkModeRef]="darkModeRef"
-      ></app-game-exercises>
     </div>
+
+    <app-game-exercises
+      [statsPageRef]="statsPage"
+      [cardExercisesRef]="cardExercisesRef"
+      [darkModeRef]="darkModeRef"
+    ></app-game-exercises>
+
     <button
       class="button"
       [ngClass]="{

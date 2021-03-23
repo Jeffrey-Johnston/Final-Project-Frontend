@@ -52,14 +52,14 @@ body {
 .border-bottom-dark {
   border: none !important;
   border-bottom: 1px solid hsl(0deg 0% 98%) !important;
-  padding: 5px 0px;
+  padding-bottom: 3px;
   margin: 0 5px;
 }
 
 .border-bottom-light {
   border: none !important;
   border-bottom: 1px solid black !important;
-  padding: 5px 0px;
+  padding-bottom: 3px;
   margin: 0 5px;
 }
 

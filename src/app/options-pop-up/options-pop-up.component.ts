@@ -11,7 +11,7 @@ export class OptionsPopUpComponent implements OnInit {
   @Input() darkModeRef!: boolean;
   @Input() cardExercisesRef!: any[];
   @Output() closeEvent = new EventEmitter<void>();
-  @Output() generateEvent = new EventEmitter<void>();
+  @Output() generateEvent = new EventEmitter<any>();
 
   constructor(private route: ActivatedRoute) {}
 
@@ -25,7 +25,7 @@ export class OptionsPopUpComponent implements OnInit {
     this.closeEvent.emit();
   };
 
-  emitGenerateEvent = () => {
-    this.generateEvent.emit();
+  emitGenerateEvent = (formObject: any) => {
+    this.generateEvent.emit(formObject);
   };
 }

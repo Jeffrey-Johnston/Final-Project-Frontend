@@ -42,7 +42,7 @@
     'text-light': !darkModeRef
   }"
 >
-  <p *ngIf="statsPageRef" class="title">Exercises:</p>
+  <p *ngIf="statsPageRef" class="exercises-title">Exercises:</p>
   <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
   <p
     *ngIf="cardExercisesRef.length === 0"
@@ -102,7 +102,7 @@
   }"
 >
   <p
-    class="title title-view"
+    class="exercises-title title-view"
     [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
   >
     Exercises:
