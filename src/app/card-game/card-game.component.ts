@@ -148,7 +148,7 @@ export class CardGameComponent implements OnInit {
         this.hour++;
       }
     }, 1000);
-    this.currentIndex++;
+    this.updateIndex();
   };
 
   stopTimer = () => {
@@ -178,7 +178,6 @@ export class CardGameComponent implements OnInit {
   };
 
   randomlyGenerateExercises = (formObject: any) => {
-    console.log(formObject);
     let amountNeeded = 10 - this.gameExercises.length;
     for (let i = 0; i < amountNeeded; i++) {
       let added: boolean = false;

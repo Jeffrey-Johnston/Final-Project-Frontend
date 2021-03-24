@@ -74,4 +74,12 @@
       ></app-exercise>
     </ul>
   </div>
+
+  <app-options-pop-up
+    *ngIf="startPage"
+    [darkModeRef]="darkMode"
+    [cardExercisesRef]="cardExercises"
+    (closeEvent)="toggleStartPage()"
+    (generateEvent)="randomlyGenerateExercises($event)"
+  ></app-options-pop-up>
 </div>

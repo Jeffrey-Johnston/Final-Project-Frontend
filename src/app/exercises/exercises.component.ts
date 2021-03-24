@@ -170,6 +170,7 @@ export class ExercisesComponent implements OnInit {
     this.themeService.toggleMode();
     this.darkMode = this.themeService.getMode();
   };
+
   toggleDescription = () => {
     this.descriptionPage = !this.descriptionPage;
   };

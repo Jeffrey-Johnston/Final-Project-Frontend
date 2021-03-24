@@ -65,12 +65,12 @@ body {
 
 /* active states */
 button.shadow-dark:hover {
-  background-color: hsl(0deg 0% 98%);
+  background-color: hsl(0deg 0% 98%) !important;
   color: hsl(235, 19%, 35%) !important;
 }
 
 button:hover {
-  background-color: #25273c;
+  background-color: #25273c !important;
   color: hsl(0, 0%, 98%) !important;
 }
 
