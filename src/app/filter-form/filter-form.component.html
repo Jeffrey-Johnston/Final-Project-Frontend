@@ -72,11 +72,19 @@
     >
       All Exercises
     </p>
-    <i class="fas fa-book-reader fa-lg text-dark book-mobile"></i>
+    <i
+      class="fas fa-book-reader fa-lg text-dark book-mobile"
+      title="Muscle Group Diagram"
+      (click)="emitVocabEvent()"
+    ></i>
     <p class="border-bottom-dark text-dark" (click)="toggleAddForm()">
       Create Exercise
     </p>
-    <i class="fas fa-book-reader fa-lg text-dark book-desktop"></i>
+    <i
+      class="fas fa-book-reader fa-lg text-dark book-desktop"
+      title="Muscle Group Diagram"
+      (click)="emitVocabEvent()"
+    ></i>
   </div>
   <app-add-form
     *ngIf="addOpen"

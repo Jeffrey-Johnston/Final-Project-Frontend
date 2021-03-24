@@ -23,6 +23,7 @@ export class ExercisesComponent implements OnInit {
   gameMode: boolean = false;
   darkMode!: boolean;
   descriptionPage: boolean = false;
+  vocabPage: boolean = false;
   scrolled: boolean = false;
 
   constructor(
@@ -148,6 +149,20 @@ export class ExercisesComponent implements OnInit {
     this.startPage = !this.startPage;
   };
 
+  toggleVocabPage = () => {
+    this.vocabPage = !this.vocabPage;
+    console.log(this.vocabPage);
+  };
+
+  toggleMode = () => {
+    this.themeService.toggleMode();
+    this.darkMode = this.themeService.getMode();
+  };
+
+  toggleDescription = () => {
+    this.descriptionPage = !this.descriptionPage;
+  };
+
   getRandomIndex = (length: number) => {
     return Math.floor(Math.random() * length);
   };
@@ -188,15 +203,6 @@ export class ExercisesComponent implements OnInit {
   clearGameExercises = () => {
     this.exerciseService.clearGameExercises();
     this.getAndSetGameExercises();
-  };
-
-  toggleMode = () => {
-    this.themeService.toggleMode();
-    this.darkMode = this.themeService.getMode();
-  };
-
-  toggleDescription = () => {
-    this.descriptionPage = !this.descriptionPage;
   };
 
   toTop = (): void => {

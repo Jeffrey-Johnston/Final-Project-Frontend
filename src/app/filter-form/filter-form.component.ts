@@ -10,6 +10,7 @@ export class FilterFormComponent implements OnInit {
   @Input() darkModeRef!: boolean;
   @Output() submitEvent = new EventEmitter<any>();
   @Output() addEvent = new EventEmitter<any>();
+  @Output() vocabEvent = new EventEmitter<void>();
   @Output() clearFilterEvent = new EventEmitter<any>();
   addOpen: boolean = false;
   obj: any = { name: null, bodyPart: null, difficulty: null };
@@ -37,5 +38,9 @@ export class FilterFormComponent implements OnInit {
   emitAddEvent = (formObject: any) => {
     this.addEvent.emit(formObject);
     this.toggleAddForm();
+  };
+
+  emitVocabEvent = () => {
+    this.vocabEvent.emit();
   };
 }

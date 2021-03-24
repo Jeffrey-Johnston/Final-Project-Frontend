@@ -2,13 +2,37 @@
   [currentTabRef]="currentTab"
   (toggleModeEvent)="toggleMode()"
 ></app-header>
+
 <app-filter-form
   class="filter-desktop"
   [darkModeRef]="darkMode"
   (submitEvent)="setFilterTerms($event)"
   (clearFilterEvent)="resetFilterTerms()"
   (addEvent)="addExercise($event)"
+  (vocabEvent)="toggleVocabPage()"
 ></app-filter-form>
+
+<div *ngIf="vocabPage" class="pop-up">
+  <div class="diagram-page">
+    <i class="fas fa-times" (click)="toggleVocabPage()"></i>
+    <img
+      src="assets/vocab-sheet.png"
+      class="vocab-diagram diagram-desktop"
+      alt="Vocab Diagram"
+    />
+    <img
+      src="assets/front.png"
+      class="vocab-diagram diagram-mobile"
+      alt="Vocab Diagram Front"
+    />
+    <img
+      src="assets/back.png"
+      class="vocab-diagram diagram-mobile"
+      alt="Vocab Diagram Back"
+    />
+  </div>
+</div>
+
 <div
   class="exercises-page-container"
   [ngClass]="{
@@ -62,6 +86,7 @@
     (submitEvent)="setFilterTerms($event)"
     (clearFilterEvent)="resetFilterTerms()"
     (addEvent)="addExercise($event)"
+    (vocabEvent)="toggleVocabPage()"
   ></app-filter-form>
 
   <div class="all-exercises-div">
