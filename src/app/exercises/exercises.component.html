@@ -11,7 +11,10 @@
 ></app-filter-form>
 <div
   class="exercises-page-container"
-  [ngClass]="{ 'background-dark': darkMode, 'background-light': !darkMode }"
+  [ngClass]="{
+    'background-dark': darkMode,
+    'background-light': !darkMode
+  }"
 >
   <div class="game-exercises-display">
     <app-game-exercises
@@ -62,9 +65,16 @@
   ></app-filter-form>
 
   <div class="all-exercises-div">
+    <p
+      *ngIf="filteredExercises.length === 0"
+      class="no-exercises-para"
+      [ngClass]="{ 'text-dark': darkMode }"
+    >
+      Sorry! There are no exercises that meet your search criteria.
+    </p>
     <ul class="all-exercises">
       <app-exercise
-        *ngFor="let exercise of exercises"
+        *ngFor="let exercise of filteredExercises"
         [exerciseRef]="exercise"
         [cardExercisesRef]="cardExercises"
         [gameModeRef]="gameMode"
@@ -82,4 +92,19 @@
     (closeEvent)="toggleStartPage()"
     (generateEvent)="randomlyGenerateExercises($event)"
   ></app-options-pop-up>
+
+  <div
+    class="to-top-div"
+    *ngIf="scrolled"
+    [ngClass]="{
+      'element-background-dark': !darkMode,
+      'element-background-light': darkMode
+    }"
+  >
+    <i
+      class="fas fa-chevron-circle-up fa-lg"
+      [ngClass]="{ 'text-light': darkMode, 'text-dark': !darkMode }"
+      (click)="toTop()"
+    ></i>
+  </div>
 </div>

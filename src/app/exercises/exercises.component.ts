@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
@@ -13,6 +13,7 @@ export class ExercisesComponent implements OnInit {
   filterTerms: any = {};
   currentTab: string = 'exercises';
   exercises: Exercise[] = [];
+  filteredExercises: Exercise[] = [];
   muscleGroup1: Exercise[] = [];
   muscleGroup2: Exercise[] = [];
   muscleGroup3: Exercise[] = [];
@@ -22,6 +23,7 @@ export class ExercisesComponent implements OnInit {
   gameMode: boolean = false;
   darkMode!: boolean;
   descriptionPage: boolean = false;
+  scrolled: boolean = false;
 
   constructor(
     private exerciseService: ExerciseService,
@@ -33,29 +35,18 @@ export class ExercisesComponent implements OnInit {
     this.getAndSetExercises();
     this.getAndSetGameExercises();
     this.darkMode = this.themeService.getMode();
+    // this.getScrollingElement();
+    // this.scrollableElement.scroll = function () {
+    //   scroll();
+    // };
+    // console.log(this.scrollableElement);
   }
 
   getAndSetExercises = () => {
     this.exerciseService.getExercises().subscribe((response: any) => {
-      console.log(this.filterTerms);
       this.exercises = response;
-      if (this.filterTerms.name) {
-        this.exercises = this.exercises.filter((item) =>
-          item.name.toLowerCase().includes(this.filterTerms.name.toLowerCase())
-        );
-      }
-      if (this.filterTerms.bodyPart) {
-        let idInput = parseInt(this.filterTerms.bodyPart);
-        this.exercises = this.exercises.filter(
-          (item) => item.body_part_id === idInput
-        );
-      }
-      if (this.filterTerms.difficulty) {
-        let maxDifficulty = parseInt(this.filterTerms.difficulty);
-        this.exercises = this.exercises.filter((item) => {
-          return item.difficulty <= maxDifficulty;
-        });
-      }
+      this.filteredExercises = this.exercises;
+      this.shuffleFilteredExercises();
       for (let exercise of this.exercises) {
         if (
           exercise.body_part_id === 1 ||
@@ -74,14 +65,47 @@ export class ExercisesComponent implements OnInit {
     });
   };
 
+  setFilteredExercises = () => {
+    this.filteredExercises = this.exercises;
+    if (this.filterTerms.name) {
+      this.filteredExercises = this.filteredExercises.filter((item) =>
+        item.name.toLowerCase().includes(this.filterTerms.name.toLowerCase())
+      );
+    }
+    if (this.filterTerms.bodyPart) {
+      let idInput = parseInt(this.filterTerms.bodyPart);
+      this.filteredExercises = this.filteredExercises.filter(
+        (item) => item.body_part_id === idInput
+      );
+    }
+    if (this.filterTerms.difficulty) {
+      let maxDifficulty = parseInt(this.filterTerms.difficulty);
+      this.filteredExercises = this.filteredExercises.filter((item) => {
+        return item.difficulty <= maxDifficulty;
+      });
+    }
+    this.shuffleFilteredExercises();
+  };
+
+  shuffleFilteredExercises = () => {
+    for (let i = this.filteredExercises.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+      // Fisher-Yates
+      [this.filteredExercises[i], this.filteredExercises[j]] = [
+        this.filteredExercises[j],
+        this.filteredExercises[i],
+      ];
+    }
+  };
+
   setFilterTerms = (formObject: any) => {
     this.filterTerms = formObject;
-    this.getAndSetExercises();
+    this.setFilteredExercises();
   };
 
   resetFilterTerms = () => {
     this.filterTerms = {};
-    this.getAndSetExercises();
+    this.setFilteredExercises();
   };
 
   addExercise = (formObject: any) => {
@@ -174,4 +198,23 @@ export class ExercisesComponent implements OnInit {
   toggleDescription = () => {
     this.descriptionPage = !this.descriptionPage;
   };
+
+  toTop = (): void => {
+    window.scroll(0, 0);
+    this.scrolled = false;
+  };
+
+  @HostListener('window:scroll', []) onWindowScroll() {
+    // do some stuff here when the window is scrolled
+    const verticalOffset =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    if (verticalOffset > 350) {
+      this.scrolled = true;
+    } else {
+      this.scrolled = false;
+    }
+  }
 }

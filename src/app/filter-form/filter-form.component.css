@@ -20,6 +20,7 @@
 .workout-display {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -72,6 +73,14 @@
   border-bottom: 1px solid lightgray;
 }
 
+.book-mobile {
+  display: initial;
+}
+
+.book-desktop {
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
   .search-form {
     width: 100%;
@@ -86,12 +95,22 @@
 
   .workout-display {
     margin: 5px 0px;
+    width: 230px;
+    margin-left: 5px;
   }
 
   .text {
     display: flex;
     flex: 1;
     margin-right: 5px;
+  }
+
+  .book-mobile {
+    display: none;
+  }
+
+  .book-desktop {
+    display: initial;
   }
 }
 

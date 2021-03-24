@@ -3,6 +3,7 @@
   justify-content: center;
   box-sizing: border-box;
   position: relative;
+  background-color: rgb(100, 104, 136);
 }
 
 .title,
@@ -43,12 +44,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.no-exercises {
-  text-align: center;
-  margin: 5px 0px;
-  color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(100, 104, 136);
 }
 
 .no-exercises-dark {

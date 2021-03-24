@@ -21,6 +21,7 @@ export class FilterFormComponent implements OnInit {
   }
 
   emitSubmitEvent = (object: any) => {
+    console.log(object);
     this.submitEvent.emit(object);
   };
 

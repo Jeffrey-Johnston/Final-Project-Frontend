@@ -1,43 +1,38 @@
 <div class="pop-up">
-  <div
-    class="start-page"
-    [ngClass]="{
-      'element-background-dark': darkModeRef,
-      'element-background-light': !darkModeRef,
-      'shadow-dark': darkModeRef
-    }"
-  >
-    <i
-      class="fas fa-times"
-      (click)="emitCloseEvent()"
-      *ngIf="url === 'exercises'"
-    ></i>
-    <div
-      *ngIf="url === 'exercises'"
-      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
-    >
-      <p class="pop-up-title">
-        You have selected {{ cardExercisesRef.length }} exercises to be included
-        in your card game workout
-      </p>
-      <p [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }">
-        You can pick a target muscle group and have your exercises picked for
-        you, or you can play the game with the workouts you have selected!
-      </p>
-      <p class="pop-up-title">To play the game, would you like to:</p>
-      <div class="options">
+  <div class="start-page">
+    <div *ngIf="url === 'exercises'">
+      <div
+        class="status element-background-light"
+        [ngClass]="{
+          'element-background-dark': darkModeRef,
+          'text-dark': darkModeRef,
+          'border-bottom-dark': darkModeRef
+        }"
+      >
+        <p class="pop-up-title">
+          You have selected {{ cardExercisesRef.length }} exercises to be
+          included in your card game workout
+        </p>
+        <p>
+          You can pick a target muscle group and have your exercises picked for
+          you, or you can play the game with the workouts you have selected!
+        </p>
+      </div>
+
+      <div class="options element-background-dark">
+        <p class="pop-up-options-title text-dark">
+          TO PLAY THE GAME, WOULD YOU LIKE TO:
+        </p>
         <div class="option" *ngIf="cardExercisesRef.length !== 0">
-          <p>Use only {{ cardExercisesRef.length }} current exercises</p>
-          <button
-            class="button"
-            [ngClass]="{ 'shadow-dark': darkModeRef }"
-            routerLink="/card-game"
-          >
+          <p class="option-para">
+            Use only {{ cardExercisesRef.length }} current exercises
+          </p>
+          <button class="button text-dark shadow-dark" routerLink="/card-game">
             Play Now
           </button>
         </div>
         <div class="option">
-          <p>
+          <p class="option-para">
             Have remaining {{ 10 - cardExercisesRef.length }} exercises chosen
             for you randomly from all exercises or based on muscle group
           </p>
@@ -46,10 +41,11 @@
           ></app-specific-workout-form>
         </div>
         <div class="option">
-          <p>Go back to exercises page to choose more exercises</p>
+          <p class="option-para">
+            Go back to exercises page to choose more exercises
+          </p>
           <button
-            class="button"
-            [ngClass]="{ 'shadow-dark': darkModeRef }"
+            class="button text-dark shadow-dark"
             (click)="emitCloseEvent()"
           >
             Go Back
@@ -59,13 +55,26 @@
     </div>
 
     <div *ngIf="url === 'card-game'">
-      <p class="pop-up-title">
-        You have no selected exercises to be included in your card game workout.
-      </p>
-      <p class="pop-up-title">To play the game, would you like to:</p>
-      <div class="options">
+      <div
+        class="status element-background-light"
+        [ngClass]="{
+          'element-background-dark': darkModeRef,
+          'text-dark': darkModeRef,
+          'border-bottom-dark': darkModeRef
+        }"
+      >
+        <p class="pop-up-title">
+          You have no selected exercises to be included in your card game
+          workout.
+        </p>
+      </div>
+
+      <div class="options element-background-dark">
+        <p class="pop-up-options-title text-dark">
+          TO PLAY THE GAME, WOULD YOU LIKE TO:
+        </p>
         <div class="option">
-          <p>
+          <p class="option-para">
             Have all of your exercises chosen for you randomly from all
             exercises or based on muscle group
           </p>
@@ -74,12 +83,10 @@
           ></app-specific-workout-form>
         </div>
         <div class="option">
-          <p>Go to exercises page to choose more exercises</p>
-          <button
-            class="button"
-            [ngClass]="{ 'shadow-dark': darkModeRef }"
-            routerLink="/exercises"
-          >
+          <p class="option-para">
+            Go to exercises page to choose more exercises
+          </p>
+          <button class="button text-dark shadow-dark" routerLink="/exercises">
             Exercises Page
           </button>
         </div>

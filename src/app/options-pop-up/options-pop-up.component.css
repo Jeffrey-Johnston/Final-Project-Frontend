@@ -1,18 +1,32 @@
 .start-page {
   width: 75%;
-  border-radius: 10px;
-  padding: 20px;
-  padding-bottom: 5px;
   text-align: center;
+}
+
+.status,
+.options {
+  padding: 20px;
+}
+
+.status {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0;
+}
+
+.options {
+  color: hsl(0, 0%, 98%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .pop-up-title {
   font-weight: 900;
-  margin: 5px 0px;
 }
 
-.options {
-  margin-top: 15px;
+.pop-up-options-title {
+  margin-bottom: 10px;
+  font-weight: 900;
 }
 
 .option {
@@ -23,10 +37,14 @@
   .options {
     display: flex;
     flex-direction: column;
-    width: 475px;
     align-items: center;
-    margin: auto;
   }
+
+  .option-para {
+    width: 75%;
+    text-align: left;
+  }
+
   .option {
     display: flex;
     align-items: center;

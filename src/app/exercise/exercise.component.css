@@ -47,7 +47,7 @@
 }
 
 .pop-up-description {
-  width: 50%;
+  width: 75%;
   border-radius: 15px;
   padding: 15px;
   position: relative;
@@ -151,6 +151,10 @@
 
   .detail-header {
     font-size: 12px;
+  }
+
+  .pop-up-description {
+    width: 50%;
   }
 }
 

@@ -3,54 +3,31 @@
   class="panel-title mobile"
   (click)="toggleShowCollapsible()"
 >
-  <p
-    class="title"
-    [ngClass]="{
-      'element-background-dark': darkModeRef,
-      'element-background-light': !darkModeRef,
-      'text-dark': darkModeRef,
-      'text-light': !darkModeRef
-    }"
-  >
+  <p class="title text-dark">
     See All Card Game Exercises ({{ cardExercisesRef.length }})
   </p>
 
   <i
     *ngIf="!showCollapsible"
-    class="fas fa-caret-down"
+    class="fas fa-caret-down text-dark"
     data-toggle="collapse"
     href="#collapse1"
-    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
   ></i>
   <i
     *ngIf="showCollapsible"
-    class="fas fa-caret-up"
+    class="fas fa-caret-up text-dark"
     data-toggle="collapse"
     href="#collapse1"
-    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
   ></i>
 </div>
 
 <div
   *ngIf="showCollapsible || statsPageRef"
-  class="game-exercises mobile"
-  [ngClass]="{
-    'stats-page-exercises': statsPageRef,
-    'element-background-dark': darkModeRef,
-    'element-background-light': !darkModeRef,
-    'text-dark': darkModeRef,
-    'text-light': !darkModeRef
-  }"
+  class="game-exercises mobile text-dark"
 >
   <p *ngIf="statsPageRef" class="exercises-title">Exercises:</p>
   <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
-  <p
-    *ngIf="cardExercisesRef.length === 0"
-    [ngClass]="{
-      'no-exercises-dark': darkModeRef,
-      'no-exercises': !darkModeRef
-    }"
-  >
+  <p *ngIf="cardExercisesRef.length === 0">
     You currently have no exercises added for your card game workout. Hit the
     plus sign on an exercise to add it!
   </p>
@@ -76,13 +53,7 @@
   </ol>
   <p
     *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
-    class="clear"
-    [ngClass]="{
-      'text-dark': darkModeRef,
-      'border-bottom-dark': darkModeRef,
-      'text-light': !darkModeRef,
-      'border-bottom-light': !darkModeRef
-    }"
+    class="clear text-dark border-bottom-dark"
     (click)="emitClearEvent()"
   >
     Clear All Exercises
@@ -90,50 +61,23 @@
 </div>
 
 <div
-  class="game-exercises desktop"
+  class="game-exercises desktop text-dark"
   [ngClass]="{
-    'stats-page-exercises': statsPageRef,
-    'element-background-dark': darkModeRef,
-    'element-background-light': !darkModeRef,
-    'shadow-dark': darkModeRef,
-    'shadow-light': !darkModeRef,
-    'text-dark': darkModeRef,
-    'text-light': !darkModeRef
+    'stats-page-exercises': statsPageRef
   }"
 >
-  <p
-    class="exercises-title title-view"
-    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
-  >
-    Exercises:
-  </p>
-  <p
-    *ngIf="url === 'exercises'"
-    [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
-  >
-    (select up to 10 exercises)
-  </p>
-  <p
-    *ngIf="cardExercisesRef.length === 0"
-    [ngClass]="{
-      'no-exercises-dark': darkModeRef,
-      'no-exercises': !darkModeRef
-    }"
-  >
+  <p class="exercises-title title-view">Exercises:</p>
+  <p *ngIf="url === 'exercises'">(select up to 10 exercises)</p>
+  <p *ngIf="cardExercisesRef.length === 0" class="no-exercises-dark">
     You currently have no exercises added for your card game workout. Hit the
     plus sign on an exercise to add it!
   </p>
   <ol *ngIf="cardExercisesRef.length !== 0" class="ordered-list">
-    <li
-      *ngFor="let cardExercise of cardExercisesRef"
-      [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
-    >
+    <li *ngFor="let cardExercise of cardExercisesRef">
       <div class="list-item">
         <p
           [ngClass]="{
             name: url === 'exercises',
-            'text-dark': darkModeRef,
-            'text-light': !darkModeRef,
             'current-exercise':
               currentExerciseRef?.exercise_id === cardExercise?.exercise_id
           }"
@@ -143,7 +87,6 @@
         <i
           (click)="emitRemoveEvent(cardExercise)"
           class="fas fa-minus"
-          [ngClass]="{ 'text-dark': darkModeRef, 'text-light': !darkModeRef }"
           *ngIf="url === 'exercises'"
         ></i>
       </div>
@@ -152,13 +95,7 @@
   <p
     *ngIf="url === 'exercises' && cardExercisesRef.length > 0"
     (click)="emitClearEvent()"
-    class="clear"
-    [ngClass]="{
-      'text-dark': darkModeRef,
-      'border-bottom-dark': darkModeRef,
-      'text-light': !darkModeRef,
-      'border-bottom-light': !darkModeRef
-    }"
+    class="clear text-dark border-bottom-dark"
   >
     Clear All Exercises
   </p>
