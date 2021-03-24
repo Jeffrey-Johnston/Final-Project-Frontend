@@ -56,6 +56,30 @@
   height: 135px;
 }
 
+.remaining-div {
+  z-index: 1;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-125%, 0);
+  background-color: transparent;
+  border-radius: 10px;
+  width: 100px;
+  height: 135px;
+  margin: 3px;
+  pointer-events: none;
+}
+
+.remaining-cards {
+  position: absolute;
+  background-color: black;
+  color: white;
+  font-size: medium;
+  font-weight: bolder;
+  top: 8px;
+  left: 8px;
+}
+
 .empty-card {
   border: 1px solid black;
   border-radius: 10px;

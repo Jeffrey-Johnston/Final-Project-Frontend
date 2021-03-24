@@ -38,7 +38,7 @@
             'text-dark': darkMode,
             'shadow-dark': darkMode
           }"
-          (click)="startTimer()"
+          (click)="updateIndex()"
         >
           START WORKOUT
         </button>
@@ -108,6 +108,9 @@
         </div>
       </div>
       <div class="card-container">
+        <div class="remaining-div">
+          <p class="remaining-cards">{{ remaining }}</p>
+        </div>
         <app-card
           *ngFor="let card of pileList; index as i"
           [cardRef]="card"

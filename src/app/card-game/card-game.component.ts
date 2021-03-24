@@ -59,6 +59,7 @@ export class CardGameComponent implements OnInit {
       this.remaining = this.deck.remaining;
       this.setDeckID();
       this.drawCards();
+      console.log(this.remaining);
     });
   };
 
@@ -67,6 +68,7 @@ export class CardGameComponent implements OnInit {
   };
 
   updateIndex = () => {
+    this.gameStarted = true;
     this.currentIndex++;
     this.remaining--;
     let exerciseIndex = this.getRandomIndex(this.gameExercises.length);
@@ -85,7 +87,7 @@ export class CardGameComponent implements OnInit {
 
   checkGameStatus = (): number => {
     // if playing (cards < 52 or cards > 0), return 1 aka still playing
-    if (this.remaining < 52 && this.remaining > 0) {
+    if (this.remaining < 52 && this.remaining >= 0) {
       return 1;
       // if game hasn't started, return 2 aka haven't started yet
     } else if (this.remaining >= 52) {
@@ -148,7 +150,6 @@ export class CardGameComponent implements OnInit {
         this.hour++;
       }
     }, 1000);
-    this.updateIndex();
   };
 
   stopTimer = () => {
