@@ -16,5 +16,6 @@
 .button {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -25px);
+  bottom: 0;
+  transform: translate(-50%, 175%);
 }

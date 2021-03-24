@@ -29,6 +29,11 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .game-description {
+    height: fit-content;
+    overflow: auto;
+  }
+
   .example-image {
     width: 50%;
   }

@@ -33,15 +33,7 @@
       [darkModeRef]="darkModeRef"
     ></app-game-exercises>
 
-    <button
-      class="button"
-      [ngClass]="{
-        'text-dark': darkModeRef,
-        'text-light': !darkModeRef,
-        'shadow-dark': darkModeRef
-      }"
-      (click)="convertToPdf()"
-    >
+    <button class="button text-dark shadow-dark" (click)="convertToPdf()">
       Download as PDF
     </button>
   </div>

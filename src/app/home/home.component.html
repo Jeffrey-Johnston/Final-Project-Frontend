@@ -4,7 +4,9 @@
 ></app-header>
 <section class="body-section">
   <section class="welcome-section">
-    <img class="home-image" src="assets/final-home-image.png" alt="" />
+    <div class="image-div">
+      <img class="jump-image" src="assets/final-home-image.png" alt="" />
+    </div>
     <div
       class="welcome-container"
       [ngClass]="{
@@ -22,7 +24,7 @@
         levels depleted? Exhausted from being confined to your home? Running out
         of things to do? The team at CARDio believes one of the best ways to
         combat these situations is to exercise, but where do you start? With
-        CARDio, you can exercise in the comfort of your on home, or take your
+        CARDio, you can exercise in the comfort of your own home, or take your
         workout outside.
       </p>
     </div>
@@ -52,10 +54,10 @@
           >
             <h2 class="message-title">Workouts for every fitness level</h2>
             <p class="message">
-              Search through our database of excersises and discover a variety
-              of workouts that can easily be done at home. Filter by workout
-              name, body section and level of difficulty. CARDio makes it simple
-              to find what fits you.
+              Search through our database of exersises and discover a variety of
+              workouts that can easily be done at home. Filter by exercise name,
+              target muscle group, and level of difficulty. CARDio makes it
+              simple to find what fits you.
             </p>
           </div>
         </div>
@@ -74,9 +76,9 @@
               Can't find the exercises you're looking for?
             </h2>
             <p class="message">
-              Our collection of exerises is forever growing. Users are able to
-              submit workouts of there own that will be stored in our database,
-              and will instanstly be available for every user to try. We're all
+              Our collection of exercises is forever growing. Users are able to
+              submit workouts of their own that will be stored in our database,
+              and will instantly be available for every user to try. We're all
               in this together!
             </p>
           </div>
@@ -120,7 +122,7 @@
             <h2 class="message-title">Track Your Stats</h2>
             <p class="message">
               After finishing your card game workout you will receive a summary
-              showing what exercises you did, how many cards you completed and
+              showing what exercises you did, how many cards you completed, and
               the time that it took. Save your workout stats as a PDF and try
               and beat your scores on future workouts.
             </p>
@@ -145,6 +147,99 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+    </div>
+  </section>
+
+  <section class="desktop-view">
+    <div class="row-1">
+      <div class="slide-items">
+        <img
+          class="home-image"
+          src="assets/final-collage-vertical.png"
+          alt=""
+        />
+        <div
+          class="message-container"
+          [ngClass]="{
+            'element-background-dark': darkMode,
+            'element-background-light': !darkMode,
+            'text-dark': darkMode,
+            'text-light': !darkMode
+          }"
+        >
+          <h2 class="message-title">Workouts for every fitness level</h2>
+          <p class="message">
+            Search through our database of exersises and discover a variety of
+            workouts that can easily be done at home. Filter by exercise name,
+            target muscle group, and level of difficulty. CARDio makes it simple
+            to find what fits you.
+          </p>
+        </div>
+      </div>
+      <div class="slide-items">
+        <img class="home-image" src="assets/final-add-exercise.png" alt="" />
+        <div
+          class="message-container"
+          [ngClass]="{
+            'element-background-dark': darkMode,
+            'element-background-light': !darkMode,
+            'text-dark': darkMode,
+            'text-light': !darkMode
+          }"
+        >
+          <h2 class="message-title">
+            Can't find the exercises you're looking for?
+          </h2>
+          <p class="message">
+            Our collection of exercises is forever growing. Users are able to
+            submit workouts of their own that will be stored in our database,
+            and will instantly be available for every user to try. We're all in
+            this together!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="slide-items">
+        <img class="home-image" src="assets/final-card-game-image.png" alt="" />
+        <div
+          class="message-container"
+          [ngClass]="{
+            'element-background-dark': darkMode,
+            'element-background-light': !darkMode,
+            'text-dark': darkMode,
+            'text-light': !darkMode
+          }"
+        >
+          <h2 class="message-title">Looking for an extra challenge?</h2>
+          <p class="message">
+            Try CARDio's built in card game and race against the clock to
+            complete a series of workouts. Select your favortie exercises or let
+            CARDio generate them for you. Start the game and see if you can make
+            it through the whole deck!
+          </p>
+        </div>
+      </div>
+      <div class="slide-items">
+        <img class="home-image" src="assets/final-stats.png" alt="" />
+        <div
+          class="message-container"
+          [ngClass]="{
+            'element-background-dark': darkMode,
+            'element-background-light': !darkMode,
+            'text-dark': darkMode,
+            'text-light': !darkMode
+          }"
+        >
+          <h2 class="message-title">Track Your Stats</h2>
+          <p class="message">
+            After finishing your card game workout you will receive a summary
+            showing what exercises you did, how many cards you completed, and
+            the time that it took. Save your workout stats as a PDF and try and
+            beat your scores on future workouts.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </section>
