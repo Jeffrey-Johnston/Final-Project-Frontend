@@ -21,11 +21,7 @@
   /* text-align: center; */
   height: fit-content;
   box-sizing: border-box;
-  background-image: linear-gradient(
-    to right,
-    rgb(48, 53, 92),
-    rgb(100, 104, 136)
-  ) !important;
+  background-image: linear-gradient(to right, #25273c, #5e6074) !important;
 }
 .welcome-title {
   font-size: 35px;
