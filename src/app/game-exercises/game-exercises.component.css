@@ -67,6 +67,10 @@
   text-align: center;
 }
 
+.clear:hover {
+  cursor: pointer;
+}
+
 .desktop {
   visibility: hidden;
   height: 0px;

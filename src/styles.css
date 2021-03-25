@@ -95,6 +95,11 @@ button:hover {
   align-items: center;
 }
 
+.fas,
+.far:hover {
+  cursor: pointer;
+}
+
 .fa-plus,
 .fa-minus,
 .fa-times {
@@ -135,5 +140,6 @@ button:hover {
   .fa-minus,
   .fa-times {
     width: 25px;
+    height: 25px;
   }
 }

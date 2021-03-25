@@ -15,11 +15,13 @@
 
 .description-para {
   font-size: 12px;
+  width: 100%;
 }
 
 .description-list {
-  margin-left: 15px;
+  margin-left: 40px;
   font-size: 12px;
+  width: 100%;
 }
 
 .example-image {
@@ -31,7 +33,8 @@
 @media only screen and (min-width: 768px) {
   .game-description {
     height: fit-content;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .example-image {
@@ -41,5 +44,9 @@
   .description-para,
   .description-list {
     font-size: 14px;
+  }
+
+  .description-list {
+    margin-left: 75px;
   }
 }

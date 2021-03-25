@@ -108,7 +108,7 @@
         </div>
       </div>
       <div class="card-container">
-        <div class="remaining-div">
+        <div *ngIf="remaining !== 0 && remaining !== 52" class="remaining-div">
           <p class="remaining-cards">{{ remaining }}</p>
         </div>
         <app-card
@@ -121,13 +121,17 @@
         <div
           [ngClass]="{
             'empty-card': currentIndex === -1,
-            front: currentIndex === -1
+            front: currentIndex === -1,
+            'empty-card-dark': darkMode,
+            'empty-card-light': !darkMode
           }"
         ></div>
         <div
           [ngClass]="{
             'empty-card': currentIndex === 51,
-            back: currentIndex === 51
+            back: currentIndex === 51,
+            'empty-card-dark': darkMode,
+            'empty-card-light': !darkMode
           }"
         ></div>
       </div>

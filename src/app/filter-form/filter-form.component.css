@@ -8,16 +8,12 @@
   padding: 15px 15px 5px 15px;
 }
 
-.form-title {
-  font-size: 20px;
-  text-align: center;
-}
-
-.workout-display {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+.text {
+  width: 100%;
+  border: none;
+  background-color: white;
+  padding: 8px 0px 8px 5px;
+  border-bottom: 1px solid lightgray;
 }
 
 .inputs {
@@ -38,14 +34,6 @@
   margin-left: 2px;
 }
 
-.input {
-  margin: 5px 0;
-  padding: 12px 0px 4px 0px;
-  border: 1px solid rgb(10, 10, 10);
-  background-color: white;
-  width: 100%;
-}
-
 .label {
   position: absolute;
   left: 5px;
@@ -55,18 +43,39 @@
   color: gray !important;
 }
 
+.input {
+  margin: 5px 0;
+  padding: 12px 0px 4px 0px;
+  border: 1px solid rgb(10, 10, 10);
+  background-color: white;
+  width: 100%;
+}
+
+.input:hover {
+  cursor: pointer;
+}
+
+.workout-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.extra-option:hover {
+  cursor: pointer;
+  color: rgb(75, 125, 219) !important;
+  border-color: rgb(75, 125, 219) !important;
+}
+
+.fa-book-reader:hover {
+  color: rgb(75, 125, 219) !important;
+}
+
 .label-empty {
   font-size: 14px;
   top: 50%;
   transform: translate(0px, -50%);
-}
-
-.text {
-  width: 100%;
-  border: none;
-  background-color: white;
-  padding: 8px 0px 8px 5px;
-  border-bottom: 1px solid lightgray;
 }
 
 .book-mobile {
@@ -83,22 +92,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .form-title {
-    text-align: left;
-  }
-
-  .workout-display {
-    margin: 5px 0px;
-    width: 230px;
-    margin-left: 5px;
+    padding: 10px 15px;
   }
 
   .text {
     display: flex;
     flex: 1;
     margin-right: 5px;
+  }
+
+  .workout-display {
+    margin: 5px 0px;
+    width: 230px;
+    margin-left: 5px;
   }
 
   .book-mobile {
@@ -109,11 +115,3 @@
     display: initial;
   }
 }
-
-/* @media only screen and (min-width: 1053px) {
-  .search-form,
-  .form-title {
-    width: 728px;
-    margin-left: 290px;
-  }
-} */

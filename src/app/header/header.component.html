@@ -12,12 +12,14 @@
     class="logo"
     src="assets/header-light.svg"
     alt="Light Mode Logo"
+    routerLink="/"
   />
   <img
     *ngIf="darkMode"
     class="logo"
     src="assets/header-dark.svg"
     alt="Dark Mode Logo"
+    routerLink="/"
   />
   <nav>
     <ul class="nav">
@@ -73,13 +75,15 @@
       <i
         *ngIf="!darkMode"
         (click)="emitToggleModeEvent()"
-        class="far fa-moon"
+        class="far fa-moon fa-lg"
+        title="Dark Mode"
         [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
       ></i>
       <i
         *ngIf="darkMode"
         (click)="emitToggleModeEvent()"
-        class="fas fa-sun"
+        class="fas fa-sun fa-lg"
+        title="Light Mode"
         [ngClass]="{ 'text-dark': darkMode, 'text-light': !darkMode }"
       ></i>
     </ul>

@@ -13,11 +13,13 @@
 .how-to {
   width: 100%;
   margin-bottom: 10px;
-  background-color: hsl(235, 19%, 35%);
+  background-image: linear-gradient(to right, #25273c, #5e6074);
+  background-color: hsl(0, 0%, 98%) !important;
   color: hsl(0, 0%, 98%);
 }
+
 .how-to:hover {
-  background-color: hsl(0, 0%, 98%);
+  background-image: none;
   color: hsl(235, 19%, 35%) !important;
 }
 
@@ -26,11 +28,11 @@
 }
 
 .continue {
-  margin-right: 1px;
+  margin-right: 6.5px;
 }
 
 .reset {
-  margin-left: 1px;
+  margin-left: 6.5px;
 }
 
 .button-container {
@@ -87,16 +89,23 @@
   height: 125px;
   position: absolute;
   top: 8px;
-  transform: translate(50%, 0);
+  left: 50%;
+}
+
+.empty-card-dark {
+  background-color: #1e202f;
+}
+
+.empty-card-light {
+  background-color: hsl(240, 6%, 81%);
 }
 
 .back {
-  left: 50%;
   transform: translate(-125%, 0);
 }
 
 .front {
-  left: 50%;
+  transform: translate(50%, 0);
 }
 
 .hidden {
@@ -140,7 +149,7 @@
 
   .game-visuals {
     width: 100%;
-    margin: 0px 20px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     flex: 5;

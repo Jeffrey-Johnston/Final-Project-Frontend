@@ -67,7 +67,7 @@
 
   <div class="workout-display">
     <p
-      class="border-bottom-dark text-dark"
+      class="border-bottom-dark text-dark extra-option"
       (click)="emitClearFilterEvent(filterForm)"
     >
       All Exercises
@@ -77,7 +77,10 @@
       title="Muscle Group Diagram"
       (click)="emitVocabEvent()"
     ></i>
-    <p class="border-bottom-dark text-dark" (click)="toggleAddForm()">
+    <p
+      class="border-bottom-dark text-dark extra-option"
+      (click)="toggleAddForm()"
+    >
       Create Exercise
     </p>
     <i

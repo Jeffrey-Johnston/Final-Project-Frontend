@@ -25,11 +25,11 @@
 }
 
 .left-button {
-  margin-right: 2px;
+  margin-right: 3px;
 }
 
 .right-button {
-  margin-left: 2px;
+  margin-left: 3px;
 }
 
 .shadow-dark {
@@ -53,8 +53,8 @@
   height: 30px;
   border-radius: 50%;
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 15px;
+  right: 15px;
   opacity: 0.65;
 }
 
