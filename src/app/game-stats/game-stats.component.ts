@@ -15,6 +15,7 @@ export class GameStatsComponent implements OnInit {
   @Input() timeStatsRef!: string;
   @Input() cardExercisesRef!: Exercise[];
   @Output() closeEvent = new EventEmitter<void>();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -24,18 +25,9 @@ export class GameStatsComponent implements OnInit {
     this.closeEvent.emit();
   };
 
-  //   pdf method
-  //
   convertToPdf = () => {
     var container = document.getElementById('content') as HTMLImageElement;
     html2canvas(container).then((canvas) => {
-      // var link = document.createElement('a');
-      // document.body.appendChild(link);
-      // link.download = 'html_image.png';
-      // link.href = canvas.toDataURL('image/png');
-      // link.target = '_blank';
-      // link.click();
-      // Few necessary setting options
       var imgWidth = 208;
       var pageHeight = 295;
       var imgHeight = (canvas.height * imgWidth) / canvas.width;

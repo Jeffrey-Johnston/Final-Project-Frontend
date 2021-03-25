@@ -7,22 +7,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./filter-form.component.css'],
 })
 export class FilterFormComponent implements OnInit {
+  addOpen: boolean = false;
+  obj: any = { name: null, bodyPart: null, difficulty: null };
   @Input() darkModeRef!: boolean;
   @Output() submitEvent = new EventEmitter<any>();
   @Output() addEvent = new EventEmitter<any>();
   @Output() vocabEvent = new EventEmitter<void>();
   @Output() clearFilterEvent = new EventEmitter<any>();
-  addOpen: boolean = false;
-  obj: any = { name: null, bodyPart: null, difficulty: null };
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.obj);
-  }
+  ngOnInit(): void {}
 
   emitSubmitEvent = (object: any) => {
-    console.log(object);
     this.submitEvent.emit(object);
   };
 

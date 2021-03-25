@@ -36,11 +36,6 @@ export class ExercisesComponent implements OnInit {
     this.getAndSetExercises();
     this.getAndSetGameExercises();
     this.darkMode = this.themeService.getMode();
-    // this.getScrollingElement();
-    // this.scrollableElement.scroll = function () {
-    //   scroll();
-    // };
-    // console.log(this.scrollableElement);
   }
 
   getAndSetExercises = () => {
@@ -90,7 +85,7 @@ export class ExercisesComponent implements OnInit {
 
   shuffleFilteredExercises = () => {
     for (let i = this.filteredExercises.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+      let j = Math.floor(Math.random() * (i + 1));
       // Fisher-Yates
       [this.filteredExercises[i], this.filteredExercises[j]] = [
         this.filteredExercises[j],
@@ -151,7 +146,6 @@ export class ExercisesComponent implements OnInit {
 
   toggleVocabPage = () => {
     this.vocabPage = !this.vocabPage;
-    console.log(this.vocabPage);
   };
 
   toggleMode = () => {
@@ -168,7 +162,6 @@ export class ExercisesComponent implements OnInit {
   };
 
   randomlyGenerateExercises = (formObject: any) => {
-    console.log(formObject);
     let amountNeeded = 10 - this.cardExercises.length;
     for (let i = 0; i < amountNeeded; i++) {
       let added: boolean = false;
@@ -211,7 +204,6 @@ export class ExercisesComponent implements OnInit {
   };
 
   @HostListener('window:scroll', []) onWindowScroll() {
-    // do some stuff here when the window is scrolled
     const verticalOffset =
       window.pageYOffset ||
       document.documentElement.scrollTop ||

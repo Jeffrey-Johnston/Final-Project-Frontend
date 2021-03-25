@@ -7,6 +7,7 @@ import { Exercise } from '../interfaces/exercise';
   styleUrls: ['./exercise.component.css'],
 })
 export class ExerciseComponent implements OnInit {
+  descriptionPopUp: boolean = false;
   errorMessage: boolean = false;
   @Input() exerciseRef!: Exercise;
   @Input() cardExercisesRef!: any[];
@@ -14,8 +15,6 @@ export class ExerciseComponent implements OnInit {
   @Input() darkModeRef!: boolean;
   @Output() addToGameEvent = new EventEmitter<any>();
   @Output() removeFromGameEvent = new EventEmitter<any>();
-
-  descriptionPopUp: boolean = false;
 
   constructor() {}
 

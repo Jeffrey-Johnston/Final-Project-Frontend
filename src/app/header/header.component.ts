@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ExerciseService } from '../exercise.service';
 import { ThemeService } from '../theme.service';
 
 @Component({

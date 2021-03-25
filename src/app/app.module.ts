@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { FilterFormComponent } from './filter-form/filter-form.component';
 import { ExerciseComponent } from './exercise/exercise.component';
@@ -27,7 +26,6 @@ import { GameDescriptionComponent } from './game-description/game-description.co
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent,
     ExercisesComponent,
     FilterFormComponent,
     ExerciseComponent,

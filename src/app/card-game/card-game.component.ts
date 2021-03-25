@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CardService } from '../card.service';
 import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../interfaces/exercise';
@@ -41,8 +40,7 @@ export class CardGameComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private exerciseService: ExerciseService,
-    private themeService: ThemeService,
-    private router: Router
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -59,7 +57,6 @@ export class CardGameComponent implements OnInit {
       this.remaining = this.deck.remaining;
       this.setDeckID();
       this.drawCards();
-      console.log(this.remaining);
     });
   };
 
