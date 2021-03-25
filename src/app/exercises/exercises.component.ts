@@ -42,7 +42,7 @@ export class ExercisesComponent implements OnInit {
     this.exerciseService.getExercises().subscribe((response: any) => {
       this.exercises = response;
       this.filteredExercises = this.exercises;
-      this.shuffleFilteredExercises();
+      this.setFilteredExercises();
       for (let exercise of this.exercises) {
         if (
           exercise.body_part_id === 1 ||
@@ -105,8 +105,9 @@ export class ExercisesComponent implements OnInit {
   };
 
   addExercise = (formObject: any) => {
-    this.exerciseService.addExercise(formObject).subscribe((response) => {});
-    this.getAndSetExercises();
+    this.exerciseService.addExercise(formObject).subscribe((response) => {
+      this.getAndSetExercises();
+    });
   };
 
   getAndSetGameExercises = () => {
