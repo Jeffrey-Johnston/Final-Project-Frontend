@@ -72,7 +72,7 @@
 
 .remaining-cards {
   position: absolute;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.55);
   color: white;
   font-size: medium;
   font-weight: bolder;
@@ -121,6 +121,14 @@
   .front {
     left: 45%;
   }
+  .remaining-div {
+    width: 125px;
+    height: 170px;
+  }
+  .remaining-cards {
+    top: 10px;
+    left: 10px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -154,5 +162,14 @@
   .empty-card {
     height: 235px;
     width: 165px;
+  }
+  .remaining-div {
+    width: 175px;
+    height: 240px;
+  }
+  .remaining-cards {
+    font-size: large;
+    top: 12px;
+    left: 12px;
   }
 }

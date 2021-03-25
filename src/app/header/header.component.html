@@ -7,7 +7,18 @@
     'element-background-dark': darkMode
   }"
 >
-  <h1>CARDio</h1>
+  <img
+    *ngIf="!darkMode"
+    class="logo"
+    src="assets/header-light.svg"
+    alt="Light Mode Logo"
+  />
+  <img
+    *ngIf="darkMode"
+    class="logo"
+    src="assets/header-dark.svg"
+    alt="Dark Mode Logo"
+  />
   <nav>
     <ul class="nav">
       <li class="tab">
